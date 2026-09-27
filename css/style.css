@@ -1950,6 +1950,10 @@ section{
         white-space: nowrap;
     }
 
+    .filter[data-category="Все"] {
+        display: none;
+    }
+
 
     /* КАТАЛОГ */
 

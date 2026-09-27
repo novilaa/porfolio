@@ -1,2404 +1,480 @@
-/* ===========================================
-   RESET
-=========================================== */
+<!DOCTYPE html>
+<html lang="ru">
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+<head>
 
-html{
-    scroll-behavior:smooth;
-}
+    <meta charset="UTF-8">
 
-p{
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    line-height:1.8;
+    <title>Электронные приглашения</title>
 
-    letter-spacing:.15px;
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
 
-}
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
 
-body{
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+          rel="stylesheet">
 
-    font-family:'Outfit',sans-serif;
+    <link rel="stylesheet"
+          href="css/style.css">
 
-    background:#FCFAF8;
+</head>
 
-    color:#2B2B2B;
 
-    overflow-x:hidden;
+<body>
 
-    -webkit-font-smoothing:antialiased;
+<header class="header">
 
-    -moz-osx-font-smoothing:grayscale;
+    <div class="container header-inner">
 
-    text-rendering:optimizeLegibility;
+        <!-- Логотип -->
+        <a href="#" class="logo">
+            your.invite
+        </a>
 
-}
 
-/* ===========================================
-   CONTAINER
-=========================================== */
+        <!-- Навигация для компьютера -->
+        <nav class="nav">
 
-.container{
+            <a href="#catalog">Каталог</a>
 
-    width:min(1200px,90%);
+            <a href="#reviews">Отзывы</a>
 
-    margin:auto;
+            <a href="#faq">FAQ</a>
 
-}
+            <a href="#contacts">Контакты</a>
 
-/* ===========================================
-   HEADER
-=========================================== */
+        </nav>
 
-.header{
 
-    position:fixed;
+        <!-- Кнопка заказа -->
+        <a href="#contacts" class="header-button">
+            Заказать
+        </a>
 
-    top:0;
 
-    left:0;
+        <!-- Кнопка меню -->
+        <button class="menu-button" id="menuButton" aria-label="Открыть меню">
 
-    width:100%;
+            <span></span>
+            <span></span>
+            <span></span>
 
-    z-index:999;
+        </button>
 
-    background:rgba(252,250,248,.72);
+    </div>
 
-    backdrop-filter:blur(18px);
+</header>
 
-    -webkit-backdrop-filter:blur(18px);
 
-    border-bottom:1px solid rgba(0,0,0,.05);
+<!-- =========================================
+     МОБИЛЬНОЕ МЕНЮ
+========================================= -->
 
-    transition:.35s;
+<div class="mobile-menu" id="mobileMenu">
 
-}
+    <button class="mobile-menu-close" id="mobileMenuClose">
+        &times;
+    </button>
 
-.header .container{
+    <nav>
 
-    height:90px;
+        <a href="#catalog">Каталог</a>
 
-    display:flex;
+        <a href="#reviews">Отзывы</a>
 
-    justify-content:space-between;
+        <a href="#faq">FAQ</a>
 
-    align-items:center;
+        <a href="#contacts">Контакты</a>
 
-}
+    </nav>
 
-/* ===========================================
-   LOGO
-=========================================== */
+    <a href="#contacts" class="mobile-order-button">
+        Заказать приглашение
+    </a>
 
-.logo{
+</div>
 
-    font-family:"Playfair Display",serif;
+</header>
 
-    font-size:32px;
 
-    font-weight:700;
 
-    letter-spacing:1px;
 
-    color:#7B3847;
 
-}
+<section class="hero">
 
-/* ===========================================
-   MENU
-=========================================== */
+    <div class="container">
 
-.nav{
+        <div class="hero-grid">
 
-    display:flex;
+            <div class="hero-left">
 
-    gap:42px;
+                <span class="hero-subtitle">
+                    Электронные приглашения
+                </span>
 
-}
+                <h1>
 
-.nav a{
+                    Электронные приглашения,<br>
+                    которые запоминаются
 
-    position:relative;
+                </h1>
 
-    text-decoration:none;
+                <p>
 
-    color:#555;
+                    Создаю стильные сайты-приглашения
+                    для свадьбы, дня рождения,
+                    гендер-пати, корпоративов
+                    и других мероприятий.
 
-    font-weight:500;
+                </p>
 
-    transition:.35s;
+                <div class="hero-buttons">
 
-}
+                    <a href="#contacts" class="btn btn-primary">
 
-.nav a:hover{
+                        Заказать приглашение
 
-    color:#7B3847;
+                    </a>
 
-}
+                </div>
 
-.nav a::after{
+            </div>
 
-    content:"";
+            <div class="hero-right">
 
-    position:absolute;
+                <img
+                    src="images/hero/photo.webp"
+                    alt="Приглашение"
+                    class="hero-phone"
+                >
 
-    bottom:-8px;
+            </div>
 
-    left:0;
+        </div>
 
-    width:0;
+    </div>
 
-    height:2px;
+</section>
 
-    background:#7B3847;
 
-    transition:.35s;
 
-}
 
-.nav a:hover::after{
 
-    width:100%;
+<section id="catalog" class="catalog">
 
-}
+<div class="container">
 
-/* ===========================================
-   BUTTON
-=========================================== */
 
-.header-button{
+<div class="catalog-header">
 
-    padding:15px 30px;
+<h2 class="section-title">
+Каталог шаблонов
+</h2>
 
-    border-radius:999px;
+<p>
+Выберите дизайн, который подойдет именно вашему событию
+</p>
 
-    text-decoration:none;
 
-    background:#7B3847;
+</div>
 
-    color:white;
 
-    font-weight:600;
 
-    transition:.35s;
 
-    box-shadow:
 
-    0 12px 25px rgba(123,56,71,.25);
+<!-- Фильтры -->
 
-}
+<div class="filters">
 
-.header-button:hover{
+    <button class="filter active" data-category="Все">
+        Все
+    </button>
 
-    transform:translateY(-4px);
+    <button class="filter" data-category="Свадьба">
+        💍 Свадьба
+    </button>
 
-    box-shadow:
+    <button class="filter" data-category="День рождения">
+        🎂 День рождения
+    </button>
 
-    0 18px 35px rgba(123,56,71,.35);
+    <button class="filter" data-category="Гендер-пати">
+        👶 Гендер-пати
+    </button>
 
-}
+</div>
 
-/* ===================================
-   HERO
-=================================== */
 
-.hero{
 
-    padding:140px 0 100px;
 
-}
+<!-- Карточки -->
 
-.hero-grid{
+<div class="gallery" id="gallery">
 
-    display:grid;
 
-    grid-template-columns:1fr 1fr;
+</div>
 
-    align-items:center;
 
-    gap:100px;
 
-}
+</div>
 
-.hero-subtitle{
+</section>
 
-    display:inline-block;
 
-    margin-bottom:20px;
 
-    padding:10px 20px;
 
-    background:#F8F1F2;
 
-    color:#7B3847;
+<section id="reviews" class="reviews">
 
-    border-radius:50px;
+    <div class="container">
 
-    font-size:14px;
+        <h2 class="section-title">
 
-    letter-spacing:2px;
+            Отзывы клиентов
 
-    text-transform:uppercase;
+        </h2>
 
-}
+        <div class="reviews-wrap">
 
-.hero h1{
+            <button class="reviews-nav reviews-prev" aria-label="Предыдущие отзывы">&#10094;</button>
+            <button class="reviews-nav reviews-next" aria-label="Следующие отзывы">&#10095;</button>
 
-    font-family:"Playfair Display",serif;
+            <div class="reviews-gallery" id="reviewsGallery">
 
-    font-size:68px;
+                <img src="images/reviews/review1.jpg" alt="Отзыв">
 
-    line-height:1.1;
+                <img src="images/reviews/review2.jpg" alt="Отзыв">
 
-    margin-bottom:30px;
+                <img src="images/reviews/review3.jpg" alt="Отзыв">
 
-    color:#2d2d2d;
+                <img src="images/reviews/review4.jpg" alt="Отзыв">
 
-}
+            </div>
 
-.hero p{
+        </div>
 
-    font-size:20px;
+    </div>
 
-    line-height:1.8;
+</section>
 
-    color:#777;
 
-    margin-bottom:45px;
 
-}
 
-.hero-buttons{
 
-    display:flex;
+<section id="faq" class="faq">
 
-    gap:20px;
+    <div class="container">
 
-    flex-wrap:wrap;
+        <h2 class="section-title">
+            Частые вопросы
+        </h2>
 
-}
+        <div class="faq-list">
 
-.hero-phone{
+            <div class="faq-item">
 
-    width:100%;
+                <button class="faq-question">
 
-    max-width:300px;
+                    Сколько времени занимает изготовление?
 
-    display:block;
+                    <span>+</span>
 
-    margin-left:auto;
+                </button>
 
-    filter:drop-shadow(0 40px 60px rgba(0,0,0,.15));
+                <div class="faq-answer">
 
-}
+                    Обычно готовое приглашение занимает от 1 до 3 дней в зависимости от сложности дизайна.
 
-/* ===========================================
-   LEFT
-=========================================== */
+                </div>
 
-.small-title{
+            </div>
 
-    color:#7B3847;
+            <div class="faq-item">
 
-    letter-spacing:4px;
+                <button class="faq-question">
 
-    text-transform:uppercase;
+                    Можно изменить текст и фотографии?
 
-    font-size:13px;
+                    <span>+</span>
 
-    margin-bottom:20px;
+                </button>
 
-}
+                <div class="faq-answer">
 
-.hero h1{
+                    Да. Все имена, даты, фотографии, адреса и другая информация полностью изменяются под ваше мероприятие.
 
-    font-family:"Playfair Display",serif;
+                </div>
 
-    font-size:72px;
+            </div>
 
-    line-height:1.1;
+            <div class="faq-item">
 
-    margin-bottom:30px;
+                <button class="faq-question">
 
-}
+                    Как я получу приглашение?
 
-.hero p{
+                    <span>+</span>
 
-    color:#777;
+                </button>
 
-    font-size:19px;
+                <div class="faq-answer">
 
-    line-height:1.8;
+                    После готовности вы получите ссылку на сайт-приглашение, которую можно отправить гостям через любой мессенджер.
 
-    max-width:560px;
+                </div>
 
-}
+            </div>
 
-/* ===========================================
-   BUTTONS
-=========================================== */
+            <div class="faq-item">
 
-.buttons{
+                <button class="faq-question">
 
-    display:flex;
+                    Можно сделать индивидуальный дизайн?
 
-    gap:18px;
+                    <span>+</span>
 
-    margin-top:45px;
+                </button>
 
-}
+                <div class="faq-answer">
 
-.btn{
+                    Да. Если среди готовых шаблонов нет подходящего варианта, я разработаю приглашение полностью с нуля.
 
-    padding:18px 34px;
+                </div>
 
-    border-radius:999px;
+            </div>
 
-    text-decoration:none;
+        </div>
 
-    font-weight:600;
+    </div>
 
-    transition:.35s;
+</section>
 
-}
 
-.btn-primary{
 
-    background:#7B3847;
 
-    color:white;
+<section id="contacts" class="contacts">
 
-}
+    <div class="container">
 
-.btn-primary:hover{
+        <h2 class="section-title">
+            Свяжитесь со мной
+        </h2>
 
-    transform:translateY(-5px);
+        <p class="contacts-text">
+            Если у вас есть вопросы или вы хотите заказать электронное приглашение,
+            напишите мне в удобной социальной сети.
+        </p>
 
-    box-shadow:
+        <div class="socials">
 
-    0 18px 35px rgba(123,56,71,.30);
+            <a href="https://vk.me/prosto_vi_205?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%B5%D0%B5%20%D0%BF%D1%80%D0%BE%20%D0%BF%D1%80%D0%B8%D0%B3%D0%BB%D0%B0%D1%88%D0%B5%D0%BD%D0%B8%D0%B5%20%F0%9F%98%8A" target="_blank" class="social-card social-primary">
 
-}
+                <span class="social-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="24" height="24" rx="7" fill="currentColor" fill-opacity=".18"/>
+                        <path d="M12.9 17.3c-4.6 0-7.3-3.2-7.4-8.5h2.3c.1 3.6 1.7 5.2 3 5.5V8.8h2.2v3.4c1.3-.1 2.6-1.6 3.1-3.4h2.1c-.4 2.2-2 3.7-3.1 4.3 1.1.5 2.9 1.8 3.6 4.2h-2.4c-.5-1.7-1.9-3-3.3-3.1v3.1h-.1z" fill="currentColor"/>
+                    </svg>
+                </span>
 
-.btn-secondary{
+                <span class="social-text">
+                    <strong>Написать ВКонтакте</strong>
+                    <small>Отвечаю здесь быстрее всего</small>
+                </span>
 
-    background:white;
+            </a>
 
-    color:#2B2B2B;
+            <div class="social-secondary">
 
-    box-shadow:0 12px 25px rgba(0,0,0,.08);
+                <a href="https://t.me/vikitoriaviw?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%B5%D0%B5%20%D0%BF%D1%80%D0%BE%20%D0%BF%D1%80%D0%B8%D0%B3%D0%BB%D0%B0%D1%88%D0%B5%D0%BD%D0%B8%D0%B5%20%F0%9F%98%8A" target="_blank" class="social-card social-mini">
 
-}
+                    <span class="social-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 4.5 3.6 11.2c-.9.35-.9 1.6.02 1.93l4.2 1.53 1.6 5.1c.24.76 1.22.98 1.77.4l2.5-2.6 4.2 3.1c.72.53 1.75.14 1.94-.73l3-14.02c.2-.95-.77-1.72-1.83-1.4Zm-2.3 2.98-8.4 7.2-.35 3.35-1.15-3.66 8.9-7.5c.2-.16.44.1.27.28l-6.9 7.02 7.4-5.55c.2-.15.45.1.23.28Z" fill="currentColor"/>
+                        </svg>
+                    </span>
 
-.btn-secondary:hover{
+                    Telegram
 
-    transform:translateY(-5px);
+                </a>
 
-}
+                <a href="https://instagram.com/your.invete_" target="_blank" class="social-card social-mini">
 
-/* ===========================================
-   PHONE
-=========================================== */
+                    <span class="social-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="1.6"/>
+                            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/>
+                            <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/>
+                        </svg>
+                    </span>
 
-.hero-right{
+                    Instagram
 
-    display:flex;
+                </a>
 
-    justify-content:center;
+            </div>
 
-}
+        </div>
 
-.phone{
+    </div>
 
-    width:340px;
+</section>
 
-    padding:14px;
+<footer class="footer">
 
-    background:#111;
+    <div class="container">
 
-    border-radius:46px;
+        <p>
 
-    box-shadow:
+            © 2026 your.invite.
+            Все права защищены.
 
-    0 35px 80px rgba(0,0,0,.18);
+        </p>
 
-    animation:phoneFloat 6s ease-in-out infinite;
+    </div>
 
-}
+</footer>
 
-.phone img{
 
-    width:100%;
+<!-- ==========================
+     MODAL
+========================== -->
 
-    border-radius:34px;
+<div class="modal" id="modal">
 
-}
+    <div class="modal-overlay"></div>
 
-@keyframes phoneFloat{
+    <div class="modal-content">
 
-0%{
+        <button class="modal-close" aria-label="Закрыть">&times;</button>
 
-transform:translateY(0);
+        <button class="modal-nav modal-prev" aria-label="Предыдущий шаблон">&#10094;</button>
+        <button class="modal-nav modal-next" aria-label="Следующий шаблон">&#10095;</button>
 
-}
+        <div class="modal-image-wrap" id="modalImageWrap">
+            <img id="modalImage" src="" alt="" draggable="false">
+        </div>
 
-50%{
+        <div class="modal-footer">
 
-transform:translateY(-16px);
+            <h2 id="modalTitle"></h2>
 
-}
+            <a href="#contacts" class="modal-button">
+                Заказать такой шаблон
+            </a>
 
-100%{
+        </div>
 
-transform:translateY(0);
+    </div>
 
-}
+</div>
 
-}
+<script src="js/app.js"></script>
 
-/* ===========================================
-   TITLES
-=========================================== */
+</body>
 
-section{
-
-    padding:120px 0;
-
-}
-
-.section-title{
-
-    font-family:"Playfair Display",serif;
-
-    font-size:54px;
-
-    text-align:center;
-
-}
-
-/* ===========================================
-   CATALOG
-=========================================== */
-
-
-.catalog-header{
-
-    text-align:center;
-
-    margin-bottom:50px;
-
-}
-
-
-.catalog-header p{
-
-    color:#777;
-
-    font-size:18px;
-
-    max-width:520px;
-
-    margin:16px auto 0;
-
-}
-
-
-
-
-
-
-/* FILTERS */
-
-
-.filters{
-
-
-    display:flex;
-
-    justify-content:center;
-
-    flex-wrap:wrap;
-
-    gap:15px;
-
-    margin-bottom:60px;
-
-
-}
-
-
-
-.filter{
-
-
-    border:none;
-
-    background:white;
-
-    appearance:none;
-
-    -webkit-appearance:none;
-
-    padding:15px 25px;
-
-    border-radius:50px;
-
-    cursor:pointer;
-
-    font-family:inherit;
-
-    font-size:15px;
-
-    color:#2b2b2b;
-
-    transition:.35s;
-
-
-    box-shadow:
-
-    0 10px 25px rgba(0,0,0,.06);
-
-}
-
-
-
-.filter:hover{
-
-
-    background:#7B3847;
-
-    color:white;
-
-
-}
-
-
-
-.filter.active{
-
-
-    background:#7B3847;
-
-    color:white;
-
-
-}
-
-
-
-/* ===========================================
-   GALLERY MASONRY
-=========================================== */
-
-
-.gallery{
-
-
-    columns:3 320px;
-
-    column-gap:30px;
-
-
-}
-
-
-
-
-/* CARD */
-
-
-.template-card{
-
-
-    break-inside:avoid;
-
-    background:white;
-
-    border-radius:28px;
-
-    overflow:hidden;
-
-    margin-bottom:30px;
-
-    box-shadow:
-
-    0 15px 40px rgba(0,0,0,.08);
-
-
-    transition:.4s;
-
-
-}
-
-
-
-.template-card:hover{
-
-
-    transform:translateY(-10px);
-
-    box-shadow:
-
-    0 30px 60px rgba(0,0,0,.15);
-
-
-}
-
-
-
-
-.template-image{
-
-
-    position:relative;
-
-    overflow:hidden;
-
-
-}
-
-
-
-.template-image img{
-
-
-    width:100%;
-
-    transition:.5s;
-
-
-}
-
-
-
-.template-card:hover img{
-
-
-    transform:scale(1.08);
-
-
-}
-
-
-
-
-.template-info{
-
-    padding:24px;
-
-    text-align:center;
-
-}
-
-
-
-.template-info h3{
-
-    font-family:"Playfair Display",serif;
-
-    font-size:28px;
-
-    font-weight:600;
-
-    color:#2b2b2b;
-
-    margin-bottom:10px;
-
-}
-
-.template-price{
-
-    display:inline-block;
-
-    font-family:"Outfit",sans-serif;
-
-    font-size:15px;
-
-    font-weight:600;
-
-    color:#7B3847;
-
-    background:rgba(123,56,71,.08);
-
-    padding:6px 16px;
-
-    border-radius:50px;
-
-}
-
-
-
-
-
-
-
-.template-colors{
-
-
-    display:flex;
-
-    gap:10px;
-
-
-}
-
-
-
-.template-color{
-
-
-    width:22px;
-
-    height:22px;
-
-    border-radius:50%;
-
-}
-
-
-.details-btn:hover{
-
-
-    background:#7B3847;
-
-    color:white;
-
-
-}
-
-/* ===========================================
-   MODAL
-=========================================== */
-
-.modal{
-
-    position:fixed;
-
-    inset:0;
-
-    display:none;
-
-    justify-content:center;
-
-    align-items:center;
-
-    z-index:9999;
-
-}
-
-.modal.active{
-
-    display:flex;
-
-}
-
-body.modal-open{
-
-    overflow:hidden;
-
-}
-
-.modal-overlay{
-
-    position:absolute;
-
-    inset:0;
-
-    background:#000;
-
-}
-
-.modal-content{
-
-    position:relative;
-
-    width:100%;
-
-    height:100%;
-
-    height:100dvh;
-
-    background:#000;
-
-    z-index:2;
-
-    animation:modalOpen .25s ease;
-
-    display:flex;
-
-    flex-direction:column;
-
-}
-
-/* Область фото — здесь работает зум и свайп */
-
-.modal-image-wrap{
-
-    position:relative;
-
-    flex:1;
-
-    overflow:hidden;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    touch-action:none;
-
-}
-
-.modal-image-wrap img{
-
-    max-width:100%;
-
-    max-height:100%;
-
-    object-fit:contain;
-
-    user-select:none;
-
-    -webkit-user-drag:none;
-
-    will-change:transform;
-
-    cursor:zoom-in;
-
-    transition:transform .25s ease;
-
-}
-
-.modal-image-wrap.dragging img{
-
-    transition:none;
-
-}
-
-.modal-image-wrap.zoomed img{
-
-    cursor:grab;
-
-}
-
-.modal-image-wrap.zoomed.dragging img{
-
-    cursor:grabbing;
-
-}
-
-/* Нижняя панель с названием и кнопкой */
-
-.modal-footer{
-
-    position:absolute;
-
-    left:0;
-
-    right:0;
-
-    bottom:0;
-
-    padding:70px 25px 28px;
-
-    text-align:center;
-
-    background:linear-gradient(to top, rgba(0,0,0,.8), rgba(0,0,0,0));
-
-    pointer-events:none;
-
-}
-
-.modal-footer h2,
-.modal-footer .modal-button{
-
-    pointer-events:auto;
-
-}
-
-.modal-content h2{
-
-    font-family:"Playfair Display",serif;
-
-    font-size:26px;
-
-    color:#fff;
-
-    margin-bottom:18px;
-
-}
-
-.modal-button{
-
-    display:inline-block;
-
-    padding:16px 34px;
-
-    border-radius:50px;
-
-    background:#7B3847;
-
-    color:#fff;
-
-    text-decoration:none;
-
-    transition:.3s;
-
-}
-
-.modal-button:hover{
-
-    transform:translateY(-3px);
-
-}
-
-.modal-close{
-
-    position:absolute;
-
-    top:20px;
-
-    right:20px;
-
-    width:44px;
-
-    height:44px;
-
-    border:none;
-
-    border-radius:50%;
-
-    background:rgba(255,255,255,.12);
-
-    color:#fff;
-
-    cursor:pointer;
-
-    font-size:24px;
-
-    z-index:3;
-
-    backdrop-filter:blur(6px);
-
-}
-
-.modal-close:hover{
-
-    background:rgba(255,255,255,.22);
-
-}
-
-/* Стрелки — только для устройств с мышью, на тач-устройствах листают свайпом */
-
-.modal-nav{
-
-    display:none;
-
-    position:absolute;
-
-    top:50%;
-
-    transform:translateY(-50%);
-
-    width:52px;
-
-    height:52px;
-
-    border:none;
-
-    border-radius:50%;
-
-    background:rgba(255,255,255,.12);
-
-    color:#fff;
-
-    font-size:20px;
-
-    cursor:pointer;
-
-    z-index:3;
-
-    backdrop-filter:blur(6px);
-
-    transition:.25s;
-
-}
-
-.modal-nav:hover{
-
-    background:rgba(255,255,255,.25);
-
-}
-
-.modal-nav.is-hidden{
-
-    display:none !important;
-
-}
-
-.modal-prev{ left:20px; }
-
-.modal-next{ right:20px; }
-
-@media (hover:hover) and (pointer:fine){
-
-    .modal-nav{
-
-        display:flex;
-
-        align-items:center;
-
-        justify-content:center;
-
-    }
-
-}
-
-/* Индикатор для свайпа на тач-устройствах */
-
-.modal-swipe-hint{
-
-    position:absolute;
-
-    top:20px;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-    color:rgba(255,255,255,.6);
-
-    font-size:13px;
-
-    letter-spacing:.5px;
-
-    z-index:3;
-
-    pointer-events:none;
-
-}
-
-@media (hover:hover) and (pointer:fine){
-
-    .modal-swipe-hint{ display:none; }
-
-}
-
-@keyframes modalOpen{
-
-    from{
-
-        opacity:0;
-
-    }
-
-    to{
-
-        opacity:1;
-
-    }
-
-}
-
-/* ===========================================
-   REVIEWS
-=========================================== */
-
-.reviews-wrap{
-
-    position:relative;
-
-    margin-top:70px;
-
-}
-
-.reviews-gallery{
-
-    display:flex;
-
-    gap:30px;
-
-    overflow-x:auto;
-
-    scroll-snap-type:x mandatory;
-
-    -webkit-overflow-scrolling:touch;
-
-    scrollbar-width:none;
-
-    padding-bottom:4px;
-
-}
-
-.reviews-gallery::-webkit-scrollbar{
-
-    display:none;
-
-}
-
-.reviews-gallery img{
-
-    flex:0 0 calc((100% - 30px * 3) / 4);
-
-    width:calc((100% - 30px * 3) / 4);
-
-    scroll-snap-align:start;
-
-    border-radius:24px;
-
-    cursor:pointer;
-
-    transition:.35s;
-
-    box-shadow:0 18px 45px rgba(0,0,0,.10);
-
-}
-
-.reviews-gallery img:hover{
-
-    transform:translateY(-8px) scale(1.02);
-
-    box-shadow:0 30px 60px rgba(0,0,0,.16);
-
-}
-
-/* Стрелки — только для устройств с мышью, на тач-устройствах листают свайпом */
-
-.reviews-nav{
-
-    display:none;
-
-    position:absolute;
-
-    top:50%;
-
-    transform:translateY(-50%);
-
-    width:52px;
-
-    height:52px;
-
-    border:none;
-
-    border-radius:50%;
-
-    background:#fff;
-
-    color:#7B3847;
-
-    font-size:18px;
-
-    cursor:pointer;
-
-    z-index:3;
-
-    box-shadow:0 12px 30px rgba(0,0,0,.14);
-
-    transition:.25s;
-
-}
-
-.reviews-nav:hover{
-
-    background:#7B3847;
-
-    color:#fff;
-
-}
-
-.reviews-prev{ left:-26px; }
-
-.reviews-next{ right:-26px; }
-
-@media (hover:hover) and (pointer:fine){
-
-    .reviews-nav{
-
-        display:flex;
-
-        align-items:center;
-
-        justify-content:center;
-
-    }
-
-}
-
-/* ===========================================
-   FAQ
-=========================================== */
-
-.faq-list{
-
-    max-width:900px;
-
-    margin:70px auto 0;
-
-}
-
-.faq-item{
-
-    background:white;
-
-    border-radius:22px;
-
-    margin-bottom:18px;
-
-    overflow:hidden;
-
-    box-shadow:0 12px 30px rgba(0,0,0,.08);
-
-}
-
-.faq-question{
-
-    width:100%;
-
-    background:none;
-
-    border:none;
-
-    appearance:none;
-
-    -webkit-appearance:none;
-
-    padding:25px 30px;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    cursor:pointer;
-
-    font-family:inherit;
-
-    font-size:18px;
-
-    font-weight:600;
-
-    color:#2b2b2b;
-
-    text-align:left;
-
-}
-
-.faq-question span{
-
-    font-size:30px;
-
-    color:#7B3847;
-
-    transition:.3s;
-
-}
-
-.faq-answer{
-
-    max-height:0;
-
-    overflow:hidden;
-
-    transition:max-height .35s ease;
-
-    padding:0 30px;
-
-    color:#666;
-
-    line-height:1.8;
-
-}
-
-.faq-item.active .faq-answer{
-
-    max-height:300px;
-
-    padding:0 30px 25px;
-
-}
-
-.faq-item.active .faq-question span{
-
-    transform:rotate(45deg);
-
-}
-
-/* ===========================================
-   ADAPTIVE
-=========================================== */
-
-/* ---------- Ноутбук ---------- */
-
-@media (max-width:1200px){
-
-.container{
-
-    width:92%;
-
-}
-
-.hero-grid{
-
-    gap:60px;
-
-}
-
-.section-title{
-
-    font-size:54px;
-
-}
-
-}
-
-
-/* ---------- Планшет ---------- */
-
-@media (max-width:992px){
-
-.hero-grid{
-
-    grid-template-columns:1fr;
-
-    text-align:center;
-
-}
-
-.hero-left{
-
-    order:2;
-
-}
-
-.hero-right{
-
-    order:1;
-
-}
-
-.phone{
-
-    max-width:350px;
-
-    margin:auto;
-
-}
-
-.nav{
-
-    display:none;
-
-}
-
-.gallery{
-
-    columns:2 280px;
-
-}
-
-}
-
-
-/* ---------- Телефон ---------- */
-
-@media (max-width:768px){
-
-section{
-
-    padding:70px 0;
-
-}
-
-.hero h1{
-
-    font-size:44px;
-
-    line-height:1.2;
-
-}
-
-.hero p{
-
-    font-size:18px;
-
-}
-
-.buttons{
-
-    flex-direction:column;
-
-    align-items:center;
-
-}
-
-.btn{
-
-    width:100%;
-
-    max-width:320px;
-
-}
-
-.filters{
-
-    justify-content:flex-start;
-
-    overflow-x:auto;
-
-    padding-bottom:15px;
-
-    flex-wrap:nowrap;
-
-    scrollbar-width:none;
-
-}
-
-.filters::-webkit-scrollbar{
-
-    display:none;
-
-}
-
-.gallery{
-
-    columns:1;
-
-}
-
-.template-card{
-
-    margin-bottom:20px;
-
-}
-
-.template-info h3{
-
-    font-size:24px;
-
-}
-
-.section-title{
-
-    font-size:42px;
-
-}
-
-}
-
-
-/* ---------- Маленькие телефоны ---------- */
-
-@media (max-width:480px){
-
-.logo{
-
-    font-size:22px;
-
-}
-
-.hero h1{
-
-    font-size:34px;
-
-}
-
-.small-title{
-
-    font-size:12px;
-
-}
-
-.hero p{
-
-    font-size:16px;
-
-}
-
-.section-title{
-
-    font-size:34px;
-
-}
-
-.filter{
-
-    padding:12px 18px;
-
-    font-size:14px;
-
-}
-
-.modal-button{
-
-    width:100%;
-
-}
-
-}
-
-/* ===========================================
-   CONTACTS
-=========================================== */
-
-.contacts{
-
-    text-align:center;
-
-}
-
-.contacts-text{
-
-    max-width:650px;
-
-    margin:20px auto 60px;
-
-    color:#777;
-
-    font-size:18px;
-
-    line-height:1.8;
-
-}
-
-.socials{
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    gap:16px;
-
-}
-
-.social-card{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:14px;
-
-    text-decoration:none;
-
-    font-weight:600;
-
-    transition:.35s;
-
-}
-
-.social-icon{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-}
-
-.social-icon svg{
-
-    width:100%;
-
-    height:100%;
-
-}
-
-/* Основная карточка — VK */
-
-.social-primary{
-
-    width:100%;
-
-    max-width:420px;
-
-    justify-content:center;
-
-    padding:22px 34px;
-
-    border-radius:20px;
-
-    background:#7B3847;
-
-    color:#fff;
-
-    box-shadow:0 16px 40px rgba(123,56,71,.28);
-
-}
-
-.social-primary:hover{
-
-    transform:translateY(-6px);
-
-    box-shadow:0 20px 48px rgba(123,56,71,.36);
-
-}
-
-.social-primary .social-icon{
-
-    width:42px;
-
-    height:42px;
-
-    flex-shrink:0;
-
-    color:#fff;
-
-}
-
-.social-text{
-
-    display:flex;
-
-    flex-direction:column;
-
-    text-align:left;
-
-}
-
-.social-text strong{
-
-    font-size:17px;
-
-}
-
-.social-text small{
-
-    font-weight:400;
-
-    font-size:13px;
-
-    opacity:.75;
-
-}
-
-/* Второстепенные — Telegram / Instagram */
-
-.social-secondary{
-
-    display:flex;
-
-    gap:12px;
-
-}
-
-.social-mini{
-
-    padding:12px 22px;
-
-    border-radius:50px;
-
-    background:#ffffff;
-
-    color:#2b2b2b;
-
-    font-size:14px;
-
-    box-shadow:0 8px 24px rgba(0,0,0,.06);
-
-}
-
-.social-mini:hover{
-
-    background:#7B3847;
-
-    color:#fff;
-
-    transform:translateY(-4px);
-
-}
-
-.social-mini .social-icon{
-
-    width:20px;
-
-    height:20px;
-
-    flex-shrink:0;
-
-}
-
-/* ===========================================
-   FOOTER
-=========================================== */
-
-.footer{
-
-    margin-top:120px;
-
-    padding:35px 0;
-
-    border-top:1px solid #eee;
-
-    text-align:center;
-
-    color:#999;
-
-    font-size:15px;
-
-}
-
-/* =========================================
-   АДАПТИВНАЯ ВЕРСИЯ
-   ========================================= */
-
-
-/* =========================================
-   НОУТБУКИ — до 1200px
-   ========================================= */
-
-@media (max-width: 1200px) {
-
-    .container {
-        width: 92%;
-    }
-
-    .hero-grid {
-        gap: 60px;
-    }
-
-    .hero h1 {
-        font-size: 56px;
-    }
-
-    .section-title {
-        font-size: 50px;
-    }
-
-}
-
-
-/* =========================================
-   ПЛАНШЕТ — до 992px
-   ========================================= */
-
-@media (max-width: 992px) {
-
-    /* Общие отступы */
-
-    section {
-        padding: 90px 0;
-    }
-
-
-    /* HERO */
-
-    .hero {
-        padding: 100px 0 80px;
-    }
-
-    .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 60px;
-        text-align: center;
-    }
-
-    .hero-left {
-        order: 2;
-    }
-
-    .hero-right {
-        order: 1;
-    }
-
-    .hero h1 {
-        font-size: 54px;
-    }
-
-    .hero p {
-        max-width: 650px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .hero-buttons {
-        justify-content: center;
-    }
-
-    .hero-phone {
-        max-width: 260px;
-        margin: 0 auto;
-    }
-
-
-    /* КАТАЛОГ */
-
-    .gallery {
-        columns: 2 280px;
-    }
-
-
-    /* ОТЗЫВЫ */
-
-    .reviews-gallery img {
-        flex: 0 0 calc((100% - 30px) / 2);
-        width: calc((100% - 30px) / 2);
-    }
-
-
-    /* КОНТАКТЫ */
-
-    .socials {
-        gap: 14px;
-    }
-
-}
-
-
-/* =========================================
-   ТЕЛЕФОН — до 768px
-   ========================================= */
-
-@media (max-width: 768px) {
-
-    /* Общие */
-
-    .container {
-        width: calc(100% - 32px);
-    }
-
-    section {
-        padding: 70px 0;
-    }
-
-
-    /* HERO */
-
-    .hero {
-        padding: 70px 0 60px;
-    }
-
-    .hero-grid {
-        gap: 45px;
-    }
-
-    .hero h1 {
-        font-size: 42px;
-        line-height: 1.15;
-    }
-
-    .hero p {
-        font-size: 17px;
-        line-height: 1.7;
-    }
-
-    .hero-subtitle {
-        font-size: 11px;
-        padding: 9px 15px;
-        letter-spacing: 1.5px;
-    }
-
-    .hero-phone {
-        max-width: 210px;
-    }
-
-
-    /* КНОПКИ HERO */
-
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
-    }
-
-    .hero-buttons .btn {
-        width: 100%;
-        max-width: 320px;
-        box-sizing: border-box;
-        text-align: center;
-    }
-
-
-    /* ЗАГОЛОВКИ СЕКЦИЙ */
-
-    .section-title {
-        font-size: 40px;
-        line-height: 1.2;
-        text-align: center;
-    }
-
-
-    /* ФИЛЬТРЫ */
-
-    .filters {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        justify-content: flex-start;
-        gap: 10px;
-
-        padding: 5px 2px 15px;
-
-        scrollbar-width: none;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .filters::-webkit-scrollbar {
-        display: none;
-    }
-
-    .filter {
-        flex: 0 0 auto;
-        white-space: nowrap;
-    }
-
-    .filter[data-category="Все"] {
-        display: none;
-    }
-
-
-    /* КАТАЛОГ */
-
-    .gallery {
-        columns: 1;
-        column-gap: 0;
-    }
-
-    .template-card {
-        width: 100%;
-        margin-bottom: 24px;
-    }
-
-    .template-info {
-        padding: 18px 10px 24px;
-    }
-
-    .template-info h3 {
-        font-size: 25px;
-    }
-
-
-    /* ОТЗЫВЫ */
-
-    .reviews-gallery {
-        gap: 16px;
-    }
-
-    .reviews-gallery img {
-        flex: 0 0 86%;
-        width: 86%;
-    }
-
-
-    /* FAQ */
-
-    .faq-list {
-        margin-top: 45px;
-    }
-
-    .faq-question {
-        padding: 20px;
-        font-size: 16px;
-        gap: 15px;
-    }
-
-    .faq-question span {
-        flex-shrink: 0;
-    }
-
-    .faq-answer {
-        padding-left: 20px;
-        padding-right: 20px;
-        font-size: 15px;
-    }
-
-    .faq-item.active .faq-answer {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
-
-    /* КОНТАКТЫ */
-
-    .contacts-text {
-        font-size: 16px;
-        margin-bottom: 40px;
-    }
-
-    .socials {
-        align-items: center;
-    }
-
-    .social-primary {
-        max-width: 100%;
-        text-align: left;
-    }
-
-    .social-secondary {
-        flex-direction: column;
-        width: 100%;
-        max-width: 320px;
-    }
-
-    .social-mini {
-        justify-content: center;
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-
-    .modal-button {
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    .modal-close {
-        width: 38px;
-        height: 38px;
-        font-size: 21px;
-    }
-
-
-    /* FOOTER */
-
-    .footer {
-        margin-top: 70px;
-        padding: 30px 0;
-    }
-
-}
-
-
-/* =========================================
-   МАЛЕНЬКИЙ ТЕЛЕФОН — до 480px
-   ========================================= */
-
-@media (max-width: 480px) {
-
-    .container {
-        width: calc(100% - 24px);
-    }
-
-
-    /* HERO */
-
-    .hero {
-        padding-top: 50px;
-    }
-
-    .hero h1 {
-        font-size: 34px;
-    }
-
-    .hero p {
-        font-size: 16px;
-    }
-
-    .hero-phone {
-        max-width: 170px;
-    }
-
-
-    /* ЗАГОЛОВКИ */
-
-    .section-title {
-        font-size: 32px;
-    }
-
-
-    /* ФИЛЬТРЫ */
-
-    .filter {
-        padding: 10px 15px;
-        font-size: 13px;
-    }
-
-
-    /* КАРТОЧКИ */
-
-    .template-info h3 {
-        font-size: 23px;
-    }
-
-
-    /* FAQ */
-
-    .faq-question {
-        font-size: 15px;
-        padding: 18px;
-    }
-
-    .faq-question span {
-        font-size: 24px;
-    }
-
-
-    .modal-footer {
-        padding: 55px 18px 22px;
-    }
-
-}
-
-/* =========================================
-   HEADER
-========================================= */
-
-.header {
-    position: relative;
-    z-index: 1000;
-    background: rgba(255, 255, 255, 0.92);
-    border-bottom: 1px solid #eeeeee;
-}
-
-.header-inner {
-    min-height: 90px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 30px;
-}
-
-.logo {
-    font-family: "Playfair Display", serif;
-
-    font-size: 32px;
-    font-weight: 700;
-
-    letter-spacing: 1px;
-
-    color: #7B3847;
-
-    text-decoration: none;
-
-    white-space: nowrap;
-}
-
-
-/* Навигация */
-
-.nav {
-    display: flex;
-    align-items: center;
-    gap: 38px;
-}
-
-.nav a {
-    color: #555;
-
-    text-decoration: none;
-
-    font-size: 16px;
-
-    transition: .3s;
-}
-
-.nav a:hover {
-    color: #7B3847;
-}
-
-
-/* Кнопка заказа */
-
-.header-button {
-    padding: 15px 30px;
-
-    background: #7B3847;
-
-    color: white;
-
-    border-radius: 50px;
-
-    text-decoration: none;
-
-    font-weight: 600;
-
-    box-shadow: 0 10px 25px rgba(123, 56, 71, .18);
-
-    transition: .3s;
-}
-
-.header-button:hover {
-    transform: translateY(-3px);
-
-    box-shadow: 0 15px 30px rgba(123, 56, 71, .25);
-}
-
-
-/* =========================================
-   КНОПКА БУРГЕРА
-========================================= */
-
-.menu-button {
-    display: none;
-
-    width: 46px;
-    height: 46px;
-
-    border: none;
-
-    background: #7B3847;
-
-    border-radius: 50%;
-
-    cursor: pointer;
-
-    padding: 0;
-
-    flex-shrink: 0;
-}
-
-.menu-button span {
-    display: block;
-
-    width: 20px;
-    height: 2px;
-
-    margin: 4px auto;
-
-    background: white;
-
-    border-radius: 2px;
-}
-
-
-/* =========================================
-   МОБИЛЬНОЕ МЕНЮ
-========================================= */
-
-.mobile-menu {
-    position: fixed;
-
-    top: 0;
-    right: -100%;
-
-    width: min(85%, 380px);
-    height: 100vh;
-
-    background: #fff;
-
-    z-index: 2000;
-
-    padding: 100px 30px 40px;
-
-    box-sizing: border-box;
-
-    box-shadow: -15px 0 50px rgba(0, 0, 0, .12);
-
-    transition: right .4s ease;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-}
-
-.mobile-menu.active {
-    right: 0;
-}
-
-
-/* Кнопка закрытия */
-
-.mobile-menu-close {
-    position: absolute;
-
-    top: 25px;
-    right: 25px;
-
-    width: 45px;
-    height: 45px;
-
-    border: none;
-
-    border-radius: 50%;
-
-    background: #f6f1f2;
-
-    color: #7B3847;
-
-    font-size: 32px;
-
-    line-height: 1;
-
-    cursor: pointer;
-}
-
-
-/* Ссылки */
-
-.mobile-menu nav {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 28px;
-}
-
-.mobile-menu nav a {
-    font-family: "Playfair Display", serif;
-
-    font-size: 30px;
-
-    color: #2d2d2d;
-
-    text-decoration: none;
-
-    transition: .3s;
-}
-
-.mobile-menu nav a:hover {
-    color: #7B3847;
-
-    transform: translateX(5px);
-}
-
-
-/* Кнопка внутри меню */
-
-.mobile-order-button {
-    display: block;
-
-    margin-top: 45px;
-
-    padding: 17px 25px;
-
-    text-align: center;
-
-    border-radius: 50px;
-
-    background: #7B3847;
-
-    color: white;
-
-    text-decoration: none;
-
-    font-weight: 600;
-}
-
-
-/* =========================================
-   ТЕЛЕФОН
-========================================= */
-
-@media (max-width: 768px) {
-
-    .header-inner {
-        min-height: 78px;
-    }
-
-    .logo {
-        font-size: 24px;
-        letter-spacing: .5px;
-    }
-
-    .nav,
-    .header-button {
-        display: none;
-    }
-
-    .menu-button {
-        display: block;
-    }
-
-}
+</html>
