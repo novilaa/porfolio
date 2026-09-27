@@ -22,7 +22,7 @@ p{
 
 body{
 
-    font-family:'Inter',sans-serif;
+    font-family:'Outfit',sans-serif;
 
     background:#FCFAF8;
 
@@ -98,11 +98,11 @@ body{
 
     font-family:"Playfair Display",serif;
 
-    font-size:34px;
+    font-size:32px;
 
     font-weight:700;
 
-    letter-spacing:3px;
+    letter-spacing:1px;
 
     color:#7B3847;
 
@@ -286,7 +286,7 @@ body{
 
     width:100%;
 
-    max-width:210px;
+    max-width:300px;
 
     display:block;
 
@@ -714,7 +714,7 @@ section{
 
     display:inline-block;
 
-    font-family:"Inter",sans-serif;
+    font-family:"Outfit",sans-serif;
 
     font-size:15px;
 
@@ -1498,7 +1498,7 @@ section{
 
 .logo{
 
-    font-size:34px;
+    font-size:22px;
 
 }
 
@@ -1824,7 +1824,7 @@ section{
     }
 
     .hero-phone {
-        max-width: 180px;
+        max-width: 260px;
         margin: 0 auto;
     }
 
@@ -1897,7 +1897,7 @@ section{
     }
 
     .hero-phone {
-        max-width: 150px;
+        max-width: 210px;
     }
 
 
@@ -2089,7 +2089,7 @@ section{
     }
 
     .hero-phone {
-        max-width: 130px;
+        max-width: 170px;
     }
 
 
@@ -2157,10 +2157,10 @@ section{
 .logo {
     font-family: "Playfair Display", serif;
 
-    font-size: 38px;
+    font-size: 32px;
     font-weight: 700;
 
-    letter-spacing: 3px;
+    letter-spacing: 1px;
 
     color: #7B3847;
 
@@ -2384,8 +2384,8 @@ section{
     }
 
     .logo {
-        font-size: 31px;
-        letter-spacing: 2px;
+        font-size: 24px;
+        letter-spacing: .5px;
     }
 
     .nav,
