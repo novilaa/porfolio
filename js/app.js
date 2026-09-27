@@ -23,6 +23,29 @@ const filterButtons = document.querySelectorAll(".filter");
 // ===============================
 
 const TELEGRAM_USERNAME = "vikitoriaviw";
+
+// Готовое сообщение для быстрой связи в Telegram.
+// Чтобы поменять текст — просто отредактируйте строку ниже.
+const CONTACT_MESSAGE = "Здравствуйте! Хочу заказать у вас приглашение. Понравился шаблон под назввание:";
+
+const socialVk = document.getElementById("socialVk");
+const socialTelegram = document.getElementById("socialTelegram");
+
+// ВКонтакте не поддерживает готовый текст сообщения через ссылку —
+// параметр text просто игнорируется, поэтому здесь только переход в диалог.
+if (socialVk) {
+
+    socialVk.href = `https://vk.me/prosto_vi_205`;
+
+}
+
+// А вот Telegram текст в ссылке поддерживает — подставляем его сюда
+if (socialTelegram) {
+
+    socialTelegram.href = `https://t.me/${TELEGRAM_USERNAME}?text=${encodeURIComponent(CONTACT_MESSAGE)}`;
+
+}
+
 // Здесь будут храниться все шаблоны
 let templates = [];
 let selectedTemplate = null;
