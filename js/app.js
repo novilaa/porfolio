@@ -51,6 +51,38 @@ function formatPrice(value) {
 // Загрузка JSON
 // ===============================
 
+function isMobileView() {
+
+    return window.matchMedia("(max-width: 768px)").matches;
+
+}
+
+function renderInitialView() {
+
+    if (isMobileView()) {
+
+        const firstRealFilter = document.querySelector('.filter:not([data-category="Все"])');
+
+        if (firstRealFilter) {
+
+            filterButtons.forEach(btn => btn.classList.remove("active"));
+
+            firstRealFilter.classList.add("active");
+
+            const category = firstRealFilter.dataset.category;
+
+            renderTemplates(templates.filter(item => item.category === category));
+
+            return;
+
+        }
+
+    }
+
+    renderTemplates(templates);
+
+}
+
 async function loadTemplates() {
 
     try {
@@ -65,7 +97,7 @@ async function loadTemplates() {
 
         console.log("Шаблоны загружены:", templates);
 
-        renderTemplates(templates);
+        renderInitialView();
 
     }
 
