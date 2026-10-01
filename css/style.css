@@ -1,0 +1,2434 @@
+/* ===========================================
+   RESET
+=========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+p{
+
+    line-height:1.8;
+
+    letter-spacing:.15px;
+
+}
+
+body{
+
+    font-family:'Outfit',sans-serif;
+
+    background:#FCFAF8;
+
+    color:#2B2B2B;
+
+    overflow-x:hidden;
+
+    -webkit-font-smoothing:antialiased;
+
+    -moz-osx-font-smoothing:grayscale;
+
+    text-rendering:optimizeLegibility;
+
+}
+
+/* ===========================================
+   CONTAINER
+=========================================== */
+
+.container{
+
+    width:min(1200px,90%);
+
+    margin:auto;
+
+}
+
+/* ===========================================
+   HEADER
+=========================================== */
+
+.header{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    z-index:999;
+
+    background:rgba(252,250,248,.72);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    border-bottom:1px solid rgba(0,0,0,.05);
+
+    transition:.35s;
+
+}
+
+.header .container{
+
+    height:90px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+/* ===========================================
+   LOGO
+=========================================== */
+
+.logo{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:32px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    color:#7B3847;
+
+}
+
+/* ===========================================
+   MENU
+=========================================== */
+
+.nav{
+
+    display:flex;
+
+    gap:42px;
+
+}
+
+.nav a{
+
+    position:relative;
+
+    text-decoration:none;
+
+    color:#555;
+
+    font-weight:500;
+
+    transition:.35s;
+
+}
+
+.nav a:hover{
+
+    color:#7B3847;
+
+}
+
+.nav a::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:-8px;
+
+    left:0;
+
+    width:0;
+
+    height:2px;
+
+    background:#7B3847;
+
+    transition:.35s;
+
+}
+
+.nav a:hover::after{
+
+    width:100%;
+
+}
+
+/* ===========================================
+   BUTTON
+=========================================== */
+
+.header-button{
+
+    padding:15px 30px;
+
+    border-radius:999px;
+
+    text-decoration:none;
+
+    background:#7B3847;
+
+    color:white;
+
+    font-weight:600;
+
+    transition:.35s;
+
+    box-shadow:
+
+    0 12px 25px rgba(123,56,71,.25);
+
+}
+
+.header-button:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+
+    0 18px 35px rgba(123,56,71,.35);
+
+}
+
+/* ===================================
+   HERO
+=================================== */
+
+.hero{
+
+    padding:140px 0 100px;
+
+}
+
+.hero-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    align-items:center;
+
+    gap:100px;
+
+}
+
+.hero-subtitle{
+
+    display:inline-block;
+
+    margin-bottom:20px;
+
+    padding:10px 20px;
+
+    background:#F8F1F2;
+
+    color:#7B3847;
+
+    border-radius:50px;
+
+    font-size:14px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+}
+
+.hero h1{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:68px;
+
+    line-height:1.1;
+
+    margin-bottom:30px;
+
+    color:#2d2d2d;
+
+}
+
+.hero p{
+
+    font-size:20px;
+
+    line-height:1.8;
+
+    color:#777;
+
+    margin-bottom:45px;
+
+}
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+.hero-phone{
+
+    width:100%;
+
+    max-width:300px;
+
+    display:block;
+
+    margin-left:auto;
+
+    filter:drop-shadow(0 40px 60px rgba(0,0,0,.15));
+
+}
+
+/* ===========================================
+   LEFT
+=========================================== */
+
+.small-title{
+
+    color:#7B3847;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    font-size:13px;
+
+    margin-bottom:20px;
+
+}
+
+.hero h1{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:72px;
+
+    line-height:1.1;
+
+    margin-bottom:30px;
+
+}
+
+.hero p{
+
+    color:#777;
+
+    font-size:19px;
+
+    line-height:1.8;
+
+    max-width:560px;
+
+}
+
+/* ===========================================
+   BUTTONS
+=========================================== */
+
+.buttons{
+
+    display:flex;
+
+    gap:18px;
+
+    margin-top:45px;
+
+}
+
+.btn{
+
+    padding:18px 34px;
+
+    border-radius:999px;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.35s;
+
+}
+
+.btn-primary{
+
+    background:#7B3847;
+
+    color:white;
+
+}
+
+.btn-primary:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+
+    0 18px 35px rgba(123,56,71,.30);
+
+}
+
+.btn-secondary{
+
+    background:white;
+
+    color:#2B2B2B;
+
+    box-shadow:0 12px 25px rgba(0,0,0,.08);
+
+}
+
+.btn-secondary:hover{
+
+    transform:translateY(-5px);
+
+}
+
+/* ===========================================
+   PHONE
+=========================================== */
+
+.hero-right{
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+.phone{
+
+    width:340px;
+
+    padding:14px;
+
+    background:#111;
+
+    border-radius:46px;
+
+    box-shadow:
+
+    0 35px 80px rgba(0,0,0,.18);
+
+    animation:phoneFloat 6s ease-in-out infinite;
+
+}
+
+.phone img{
+
+    width:100%;
+
+    border-radius:34px;
+
+}
+
+@keyframes phoneFloat{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-16px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}
+
+/* ===========================================
+   TITLES
+=========================================== */
+
+section{
+
+    padding:120px 0;
+
+}
+
+.section-title{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:54px;
+
+    text-align:center;
+
+}
+
+/* ===========================================
+   CATALOG
+=========================================== */
+
+
+.catalog-header{
+
+    text-align:center;
+
+    margin-bottom:50px;
+
+}
+
+
+.catalog-header p{
+
+    color:#777;
+
+    font-size:18px;
+
+    max-width:520px;
+
+    margin:16px auto 0;
+
+}
+
+
+
+
+
+
+/* FILTERS */
+
+
+.filters{
+
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+    margin-bottom:60px;
+
+
+}
+
+
+
+.filter{
+
+
+    border:none;
+
+    background:white;
+
+    appearance:none;
+
+    -webkit-appearance:none;
+
+    padding:15px 25px;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    font-family:inherit;
+
+    font-size:15px;
+
+    color:#2b2b2b;
+
+    transition:.35s;
+
+
+    box-shadow:
+
+    0 10px 25px rgba(0,0,0,.06);
+
+}
+
+
+
+.filter:hover{
+
+
+    background:#7B3847;
+
+    color:white;
+
+
+}
+
+
+
+.filter.active{
+
+
+    background:#7B3847;
+
+    color:white;
+
+
+}
+
+
+
+/* ===========================================
+   GALLERY MASONRY
+=========================================== */
+
+
+.gallery{
+
+
+    columns:3 320px;
+
+    column-gap:30px;
+
+
+}
+
+
+
+
+/* CARD */
+
+
+.template-card{
+
+
+    break-inside:avoid;
+
+    background:white;
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    margin-bottom:30px;
+
+    box-shadow:
+
+    0 15px 40px rgba(0,0,0,.08);
+
+
+    transition:.4s;
+
+
+}
+
+
+
+.template-card:hover{
+
+
+    transform:translateY(-10px);
+
+    box-shadow:
+
+    0 30px 60px rgba(0,0,0,.15);
+
+
+}
+
+
+
+
+.template-image{
+
+
+    position:relative;
+
+    overflow:hidden;
+
+
+}
+
+
+
+.template-image img{
+
+
+    width:100%;
+
+    transition:.5s;
+
+
+}
+
+
+
+.template-card:hover img{
+
+
+    transform:scale(1.08);
+
+
+}
+
+
+
+
+.template-info{
+
+    padding:24px;
+
+    text-align:center;
+
+}
+
+
+
+.template-info h3{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:28px;
+
+    font-weight:600;
+
+    color:#2b2b2b;
+
+    margin-bottom:10px;
+
+}
+
+.template-price{
+
+    display:inline-block;
+
+    font-family:"Outfit",sans-serif;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    color:#7B3847;
+
+    background:rgba(123,56,71,.08);
+
+    padding:6px 16px;
+
+    border-radius:50px;
+
+}
+
+
+
+
+
+
+
+.template-colors{
+
+
+    display:flex;
+
+    gap:10px;
+
+
+}
+
+
+
+.template-color{
+
+
+    width:22px;
+
+    height:22px;
+
+    border-radius:50%;
+
+}
+
+
+.details-btn:hover{
+
+
+    background:#7B3847;
+
+    color:white;
+
+
+}
+
+/* ===========================================
+   MODAL
+=========================================== */
+
+.modal{
+
+    position:fixed;
+
+    inset:0;
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:9999;
+
+}
+
+.modal.active{
+
+    display:flex;
+
+}
+
+body.modal-open{
+
+    overflow:hidden;
+
+}
+
+.modal-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:#000;
+
+}
+
+.modal-content{
+
+    position:relative;
+
+    width:100%;
+
+    height:100%;
+
+    height:100dvh;
+
+    background:#000;
+
+    z-index:2;
+
+    animation:modalOpen .25s ease;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+/* Область фото — здесь работает зум и свайп */
+
+.modal-image-wrap{
+
+    position:relative;
+
+    flex:1;
+
+    overflow:hidden;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    touch-action:none;
+
+}
+
+.modal-image-wrap img{
+
+    max-width:100%;
+
+    max-height:100%;
+
+    object-fit:contain;
+
+    user-select:none;
+
+    -webkit-user-drag:none;
+
+    will-change:transform;
+
+    cursor:zoom-in;
+
+    transition:transform .25s ease;
+
+}
+
+.modal-image-wrap.dragging img{
+
+    transition:none;
+
+}
+
+.modal-image-wrap.zoomed img{
+
+    cursor:grab;
+
+}
+
+.modal-image-wrap.zoomed.dragging img{
+
+    cursor:grabbing;
+
+}
+
+/* Нижняя панель с названием и кнопкой */
+
+.modal-footer{
+
+    position:absolute;
+
+    left:0;
+
+    right:0;
+
+    bottom:0;
+
+    padding:70px 25px 28px;
+
+    text-align:center;
+
+    background:linear-gradient(to top, rgba(0,0,0,.8), rgba(0,0,0,0));
+
+    pointer-events:none;
+
+}
+
+.modal-footer h2,
+.modal-footer .modal-button{
+
+    pointer-events:auto;
+
+}
+
+.modal-content h2{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:26px;
+
+    color:#fff;
+
+    margin-bottom:18px;
+
+}
+
+.modal-button{
+
+    display:inline-block;
+
+    padding:16px 34px;
+
+    border-radius:50px;
+
+    background:#7B3847;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+.modal-button:hover{
+
+    transform:translateY(-3px);
+
+}
+
+.modal-close{
+
+    position:absolute;
+
+    top:20px;
+
+    right:20px;
+
+    width:44px;
+
+    height:44px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.12);
+
+    color:#fff;
+
+    cursor:pointer;
+
+    font-size:24px;
+
+    z-index:3;
+
+    backdrop-filter:blur(6px);
+
+}
+
+.modal-close:hover{
+
+    background:rgba(255,255,255,.22);
+
+}
+
+/* Стрелки — только для устройств с мышью, на тач-устройствах листают свайпом */
+
+.modal-nav{
+
+    display:none;
+
+    position:absolute;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:52px;
+
+    height:52px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.12);
+
+    color:#fff;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    z-index:3;
+
+    backdrop-filter:blur(6px);
+
+    transition:.25s;
+
+}
+
+.modal-nav:hover{
+
+    background:rgba(255,255,255,.25);
+
+}
+
+.modal-nav.is-hidden{
+
+    display:none !important;
+
+}
+
+.modal-prev{ left:20px; }
+
+.modal-next{ right:20px; }
+
+@media (hover:hover) and (pointer:fine){
+
+    .modal-nav{
+
+        display:flex;
+
+        align-items:center;
+
+        justify-content:center;
+
+    }
+
+}
+
+/* Индикатор для свайпа на тач-устройствах */
+
+.modal-swipe-hint{
+
+    position:absolute;
+
+    top:20px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    color:rgba(255,255,255,.6);
+
+    font-size:13px;
+
+    letter-spacing:.5px;
+
+    z-index:3;
+
+    pointer-events:none;
+
+}
+
+@media (hover:hover) and (pointer:fine){
+
+    .modal-swipe-hint{ display:none; }
+
+}
+
+@keyframes modalOpen{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+/* ===========================================
+   REVIEWS
+=========================================== */
+
+.reviews-wrap{
+
+    position:relative;
+
+    margin-top:70px;
+
+}
+
+.reviews-gallery{
+
+    display:flex;
+
+    gap:30px;
+
+    overflow-x:auto;
+
+    scroll-snap-type:x mandatory;
+
+    -webkit-overflow-scrolling:touch;
+
+    scrollbar-width:none;
+
+    padding-bottom:4px;
+
+}
+
+.reviews-gallery::-webkit-scrollbar{
+
+    display:none;
+
+}
+
+.reviews-gallery img{
+
+    flex:0 0 calc((100% - 30px * 3) / 4);
+
+    width:calc((100% - 30px * 3) / 4);
+
+    scroll-snap-align:start;
+
+    border-radius:24px;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    box-shadow:0 18px 45px rgba(0,0,0,.10);
+
+}
+
+.reviews-gallery img:hover{
+
+    transform:translateY(-8px) scale(1.02);
+
+    box-shadow:0 30px 60px rgba(0,0,0,.16);
+
+}
+
+/* Стрелки — только для устройств с мышью, на тач-устройствах листают свайпом */
+
+.reviews-nav{
+
+    display:none;
+
+    position:absolute;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:52px;
+
+    height:52px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    color:#7B3847;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    z-index:3;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.14);
+
+    transition:.25s;
+
+}
+
+.reviews-nav:hover{
+
+    background:#7B3847;
+
+    color:#fff;
+
+}
+
+.reviews-prev{ left:-26px; }
+
+.reviews-next{ right:-26px; }
+
+@media (hover:hover) and (pointer:fine){
+
+    .reviews-nav{
+
+        display:flex;
+
+        align-items:center;
+
+        justify-content:center;
+
+    }
+
+}
+
+/* ===========================================
+   FAQ
+=========================================== */
+
+.faq-list{
+
+    max-width:900px;
+
+    margin:70px auto 0;
+
+}
+
+.faq-item{
+
+    background:white;
+
+    border-radius:22px;
+
+    margin-bottom:18px;
+
+    overflow:hidden;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+
+}
+
+.faq-question{
+
+    width:100%;
+
+    background:none;
+
+    border:none;
+
+    appearance:none;
+
+    -webkit-appearance:none;
+
+    padding:25px 30px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    font-family:inherit;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:#2b2b2b;
+
+    text-align:left;
+
+}
+
+.faq-question span{
+
+    font-size:30px;
+
+    color:#7B3847;
+
+    transition:.3s;
+
+}
+
+.faq-answer{
+
+    max-height:0;
+
+    overflow:hidden;
+
+    transition:max-height .35s ease;
+
+    padding:0 30px;
+
+    color:#666;
+
+    line-height:1.8;
+
+}
+
+.faq-item.active .faq-answer{
+
+    max-height:300px;
+
+    padding:0 30px 25px;
+
+}
+
+.faq-item.active .faq-question span{
+
+    transform:rotate(45deg);
+
+}
+
+/* ===========================================
+   ADAPTIVE
+=========================================== */
+
+/* ---------- Ноутбук ---------- */
+
+@media (max-width:1200px){
+
+.container{
+
+    width:92%;
+
+}
+
+.hero-grid{
+
+    gap:60px;
+
+}
+
+.section-title{
+
+    font-size:54px;
+
+}
+
+}
+
+
+/* ---------- Планшет ---------- */
+
+@media (max-width:992px){
+
+.hero-grid{
+
+    grid-template-columns:1fr;
+
+    text-align:center;
+
+}
+
+.hero-left{
+
+    order:2;
+
+}
+
+.hero-right{
+
+    order:1;
+
+}
+
+.phone{
+
+    max-width:350px;
+
+    margin:auto;
+
+}
+
+.nav{
+
+    display:none;
+
+}
+
+.gallery{
+
+    columns:2 280px;
+
+}
+
+}
+
+
+/* ---------- Телефон ---------- */
+
+@media (max-width:768px){
+
+section{
+
+    padding:70px 0;
+
+}
+
+.hero h1{
+
+    font-size:44px;
+
+    line-height:1.2;
+
+}
+
+.hero p{
+
+    font-size:18px;
+
+}
+
+.buttons{
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+.btn{
+
+    width:100%;
+
+    max-width:320px;
+
+}
+
+.filters{
+
+    justify-content:flex-start;
+
+    overflow-x:auto;
+
+    padding-bottom:15px;
+
+    flex-wrap:nowrap;
+
+    scrollbar-width:none;
+
+}
+
+.filters::-webkit-scrollbar{
+
+    display:none;
+
+}
+
+.gallery{
+
+    columns:1;
+
+}
+
+.template-card{
+
+    margin-bottom:20px;
+
+}
+
+.template-info h3{
+
+    font-size:24px;
+
+}
+
+.section-title{
+
+    font-size:42px;
+
+}
+
+}
+
+
+/* ---------- Маленькие телефоны ---------- */
+
+@media (max-width:480px){
+
+.logo{
+
+    font-size:22px;
+
+}
+
+.hero h1{
+
+    font-size:34px;
+
+}
+
+.small-title{
+
+    font-size:12px;
+
+}
+
+.hero p{
+
+    font-size:16px;
+
+}
+
+.section-title{
+
+    font-size:34px;
+
+}
+
+.filter{
+
+    padding:12px 18px;
+
+    font-size:14px;
+
+}
+
+.modal-button{
+
+    width:100%;
+
+}
+
+}
+
+/* ===========================================
+   CONTACTS
+=========================================== */
+
+.contacts{
+
+    text-align:center;
+
+}
+
+.contacts-text{
+
+    max-width:650px;
+
+    margin:20px auto 60px;
+
+    color:#777;
+
+    font-size:18px;
+
+    line-height:1.8;
+
+}
+
+.socials{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:16px;
+
+}
+
+.social-card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.35s;
+
+}
+
+.social-icon{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+.social-icon svg{
+
+    width:100%;
+
+    height:100%;
+
+}
+
+/* Основная карточка — VK */
+
+.social-primary{
+
+    width:100%;
+
+    max-width:420px;
+
+    justify-content:center;
+
+    padding:22px 34px;
+
+    border-radius:20px;
+
+    background:#7B3847;
+
+    color:#fff;
+
+    box-shadow:0 16px 40px rgba(123,56,71,.28);
+
+}
+
+.social-primary:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 20px 48px rgba(123,56,71,.36);
+
+}
+
+.social-primary .social-icon{
+
+    width:42px;
+
+    height:42px;
+
+    flex-shrink:0;
+
+    color:#fff;
+
+}
+
+.social-text{
+
+    display:flex;
+
+    flex-direction:column;
+
+    text-align:left;
+
+}
+
+.social-text strong{
+
+    font-size:17px;
+
+}
+
+.social-text small{
+
+    font-weight:400;
+
+    font-size:13px;
+
+    opacity:.75;
+
+}
+
+/* Второстепенные — Telegram / Instagram */
+
+.social-secondary{
+
+    display:flex;
+
+    gap:12px;
+
+}
+
+.social-mini{
+
+    padding:12px 22px;
+
+    border-radius:50px;
+
+    background:#ffffff;
+
+    color:#2b2b2b;
+
+    font-size:14px;
+
+    box-shadow:0 8px 24px rgba(0,0,0,.06);
+
+}
+
+.social-mini:hover{
+
+    background:#7B3847;
+
+    color:#fff;
+
+    transform:translateY(-4px);
+
+}
+
+.social-mini .social-icon{
+
+    width:20px;
+
+    height:20px;
+
+    flex-shrink:0;
+
+}
+
+/* ===========================================
+   FOOTER
+=========================================== */
+
+.footer{
+
+    margin-top:120px;
+
+    padding:35px 0;
+
+    border-top:1px solid #eee;
+
+    text-align:center;
+
+    color:#999;
+
+    font-size:15px;
+
+}
+
+/* =========================================
+   АДАПТИВНАЯ ВЕРСИЯ
+   ========================================= */
+
+
+/* =========================================
+   НОУТБУКИ — до 1200px
+   ========================================= */
+
+@media (max-width: 1200px) {
+
+    .container {
+        width: 92%;
+    }
+
+    .hero-grid {
+        gap: 60px;
+    }
+
+    .hero h1 {
+        font-size: 56px;
+    }
+
+    .section-title {
+        font-size: 50px;
+    }
+
+}
+
+
+/* =========================================
+   ПЛАНШЕТ — до 992px
+   ========================================= */
+
+@media (max-width: 992px) {
+
+    /* Общие отступы */
+
+    section {
+        padding: 90px 0;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        padding: 100px 0 80px;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+        text-align: center;
+    }
+
+    .hero-left {
+        order: 2;
+    }
+
+    .hero-right {
+        order: 1;
+    }
+
+    .hero h1 {
+        font-size: 54px;
+    }
+
+    .hero p {
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-phone {
+        max-width: 260px;
+        margin: 0 auto;
+    }
+
+
+    /* КАТАЛОГ */
+
+    .gallery {
+        columns: 2 280px;
+    }
+
+
+    /* ОТЗЫВЫ */
+
+    .reviews-gallery img {
+        flex: 0 0 calc((100% - 30px) / 2);
+        width: calc((100% - 30px) / 2);
+    }
+
+
+    /* КОНТАКТЫ */
+
+    .socials {
+        gap: 14px;
+    }
+
+}
+
+
+/* =========================================
+   ТЕЛЕФОН — до 768px
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    /* Общие */
+
+    .container {
+        width: calc(100% - 32px);
+    }
+
+    section {
+        padding: 70px 0;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        padding: 70px 0 60px;
+    }
+
+    .hero-grid {
+        gap: 45px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+        line-height: 1.15;
+    }
+
+    .hero p {
+        font-size: 17px;
+        line-height: 1.7;
+    }
+
+    .hero-subtitle {
+        font-size: 11px;
+        padding: 9px 15px;
+        letter-spacing: 1.5px;
+    }
+
+    .hero-phone {
+        max-width: 210px;
+    }
+
+
+    /* КНОПКИ HERO */
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        max-width: 320px;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+
+    /* ЗАГОЛОВКИ СЕКЦИЙ */
+
+    .section-title {
+        font-size: 40px;
+        line-height: 1.2;
+        text-align: center;
+    }
+
+
+    /* ФИЛЬТРЫ */
+
+    .filters {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        gap: 10px;
+
+        padding: 5px 2px 15px;
+
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .filters::-webkit-scrollbar {
+        display: none;
+    }
+
+    .filter {
+        flex: 0 0 auto;
+        white-space: nowrap;
+    }
+
+    .filter[data-category="Все"] {
+        display: none;
+    }
+
+
+    /* КАТАЛОГ */
+
+    .gallery {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 16px;
+        padding-bottom: 4px;
+    }
+
+    .gallery::-webkit-scrollbar {
+        display: none;
+    }
+
+    .template-card {
+        flex: 0 0 86%;
+        width: 86%;
+        scroll-snap-align: start;
+        margin-bottom: 0;
+    }
+
+    .template-info {
+        padding: 18px 10px 24px;
+    }
+
+    .template-info h3 {
+        font-size: 25px;
+    }
+
+
+    /* ОТЗЫВЫ */
+
+    .reviews-gallery {
+        gap: 16px;
+    }
+
+    .reviews-gallery img {
+        flex: 0 0 86%;
+        width: 86%;
+    }
+
+
+    /* FAQ */
+
+    .faq-list {
+        margin-top: 45px;
+    }
+
+    .faq-question {
+        padding: 20px;
+        font-size: 16px;
+        gap: 15px;
+    }
+
+    .faq-question span {
+        flex-shrink: 0;
+    }
+
+    .faq-answer {
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 15px;
+    }
+
+    .faq-item.active .faq-answer {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+
+    /* КОНТАКТЫ */
+
+    .contacts-text {
+        font-size: 16px;
+        margin-bottom: 40px;
+    }
+
+    .socials {
+        align-items: center;
+    }
+
+    .social-primary {
+        max-width: 100%;
+        text-align: left;
+    }
+
+    .social-secondary {
+        flex-direction: column;
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .social-mini {
+        justify-content: center;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+
+    .modal-button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .modal-close {
+        width: 38px;
+        height: 38px;
+        font-size: 21px;
+    }
+
+
+    /* FOOTER */
+
+    .footer {
+        margin-top: 70px;
+        padding: 30px 0;
+    }
+
+}
+
+
+/* =========================================
+   МАЛЕНЬКИЙ ТЕЛЕФОН — до 480px
+   ========================================= */
+
+@media (max-width: 480px) {
+
+    .container {
+        width: calc(100% - 24px);
+    }
+
+
+    /* HERO */
+
+    .hero {
+        padding-top: 50px;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .hero-phone {
+        max-width: 170px;
+    }
+
+
+    /* ЗАГОЛОВКИ */
+
+    .section-title {
+        font-size: 32px;
+    }
+
+
+    /* ФИЛЬТРЫ */
+
+    .filter {
+        padding: 10px 15px;
+        font-size: 13px;
+    }
+
+
+    /* КАРТОЧКИ */
+
+    .template-info h3 {
+        font-size: 23px;
+    }
+
+
+    /* FAQ */
+
+    .faq-question {
+        font-size: 15px;
+        padding: 18px;
+    }
+
+    .faq-question span {
+        font-size: 24px;
+    }
+
+
+    .modal-footer {
+        padding: 55px 18px 22px;
+    }
+
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.header {
+    position: relative;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.92);
+    border-bottom: 1px solid #eeeeee;
+}
+
+.header-inner {
+    min-height: 90px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+.logo {
+    font-family: "Playfair Display", serif;
+
+    font-size: 32px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    color: #7B3847;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+}
+
+
+/* Навигация */
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 38px;
+}
+
+.nav a {
+    color: #555;
+
+    text-decoration: none;
+
+    font-size: 16px;
+
+    transition: .3s;
+}
+
+.nav a:hover {
+    color: #7B3847;
+}
+
+
+/* Кнопка заказа */
+
+.header-button {
+    padding: 15px 30px;
+
+    background: #7B3847;
+
+    color: white;
+
+    border-radius: 50px;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    box-shadow: 0 10px 25px rgba(123, 56, 71, .18);
+
+    transition: .3s;
+}
+
+.header-button:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 15px 30px rgba(123, 56, 71, .25);
+}
+
+
+/* =========================================
+   КНОПКА БУРГЕРА
+========================================= */
+
+.menu-button {
+    display: none;
+
+    width: 46px;
+    height: 46px;
+
+    border: none;
+
+    background: #7B3847;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    padding: 0;
+
+    flex-shrink: 0;
+}
+
+.menu-button span {
+    display: block;
+
+    width: 20px;
+    height: 2px;
+
+    margin: 4px auto;
+
+    background: white;
+
+    border-radius: 2px;
+}
+
+
+/* =========================================
+   МОБИЛЬНОЕ МЕНЮ
+========================================= */
+
+.mobile-menu {
+    position: fixed;
+
+    top: 0;
+    right: -100%;
+
+    width: min(85%, 380px);
+    height: 100vh;
+
+    background: #fff;
+
+    z-index: 2000;
+
+    padding: 100px 30px 40px;
+
+    box-sizing: border-box;
+
+    box-shadow: -15px 0 50px rgba(0, 0, 0, .12);
+
+    transition: right .4s ease;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+.mobile-menu.active {
+    right: 0;
+}
+
+
+/* Кнопка закрытия */
+
+.mobile-menu-close {
+    position: absolute;
+
+    top: 25px;
+    right: 25px;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #f6f1f2;
+
+    color: #7B3847;
+
+    font-size: 32px;
+
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+
+/* Ссылки */
+
+.mobile-menu nav {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 28px;
+}
+
+.mobile-menu nav a {
+    font-family: "Playfair Display", serif;
+
+    font-size: 30px;
+
+    color: #2d2d2d;
+
+    text-decoration: none;
+
+    transition: .3s;
+}
+
+.mobile-menu nav a:hover {
+    color: #7B3847;
+
+    transform: translateX(5px);
+}
+
+
+/* Кнопка внутри меню */
+
+.mobile-order-button {
+    display: block;
+
+    margin-top: 45px;
+
+    padding: 17px 25px;
+
+    text-align: center;
+
+    border-radius: 50px;
+
+    background: #7B3847;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: 600;
+}
+
+
+/* =========================================
+   ТЕЛЕФОН
+========================================= */
+
+@media (max-width: 768px) {
+
+    .header-inner {
+        min-height: 78px;
+    }
+
+    .logo {
+        font-size: 24px;
+        letter-spacing: .5px;
+    }
+
+    .nav,
+    .header-button {
+        display: none;
+    }
+
+    .menu-button {
+        display: block;
+    }
+
+}
+/* ===========================================
+   REVEAL ANIMATIONS
+=========================================== */
+
+.js-reveal{
+    opacity:0;
+    transform:translateY(28px);
+    transition:opacity .8s ease,transform .8s ease;
+}
+
+.js-reveal.is-visible{
+    opacity:1;
+    transform:none;
+}
+
+@media (prefers-reduced-motion:reduce){
+    .js-reveal{opacity:1;transform:none;transition:none;}
+}
