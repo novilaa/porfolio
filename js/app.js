@@ -160,7 +160,7 @@ function renderTemplates(data) {
                 ${template.demoUrl ? `<span class="demo-badge">Есть демо</span>` : ""}
 
                 <img
-                    src="${template.image}"
+                    src="${template.cover || template.image}"
                     alt="${template.title}"
                     loading="lazy"
                 >

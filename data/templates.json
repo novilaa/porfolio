@@ -4,42 +4,48 @@
     "title": "Бордовая классика",
     "category": "Свадьба",
     "price": 2300,
-    "image": "images/wedding/wedding1.jpg"
+    "image": "images/wedding/wedding1.jpg",
+    "cover": "images/covers/wedding1.jpg"
   },
   {
     "id": 2,
     "title": "Бело-зеленая свадьба",
     "category": "Свадьба",
     "price": 2300,
-    "image": "images/wedding/wedding2.jpg"
+    "image": "images/wedding/wedding2.jpg",
+    "cover": "images/covers/wedding2.jpg"
   },
   {
     "id": 3,
     "title": "Любовь",
     "category": "Свадьба",
     "price": 2300,
-    "image": "images/wedding/wedding3.jpg"
+    "image": "images/wedding/wedding3.jpg",
+    "cover": "images/covers/wedding3.jpg"
   },
   {
     "id": 4,
     "title": "Голубо-белая свадьба",
     "category": "Свадьба",
     "price": 2300,
-    "image": "images/wedding/wedding4.jpg"
+    "image": "images/wedding/wedding4.jpg",
+    "cover": "images/covers/wedding4.jpg"
   },
   {
     "id": 5,
     "title": "Черно-белая классика",
     "category": "Свадьба",
     "price": 2300,
-    "image": "images/wedding/wedding5.jpg"
+    "image": "images/wedding/wedding5.jpg",
+    "cover": "images/covers/wedding5.jpg"
   },
   {
     "id": 6,
     "title": "Нежный шоколад",
     "category": "Свадьба",
     "price": 2300,
-    "image": "images/wedding/wedding6.jpg"
+    "image": "images/wedding/wedding6.jpg",
+    "cover": "images/covers/wedding6.jpg"
   },
   {
     "id": 11,
@@ -47,6 +53,7 @@
     "category": "Свадьба",
     "price": 2300,
     "image": "images/wedding/wedding7.jpg",
+    "cover": "images/covers/wedding7.jpg",
     "demoUrl": "demo/black-white-classic-2/"
   },
   {
@@ -54,27 +61,31 @@
     "title": "Birthday PINK",
     "category": "День рождения",
     "price": 2300,
-    "image": "images/birthday/birthday1.jpg"
+    "image": "images/birthday/birthday1.jpg",
+    "cover": "images/covers/birthday1.jpg"
   },
   {
     "id": 8,
     "title": "Birthday классика",
     "category": "День рождения",
     "price": 2300,
-    "image": "images/birthday/birthday2.jpg"
+    "image": "images/birthday/birthday2.jpg",
+    "cover": "images/covers/birthday2.jpg"
   },
   {
     "id": 9,
     "title": "Операция день рождения",
     "category": "День рождения",
     "price": 2300,
-    "image": "images/birthday/birthday3.jpg"
+    "image": "images/birthday/birthday3.jpg",
+    "cover": "images/covers/birthday3.jpg"
   },
    {
     "id": 10,
     "title": "Гендер-пати",
     "category": "Гендер-пати",
     "price": 2300,
-    "image": "images/gender/gender1.jpg"
+    "image": "images/gender/gender1.jpg",
+    "cover": "images/covers/gender1.jpg"
   }
 ]
