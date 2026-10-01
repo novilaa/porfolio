@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="ru" data-lang="ru">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="yandex-verification" content="51aa71f775fd8df6" />
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Александр &amp; Мария — Свадьба</title>
+<meta property="og:title" content="Александр и Мария — свадебное приглашение">
+<meta property="og:description" content="20 июня 2027 — приглашаем разделить с нами этот день">
+<meta property="og:type" content="website">
+<meta property="og:image" content="no-preview-image.png?v=1">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Playfair+Display:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  :root {
+    --ink: #4a1420;
+    --charcoal: #2e0c14;
+    --paper: #f7f6f2;
+    --paper-dim: #efeee9;
+    --card: #ffffff;
+    --ash: #8a6067;
+    --ash-soft: #b08e93;
+    --line: #e0d5d3;
+    --line-strong: #4a1420;
+  }
+
+  body {
+    background: var(--paper-dim);
+    color: var(--ink);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  body { font-family: "Cormorant Garamond", serif; }
+
+  h1, h2, .display {
+    font-family: 'Playfair Display', serif;
+  }
+
+  /* ── Music toggle ─────────────────────────── */
+  .music-toggle {
+    position: fixed; bottom: 22px; right: 18px; z-index: 50;
+    width: 48px; height: 48px; border-radius: 50%;
+    background: rgba(74,20,32,0.94); display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.22); cursor: pointer; border: none;
+  }
+  .music-toggle svg { width: 20px; height: 20px; fill: #f7f3ee; }
+  .music-toggle .icon-pause { display: none; }
+  .music-toggle.playing .icon-play { display: none; }
+  .music-toggle.playing .icon-pause { display: block; }
+  .music-toggle.playing svg.icon-pause { animation: musicSpin 3.5s linear infinite; }
+  @keyframes musicSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  @media (max-width: 480px) { .music-toggle { bottom: 16px; right: 14px; width: 44px; height: 44px; } }
+
+  .invite { max-width: 860px; margin: 0 auto; background: var(--card); }
+  @media (min-width: 900px) {
+    .invite { margin: 40px auto; border-radius: 4px; overflow: hidden; box-shadow: 0 30px 90px rgba(0,0,0,0.14); }
+  }
+
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity .9s cubic-bezier(.22,.61,.36,1), transform .9s cubic-bezier(.22,.61,.36,1); }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+  .reveal-zoom { opacity: 0; transform: scale(.94); transition: opacity .9s ease, transform .9s cubic-bezier(.22,.61,.36,1); }
+  .reveal-zoom.is-visible { opacity: 1; transform: scale(1); }
+  @media (prefers-reduced-motion: reduce) { .reveal, .reveal-zoom { opacity: 1; transform: none; transition: none; } }
+
+  /* ── sun ornament (arevakhach motif, echoes "Арев") ── */
+  .sun {
+    width: 22px; height: 22px; flex-shrink: 0;
+  }
+  .sun path, .sun circle { stroke: currentColor; fill: none; stroke-width: 1.1; }
+
+  .sep { display: flex; align-items: center; justify-content: center; gap: 16px; padding: 0 36px; color: var(--ash); }
+  .sep::before, .sep::after { content: ''; flex: 1; max-width: 120px; height: 1px; background: var(--line); }
+
+  .section { padding: 62px 36px; text-align: center; }
+  @media (max-width: 480px) { .section { padding: 46px 22px; } }
+
+  .eyebrow {
+    font-size: 13px; letter-spacing: 2.5px; color: var(--ash); font-weight: 600;
+    margin-bottom: 16px; display: inline-block; border-bottom: 1px solid var(--line); padding-bottom: 8px;
+  }
+  .section-title { font-size: clamp(26px, 5vw, 36px); font-weight: 600; color: var(--ink); margin-bottom: 22px; }
+
+  /* ── Hero ─────────────────── */
+  .hero { position: relative; width: 100%; height: 82vh; min-height: 440px; max-height: 620px; overflow: hidden; background: var(--paper-dim); }
+  /* На широких десктопных экранах контейнер становится "короче и шире" относительно фото,
+     поэтому ограничиваем высоту сильнее, чтобы не обрезать лица/верх кадра. */
+  @media (min-width: 1000px) { .hero { height: 62vh; max-height: 560px; } }
+  /* На телефонах первое фото — на весь экран.
+     Используем CSS-переменную --vh (задаётся в JS), т.к. в Яндекс.Браузере
+     и части мобильных браузеров 100vh/100svh считаются неточно из-за
+     скрывающейся адресной строки. */
+  @media (max-width: 899px) {
+    .hero { height: 100vh; height: calc(var(--vh, 1vh) * 100); min-height: 100vh; min-height: calc(var(--vh, 1vh) * 100); max-height: none; }
+  }
+  .hero img { width: 100%; height: 100%; object-fit: cover; object-position: center 22%; display: block; filter: grayscale(100%) contrast(1.05);
+    mask-image: linear-gradient(to bottom, black 58%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 58%, transparent 100%); }
+  /* ⬆️ object-position: если на реальном фото лица/важная часть обрезаются — поменяйте
+     "22%" (0% = верх фото, 50% = центр, 100% = низ фото) под конкретный кадр. */
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.58) 100%); }
+  .hero-text { position: absolute; inset: 0; color: #fff; text-shadow: 0 2px 16px rgba(0,0,0,0.55); }
+  .mono { position: absolute; font-family: 'Playfair Display', serif; font-weight: 300; line-height: 1; color: #fff; font-size: clamp(70px, 16vw, 150px); }
+  .mono-a { top: 26%; left: 20%; }
+  .mono-b { bottom: 28%; right: 22%; }
+  .vert-names { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(90deg); white-space: nowrap; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(19px, 3.8vw, 26px); letter-spacing: 2px; font-weight: 400; color: #fff; }
+  .hero-date { position: absolute; bottom: 6%; left: 50%; transform: translateX(-50%); font-size: clamp(22px, 5vw, 32px); letter-spacing: 3px; font-weight: 700; color: #fff; text-shadow: 0 2px 14px rgba(0,0,0,0.5); }
+  @media (max-width: 480px) {
+    .mono { font-size: clamp(56px, 22vw, 96px); }
+    .mono-a { top: 24%; left: 16%; }
+    .mono-b { bottom: 26%; right: 18%; }
+  }
+
+  .greeting p { font-size: clamp(18px, 3.2vw, 22px); color: var(--ink); max-width: 560px; margin: 0 auto; font-style: normal; font-weight: 500; }
+  .greeting-rule { width: 40px; height: 1px; background: var(--ink); margin: 26px auto 0; }
+
+  /* ── Calendar (full month grid) ─────────────── */
+  .calendar-section { padding: 66px 36px; text-align: center; background: linear-gradient(180deg, #fbfaf7 0%, #efeeea 100%); display: flex; flex-direction: column; align-items: center; }
+  .cal-card { display: flex; flex-direction: column; align-items: center; padding: 40px 30px 34px; background: var(--card); border: 1px solid var(--line); box-shadow: 0 14px 40px rgba(0,0,0,0.10); width: 100%; max-width: 380px; }
+  @media (max-width: 480px) { .cal-card { padding: 32px 16px 26px; } }
+  .cal-month { font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(28px, 6vw, 38px); letter-spacing: 4px; color: var(--ink); margin-bottom: 24px; }
+  .cal-weekdays, .cal-days { display: grid; grid-template-columns: repeat(7, 1fr); width: 100%; column-gap: 4px; }
+  .cal-weekdays { margin-bottom: 14px; }
+  .cal-weekdays span { font-size: clamp(11px, 2.6vw, 13px); font-weight: 600; letter-spacing: 0.5px; color: var(--ash); }
+  .cal-days { row-gap: clamp(6px, 2vw, 12px); }
+  .cal-cell { position: relative; aspect-ratio: 1 / 1; font-family: 'Playfair Display', serif; font-weight: 500; font-size: clamp(14px, 3.4vw, 17px); color: var(--ink); display: flex; align-items: center; justify-content: center; }
+  .cal-cell.empty { visibility: hidden; }
+  .cal-cell.highlight { font-weight: 700; font-size: clamp(11px, 2.7vw, 14px); }
+  .cal-heart { position: absolute; top: 50%; left: 50%; width: 96%; height: 96%; transform: translate(-50%, -50%); color: var(--ink); pointer-events: none; }
+  .cal-heart path { fill: none; stroke: currentColor; stroke-width: 1.3; }
+  .cal-sub { margin-top: 22px; font-size: 16px; letter-spacing: 2px; color: var(--ash); font-weight: 500; }
+  .cal-sub .dot { color: var(--ash-soft); padding: 0 6px; }
+
+  /* ── Program timeline ─────────────── */
+  .schedule-wrap { max-width: 580px; margin: 0 auto; position: relative; text-align: left; }
+  .schedule-wrap::before { content: ''; position: absolute; left: 62px; top: 4px; bottom: 4px; width: 1px; background: var(--line); }
+  .schedule-item { display: flex; gap: 22px; align-items: flex-start; padding: 0 0 28px; position: relative; }
+  .schedule-item:last-child { padding-bottom: 0; }
+  .s-time { flex: 0 0 52px; font-family: 'Playfair Display', serif; font-size: 16px; color: var(--ash); padding-top: 2px; text-align: right; }
+  .s-dot-wrap { flex: 0 0 20px; display: flex; align-items: flex-start; justify-content: center; padding-top: 5px; position: relative; z-index: 1; }
+  .s-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--ink); box-shadow: 0 0 0 4px var(--card), 0 0 0 5px var(--line); }
+  .s-desc strong { display: block; font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: var(--ink); margin-bottom: 3px; }
+  .s-desc span { font-size: 15px; color: var(--ash); }
+
+  /* ── Locations ─────────────── */
+  .loc-card { border-top: 1px solid var(--line); padding: 52px 36px; text-align: left; max-width: 640px; margin: 0 auto; }
+  .loc-card:first-of-type { border-top: none; }
+  @media (max-width: 480px) { .loc-card { padding: 40px 22px; } }
+  .loc-tag { font-size: 12px; letter-spacing: 2px; color: var(--ash); margin-bottom: 10px; }
+  .loc-name { font-family: 'Playfair Display', serif; font-size: clamp(21px, 4vw, 26px); font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+  .loc-address { font-size: 17px; color: #4a473d; margin-bottom: 16px; line-height: 1.55; }
+  .map-btn { display: inline-block; padding: 10px 26px; border-radius: 40px; border: 1px solid var(--ink); color: var(--ink); font-family: "Cormorant Garamond", serif; font-size: 15px; letter-spacing: 1.5px; text-decoration: none; transition: background .2s, color .2s; }
+  .map-btn:hover { background: var(--ink); color: #fff; }
+  .map-frame { width: 100%; height: 200px; border: none; border-radius: 4px; margin-top: 18px; filter: grayscale(100%) contrast(1.05); transition: filter .5s ease; }
+  .map-frame:hover { filter: grayscale(0%); }
+
+  .loc-photo-wrap { margin: 0 0 42px; overflow: hidden; max-height: 320px; }
+  .loc-photo-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block; filter: grayscale(100%); max-height: 320px; }
+
+  /* ── Countdown ─────────────── */
+  .countdown-section { background: linear-gradient(180deg, #f2f1ec 0%, #e6e4dd 100%); padding: 58px 16px 62px; text-align: center; overflow: hidden; }
+  .countdown-label { font-size: 12px; letter-spacing: 2.5px; color: var(--ash); margin-bottom: 30px; display: block; }
+  .countdown { display: flex; justify-content: center; align-items: center; gap: clamp(4px, 2vw, 14px); flex-wrap: nowrap; }
+  .countdown-item { text-align: center; }
+  .c-ring { width: clamp(44px, 15vw, 84px); height: clamp(44px, 15vw, 84px); border-radius: 50%; background: var(--card); border: 1px solid var(--ink); display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 18px rgba(0,0,0,0.10); flex-shrink: 0; }
+  .c-ring .num { font-family: 'Playfair Display', serif; font-size: clamp(15px, 4.5vw, 32px); font-weight: 700; color: var(--ink); line-height: 1; }
+  .countdown-item .c-label { font-size: clamp(8px, 2.2vw, 12px); letter-spacing: 1px; color: var(--ash); margin-top: clamp(4px, 1.5vw, 10px); white-space: nowrap; }
+  .c-divider { color: var(--ash-soft); font-size: clamp(10px, 3vw, 18px); padding-bottom: clamp(12px, 4vw, 24px); flex-shrink: 0; }
+  .c-ring .num.pulse { animation: numPulse .4s ease; }
+  @keyframes numPulse { 0% { transform: scale(1); } 40% { transform: scale(1.18); color: var(--ash); } 100% { transform: scale(1); } }
+
+  /* ── About us ─────────────── */
+  .about-photo-wrap { width: 100%; max-height: 380px; overflow: hidden; }
+  .about-photo-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center 42%; display: block; filter: grayscale(100%); max-height: 380px; }
+  /* На широких экранах показываем фото целиком, без обрезки */
+  @media (min-width: 900px) {
+    .about-photo-wrap { background: var(--paper-dim); display: flex; align-items: center; justify-content: center; }
+    .about-photo-wrap img { object-fit: contain; object-position: center; }
+  }
+  .about-text { max-width: 560px; margin: 0 auto; font-size: 18px; color: var(--ink); font-weight: 500; }
+  .about-text p + p { margin-top: 16px; }
+
+  /* ── RSVP ─────────────── */
+  .rsvp-wrap { padding: 60px 36px; }
+  @media (max-width: 480px) { .rsvp-wrap { padding: 46px 22px; } }
+  .rsvp-card { max-width: 560px; margin: 0 auto; background: var(--paper); border: 1px solid var(--line); border-radius: 4px; padding: 46px 38px; text-align: center; }
+  @media (max-width: 480px) { .rsvp-card { padding: 34px 22px; } }
+  .rsvp-title { font-family: 'Playfair Display', serif; font-size: clamp(24px, 4.5vw, 30px); font-weight: 700; color: var(--ink); line-height: 1.3; margin-bottom: 30px; }
+  .rsvp-form { text-align: left; display: flex; flex-direction: column; gap: 22px; }
+  .rsvp-label { display: block; font-size: 15px; color: #333; margin-bottom: 9px; font-weight: 500; }
+  .rsvp-label .req { color: var(--ink); }
+  .rsvp-input, .rsvp-textarea { width: 100%; padding: 13px 16px; border: 1px solid var(--line); border-radius: 4px; font-family: inherit; font-size: 16px; background: #fff; transition: border-color .2s; }
+  .rsvp-textarea { resize: vertical; min-height: 64px; }
+  .rsvp-input:focus, .rsvp-textarea:focus { outline: none; border-color: var(--ink); }
+  .rsvp-radio-group { display: flex; flex-direction: column; gap: 12px; }
+  .rsvp-radio { display: flex; align-items: center; gap: 12px; font-size: 16px; color: #333; cursor: pointer; position: relative; }
+  .rsvp-radio input { position: absolute; opacity: 0; width: 0; height: 0; }
+  .rsvp-radio-dot { width: 19px; height: 19px; border-radius: 50%; border: 2px solid var(--line-strong); flex-shrink: 0; position: relative; transition: border-color .2s; }
+  .rsvp-radio input:checked + .rsvp-radio-dot::after { content: ''; position: absolute; inset: 3px; border-radius: 50%; background: var(--ink); }
+  .rsvp-extra-wrap { transition: opacity .3s ease, max-height .3s ease; overflow: hidden; max-height: 300px; }
+  .rsvp-extra-wrap.hidden { opacity: 0; max-height: 0; pointer-events: none; }
+  .rsvp-note { background: #fff; border-left: 3px solid var(--ink); padding: 14px 18px; border-radius: 2px; font-size: 14px; color: #4a473d; line-height: 1.55; }
+  .rsvp-submit { margin-top: 4px; padding: 15px; border: 1px solid var(--ink); border-radius: 40px; background: var(--ink); color: #fff; font-family: "Cormorant Garamond", serif; font-size: 16px; letter-spacing: 2px; cursor: pointer; transition: background .2s, color .2s, transform .1s; }
+  .rsvp-submit:hover { background: #fff; color: var(--ink); }
+  .rsvp-submit:active { transform: scale(.98); }
+  .rsvp-thanks { display: none; text-align: center; margin-top: 8px; font-size: 17px; color: var(--ink); }
+  .rsvp-thanks.show { display: block; }
+
+  /* ── Ending ─────────────── */
+  .ending-photo-wrap { position: relative; width: 78%; max-width: 560px; margin: 0 auto 40px; overflow: hidden; max-height: 380px;
+    mask-image: radial-gradient(ellipse 85% 85% at 50% 50%, black 50%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 85% 85% at 50% 50%, black 50%, transparent 100%);
+    box-shadow: 0 18px 60px rgba(0,0,0,0.12); }
+  .ending-photo-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center 82%; display: block; filter: grayscale(100%); }
+  /* На широких экранах показываем фото целиком, без обрезки */
+  @media (min-width: 900px) {
+    .ending-photo-wrap { background: var(--paper-dim); display: flex; align-items: center; justify-content: center; }
+    .ending-photo-wrap img { object-fit: contain; object-position: center; }
+  }
+  .ending-text { padding: 0 32px 66px; text-align: center; background: var(--card); }
+  .waiting { font-size: clamp(32px, 7vw, 52px); font-weight: 700; color: var(--ink); }
+  .couple-sig { margin-top: 10px; font-size: 18px; color: var(--ash); letter-spacing: 1.5px; }
+  .ending-rule { width: 40px; height: 1px; background: var(--ink); margin: 22px auto 0; }
+</style>
+<base target="_blank">
+</head>
+<body>
+
+<!-- ⬇️ Загрузите файл музыки с именем music.mp3 в ту же папку, где лежит index.html -->
+<audio id="bgMusic" src="music.mp3" loop preload="none"></audio>
+<button type="button" class="music-toggle" id="musicToggle" aria-label="Музыка">
+  <svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+  <svg class="icon-pause" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10h-2a8 8 0 1 1-8-8z"/><circle cx="12" cy="12" r="2.4"/></svg>
+</button>
+
+<div class="invite">
+
+  <!-- HERO -->
+  <div class="hero">
+    <img src="hero-photo.jpg" alt="Александр и Мария" fetchpriority="high" decoding="async">
+    <div class="hero-overlay"></div>
+    <div class="hero-text">
+      <span class="mono mono-a lang-ru">A</span>
+      <span class="vert-names lang-ru">ALEXANDER&amp;MARIA</span>
+      <span class="mono mono-b lang-ru">M</span>
+      <div class="hero-date">19.06.2027</div>
+    </div>
+  </div>
+
+  <!-- GREETING -->
+  <div class="section greeting reveal">
+    <p class="lang-ru">Этот день станет началом нашей долгой и счастливой семейной жизни. Мы приглашаем Вас на торжество, посвящённое нашей свадьбе.</p>
+    <div class="greeting-rule"></div>
+  </div>
+
+  <div class="sep"><svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 1v3M12 20v3M23 12h-3M4 12H1M19.8 4.2l-2.1 2.1M6.3 17.7l-2.1 2.1M19.8 19.8l-2.1-2.1M6.3 6.3L4.2 4.2"/></svg></div>
+
+  <!-- SAVE THE DATE -->
+  <div class="calendar-section">
+    <span class="eyebrow lang-ru">Сохраните дату</span>
+    <div class="cal-card reveal-zoom">
+      <div class="cal-month lang-ru">Июнь</div>
+
+      <div class="cal-weekdays lang-ru">
+        <span>ПН</span><span>ВТ</span><span>СР</span><span>ЧТ</span><span>ПТ</span><span>СБ</span><span>ВС</span>
+      </div>
+      <div class="cal-days">
+        <span class="cal-cell empty"></span>
+        <span class="cal-cell">1</span>
+        <span class="cal-cell">2</span>
+        <span class="cal-cell">3</span>
+        <span class="cal-cell">4</span>
+        <span class="cal-cell">5</span>
+        <span class="cal-cell">6</span>
+        <span class="cal-cell">7</span>
+        <span class="cal-cell">8</span>
+        <span class="cal-cell">9</span>
+        <span class="cal-cell">10</span>
+        <span class="cal-cell">11</span>
+        <span class="cal-cell">12</span>
+        <span class="cal-cell">13</span>
+        <span class="cal-cell">14</span>
+        <span class="cal-cell">15</span>
+        <span class="cal-cell">16</span>
+        <span class="cal-cell">17</span>
+        <span class="cal-cell">18</span>
+        <span class="cal-cell highlight">
+          19
+          <svg class="cal-heart" viewBox="0 0 44 44"><path d="M22 37 C10 28 4 20 4 13 C4 6 10 3 15 5 C18 6.5 20 9 22 13 C24 9 26 6.5 29 5 C34 3 40 6 40 13 C40 20 34 28 22 37 Z"/></svg>
+        </span>
+        <span class="cal-cell">20</span>
+        <span class="cal-cell">21</span>
+        <span class="cal-cell">22</span>
+        <span class="cal-cell">23</span>
+        <span class="cal-cell">24</span>
+        <span class="cal-cell">25</span>
+        <span class="cal-cell">26</span>
+        <span class="cal-cell">27</span>
+        <span class="cal-cell">28</span>
+        <span class="cal-cell">29</span>
+        <span class="cal-cell">30</span>
+        <span class="cal-cell empty"></span>
+        <span class="cal-cell empty"></span>
+        <span class="cal-cell empty"></span>
+        <span class="cal-cell empty"></span>
+      </div>
+
+      <div class="cal-sub lang-ru">Суббота<span class="dot">·</span>2027</div>
+    </div>
+  </div>
+
+  <div class="sep"><svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 1v3M12 20v3M23 12h-3M4 12H1M19.8 4.2l-2.1 2.1M6.3 17.7l-2.1 2.1M19.8 19.8l-2.1-2.1M6.3 6.3L4.2 4.2"/></svg></div>
+
+  <!-- PROGRAM OF THE DAY -->
+  <div class="section reveal">
+    <span class="eyebrow lang-ru">Программа дня</span>
+    <div class="schedule-wrap">
+      <div class="schedule-item">
+        <div class="s-time">10:30</div>
+        <div class="s-dot-wrap"><div class="s-dot"></div></div>
+        <div class="s-desc">
+          <strong class="lang-ru">Сборы у жениха</strong>
+          <span class="lang-ru">Начало утренних приготовлений</span>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="s-time">12:00</div>
+        <div class="s-dot-wrap"><div class="s-dot"></div></div>
+        <div class="s-desc">
+          <strong class="lang-ru">Сборы у невесты</strong>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="s-time">14:00</div>
+        <div class="s-dot-wrap"><div class="s-dot"></div></div>
+        <div class="s-desc">
+          <strong class="lang-ru">Церемония бракосочетания</strong>
+          <span class="lang-ru">Дворец бракосочетания № 1, Москва</span>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="s-time">16:30</div>
+        <div class="s-dot-wrap"><div class="s-dot"></div></div>
+        <div class="s-desc">
+          <strong class="lang-ru">Сбор гостей</strong>
+          <span class="lang-ru">Ресторан «Панорама»</span>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="s-time">17:00</div>
+        <div class="s-dot-wrap"><div class="s-dot"></div></div>
+        <div class="s-desc">
+          <strong class="lang-ru">Начало банкета</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sep"><svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 1v3M12 20v3M23 12h-3M4 12H1M19.8 4.2l-2.1 2.1M6.3 17.7l-2.1 2.1M19.8 19.8l-2.1-2.1M6.3 6.3L4.2 4.2"/></svg></div>
+
+  <!-- LOCATIONS -->
+  <div class="section" style="padding-bottom: 8px;">
+    <span class="eyebrow lang-ru">Место проведения</span>
+  </div>
+
+  <div class="loc-card reveal">
+    <div class="loc-photo-wrap">
+      <img src="location-photo.jpg" alt="Дворец бракосочетания" loading="lazy" decoding="async">
+    </div>
+    <div class="loc-tag lang-ru">Церемония · 14:00</div>
+    <p class="loc-name lang-ru">Дворец бракосочетания № 1</p>
+    <p class="loc-address lang-ru">Москва, ул. Грибоедова, д. 10</p>
+    <a href="https://yandex.ru/maps/?pt=37.640570,55.760222&z=16&l=map" class="map-btn" rel="noopener">
+      <span class="lang-ru">Маршрут на карте</span>
+    </a>
+    <iframe class="map-frame" src="https://yandex.ru/map-widget/v1/?ll=37.640570%2C55.760222&z=16&pt=37.640570%2C55.760222%2Cpm2rdl" allowfullscreen loading="lazy"></iframe>
+  </div>
+
+  <div class="loc-card reveal">
+    <div class="loc-tag lang-ru">Банкет · 17:00</div>
+    <p class="loc-name lang-ru">Ресторан «Панорама»</p>
+    <p class="loc-address lang-ru">Москва, Кутузовский проспект, д. 45</p>
+    <a href="https://yandex.ru/maps/?pt=37.500000,55.740000,pm2rdl&z=17&l=map" class="map-btn" rel="noopener">
+      <span class="lang-ru">Маршрут на карте</span>
+    </a>
+    <iframe class="map-frame" src="https://yandex.ru/map-widget/v1/?ll=37.500000%2C55.740000&z=17&pt=37.500000%2C55.740000%2Cpm2rdl" allowfullscreen loading="lazy"></iframe>
+  </div>
+
+  <div class="sep" style="margin-top: 56px;"><svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 1v3M12 20v3M23 12h-3M4 12H1M19.8 4.2l-2.1 2.1M6.3 17.7l-2.1 2.1M19.8 19.8l-2.1-2.1M6.3 6.3L4.2 4.2"/></svg></div>
+
+  <!-- COUNTDOWN -->
+  <div class="countdown-section">
+    <span class="countdown-label lang-ru">До торжества осталось</span>
+    <div class="countdown" id="countdown">
+      <div class="countdown-item reveal-zoom">
+        <div class="c-ring"><span class="num" id="cd-days">0</span></div>
+        <div class="c-label lang-ru">дней</div>
+      </div>
+      <div class="c-divider">✦</div>
+      <div class="countdown-item reveal-zoom">
+        <div class="c-ring"><span class="num" id="cd-hours">0</span></div>
+        <div class="c-label lang-ru">часов</div>
+      </div>
+      <div class="c-divider">✦</div>
+      <div class="countdown-item reveal-zoom">
+        <div class="c-ring"><span class="num" id="cd-minutes">0</span></div>
+        <div class="c-label lang-ru">минут</div>
+      </div>
+      <div class="c-divider">✦</div>
+      <div class="countdown-item reveal-zoom">
+        <div class="c-ring"><span class="num" id="cd-seconds">0</span></div>
+        <div class="c-label lang-ru">секунд</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT US -->
+  <div class="about-photo-wrap reveal-zoom">
+    <img src="about-photo.jpg" alt="Александр и Мария" loading="lazy" decoding="async">
+  </div>
+  <div class="section reveal">
+    <span class="eyebrow lang-ru">О нас</span>
+    <div class="about-text">
+      <p class="lang-ru">Мы шли к этому дню каждый по своей дороге, пока они не стали одной. Впереди — целая жизнь, и нам хочется начать её именно с этого дня, вместе с самыми родными людьми.</p>
+      <p class="lang-ru">Спасибо, что вы часть нашей истории. Будем счастливы разделить этот день с вами.</p>
+    </div>
+  </div>
+
+  <div class="sep"><svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 1v3M12 20v3M23 12h-3M4 12H1M19.8 4.2l-2.1 2.1M6.3 17.7l-2.1 2.1M19.8 19.8l-2.1-2.1M6.3 6.3L4.2 4.2"/></svg></div>
+
+  <!-- RSVP -->
+  <div class="rsvp-wrap">
+    <div class="rsvp-card reveal">
+      <h3 class="rsvp-title">
+        <span class="lang-ru">Подтвердите<br>присутствие</span>
+      </h3>
+      <form class="rsvp-form" id="rsvpForm">
+
+        <div>
+          <label class="rsvp-label" for="rsvp-name">
+            <span class="lang-ru">Ваше имя и фамилия</span>
+            <span class="req"> *</span>
+          </label>
+          <input class="rsvp-input" type="text" id="rsvp-name" name="name" required
+                 placeholder="Имя и фамилия">
+        </div>
+
+        <div>
+          <label class="rsvp-label">
+            <span class="lang-ru">Планируете ли Вы присутствовать на свадьбе?</span>
+            <span class="req"> *</span>
+          </label>
+          <div class="rsvp-radio-group">
+            <label class="rsvp-radio">
+              <input type="radio" name="attending" value="yes" required>
+              <span class="rsvp-radio-dot"></span>
+              <span class="lang-ru">Да, с радостью!</span>
+            </label>
+            <label class="rsvp-radio">
+              <input type="radio" name="attending" value="no">
+              <span class="rsvp-radio-dot"></span>
+              <span class="lang-ru">К сожалению, не смогу</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="rsvp-extra-wrap hidden" id="rsvpExtraWrap">
+          <label class="rsvp-label" for="rsvp-family">
+            <span class="lang-ru">Если будете с парой / семьёй — укажите все имена</span>
+          </label>
+          <textarea class="rsvp-textarea" id="rsvp-family" name="family"
+                    placeholder="Например: Анна, Давид"></textarea>
+        </div>
+
+        <div class="rsvp-note">
+          <span class="lang-ru">Мы очень старались сделать праздник незабываемым, поэтому будем рады, если Вы подтвердите своё присутствие до <strong>1 июня 2027</strong> года.</span>
+        </div>
+
+        <button type="submit" class="rsvp-submit">
+          <span class="lang-ru">✈ Отправить ответ</span>
+        </button>
+      </form>
+      <p class="rsvp-thanks" id="rsvpThanks"></p>
+    </div>
+  </div>
+
+  <!-- ENDING -->
+  <div class="ending-photo-wrap reveal-zoom">
+    <img src="ending-photo.jpg" alt="Ждём вас" loading="lazy" decoding="async">
+  </div>
+  <div class="ending-text reveal">
+    <h2 class="waiting lang-ru">Ждём вас!</h2>
+    <p class="couple-sig lang-ru">Александр и Мария</p>
+    <div class="ending-rule"></div>
+  </div>
+
+</div>
+
+<script>
+  // ── ТОЧНАЯ ВЫСОТА ЭКРАНА (fix для Яндекс.Браузера и др.) ─────────────
+  // 100vh/100svh в мобильных браузерах считаются неточно из-за адресной
+  // строки, которая появляется/скрывается при скролле. Считаем реальную
+  // высоту окна в пикселях и кладём в CSS-переменную --vh.
+  (function () {
+    function setVH() {
+      document.documentElement.style.setProperty('--vh', (window.innerHeight * 0.01) + 'px');
+    }
+    setVH();
+    window.addEventListener('resize', setVH);
+    window.addEventListener('orientationchange', setVH);
+  })();
+
+  // ── MUSIC TOGGLE ─────────────
+  (function () {
+    var audio = document.getElementById('bgMusic');
+    var btn = document.getElementById('musicToggle');
+    var playing = false;
+    var autoTried = false;
+
+    function startMusic() {
+      if (playing) return;
+      audio.play().then(function () {
+        playing = true;
+        btn.classList.add('playing');
+      }).catch(function () { /* браузер заблокировал — подождём касания */ });
+    }
+
+    function stopMusic() {
+      audio.pause();
+      playing = false;
+      btn.classList.remove('playing');
+    }
+
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      if (playing) { stopMusic(); } else { startMusic(); }
+    });
+
+    // Пытаемся включить сразу
+    startMusic();
+
+    // Если браузер заблокировал автозапуск — включаем при первом касании/клике где угодно на странице
+    function firstInteraction() {
+      if (!autoTried) {
+        autoTried = true;
+        startMusic();
+      }
+      document.removeEventListener('touchstart', firstInteraction);
+      document.removeEventListener('click', firstInteraction);
+      document.removeEventListener('scroll', firstInteraction);
+    }
+    document.addEventListener('touchstart', firstInteraction, { passive: true });
+    document.addEventListener('click', firstInteraction);
+    document.addEventListener('scroll', firstInteraction, { passive: true });
+  })();
+
+  // ── COUNTDOWN ─────────────
+  var targetDate = new Date('2027-06-19T17:00:00').getTime();
+  function updateCountdown() {
+    var now = new Date().getTime();
+    var diff = targetDate - now;
+    if (diff <= 0) {
+      ['cd-days','cd-hours','cd-minutes','cd-seconds'].forEach(function (id) { document.getElementById(id).textContent = '0'; });
+      return;
+    }
+    var d = Math.floor(diff / 86400000);
+    var h = Math.floor((diff % 86400000) / 3600000);
+    var m = Math.floor((diff % 3600000) / 60000);
+    var s = Math.floor((diff % 60000) / 1000);
+    setNum('cd-days', d); setNum('cd-hours', h);
+    setNum('cd-minutes', m); setNum('cd-seconds', s);
+  }
+  function setNum(id, val) {
+    var el = document.getElementById(id);
+    if (el.textContent !== String(val)) {
+      el.textContent = val;
+      el.classList.remove('pulse');
+      void el.offsetWidth;
+      el.classList.add('pulse');
+    }
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // ── SCROLL REVEAL ─────────
+  document.addEventListener('DOMContentLoaded', function () {
+    var revealEls = document.querySelectorAll('.reveal, .reveal-zoom');
+    if ('IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+      revealEls.forEach(function (el) { obs.observe(el); });
+    } else {
+      revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+    }
+  });
+
+  // ════════════════════════════════════════════════
+  //  RSVP FORM
+  // ════════════════════════════════════════════════
+  document.addEventListener('DOMContentLoaded', function () {
+    var form        = document.getElementById('rsvpForm');
+    var extraWrap   = document.getElementById('rsvpExtraWrap');
+    var thanks      = document.getElementById('rsvpThanks');
+    var submitBtn   = form.querySelector('.rsvp-submit');
+
+    // ⬇️ ВСТАВЬ СЮДА URL своего веб-приложения из Apps Script
+    var SCRIPT_URL = ''; // демо: данные никуда не отправляются
+    var send = function (url, opts) { return url ? fetch(url, opts) : Promise.resolve(); };
+
+    document.querySelectorAll('input[name="attending"]').forEach(function (radio) {
+      radio.addEventListener('change', function () {
+        if (this.value === 'yes') {
+          extraWrap.classList.remove('hidden');
+        } else {
+          extraWrap.classList.add('hidden');
+          document.getElementById('rsvp-family').value = '';
+        }
+      });
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      var formData = new FormData(form);
+      var attending = formData.get('attending') || '';
+
+      var payload = {
+        name:       (formData.get('name') || '').trim(),
+        attendance: attending === 'yes' ? 'Да, с радостью' : 'Не сможет присутствовать',
+        family:     attending === 'yes' ? (formData.get('family') || '').trim() : ''
+      };
+
+      if (!payload.name) {
+        alert('Пожалуйста, укажите ваше имя');
+        return;
+      }
+      if (!attending) {
+        alert('Пожалуйста, выберите, сможете ли вы прийти');
+        return;
+      }
+
+      var oldHTML = submitBtn.innerHTML;
+      submitBtn.textContent = 'Отправка...';
+      submitBtn.disabled = true;
+
+      send(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(function () {
+        form.style.display = 'none';
+        thanks.textContent = 'Спасибо! Ваш ответ получен ❤️';
+        thanks.classList.add('show');
+      }).catch(function (err) {
+        console.error('Ошибка отправки:', err);
+        alert('Что-то пошло не так. Попробуйте ещё раз.');
+        submitBtn.innerHTML = oldHTML;
+        submitBtn.disabled = false;
+      });
+    });
+  });
+</script>
+
+</body>
+</html>

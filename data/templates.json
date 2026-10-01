@@ -46,7 +46,8 @@
     "title": "Черно-белая классика II",
     "category": "Свадьба",
     "price": 2300,
-    "image": "images/wedding/wedding7.jpg"
+    "image": "images/wedding/wedding7.jpg",
+    "demoUrl": "demo/black-white-classic-2/"
   },
   {
     "id": 7,

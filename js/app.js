@@ -10,7 +10,8 @@ const modalImageWrap = document.getElementById("modalImageWrap");
 const modalImage = document.getElementById("modalImage");
 
 const modalTitle = document.getElementById("modalTitle");
-const modalButton = document.querySelector(".modal-button");
+const modalButton = document.querySelector(".modal-button:not(.modal-demo)");
+const modalDemo = document.getElementById("modalDemo");
 const modalClose = document.querySelector(".modal-close");
 
 const modalPrev = document.querySelector(".modal-prev");
@@ -156,6 +157,8 @@ function renderTemplates(data) {
 
             <div class="template-image">
 
+                ${template.demoUrl ? `<span class="demo-badge">Есть демо</span>` : ""}
+
                 <img
                     src="${template.image}"
                     alt="${template.title}"
@@ -214,6 +217,20 @@ function updateModalContent() {
     modalImage.alt = selectedTemplate.title;
 
     modalTitle.textContent = selectedTemplate.title;
+
+    // Кнопка демо — только у шаблонов с живым примером
+
+    if (selectedTemplate.demoUrl) {
+
+        modalDemo.href = selectedTemplate.demoUrl;
+
+        modalDemo.hidden = false;
+
+    } else {
+
+        modalDemo.hidden = true;
+
+    }
 
     // Стрелки/навигация нужны только если в списке больше одного шаблона
 
@@ -402,6 +419,8 @@ reviewImages.forEach(image => {
         modalTitle.textContent = "";
 
         modalButton.style.display = "none";
+
+        modalDemo.hidden = true;
 
         modalPrev.classList.add("is-hidden");
 
