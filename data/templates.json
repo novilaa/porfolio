@@ -5,7 +5,8 @@
     "category": "Свадьба",
     "price": 2300,
     "image": "images/wedding/wedding1.jpg",
-    "cover": "images/covers/wedding1.jpg"
+    "cover": "images/covers/wedding1.jpg",
+    "demoUrl": "demo/burgundy-classic/"
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "category": "Свадьба",
     "price": 2300,
     "image": "images/wedding/wedding2.jpg",
-    "cover": "images/covers/wedding2.jpg"
+    "cover": "images/covers/wedding2.jpg",
+    "demoUrl": "demo/white-green/"
   },
   {
     "id": 3,
@@ -21,7 +23,8 @@
     "category": "Свадьба",
     "price": 2300,
     "image": "images/wedding/wedding3.jpg",
-    "cover": "images/covers/wedding3.jpg"
+    "cover": "images/covers/wedding3.jpg",
+    "demoUrl": "demo/love/"
   },
   {
     "id": 4,
@@ -29,7 +32,8 @@
     "category": "Свадьба",
     "price": 2300,
     "image": "images/wedding/wedding4.jpg",
-    "cover": "images/covers/wedding4.jpg"
+    "cover": "images/covers/wedding4.jpg",
+    "demoUrl": "demo/blue-white/"
   },
   {
     "id": 5,
@@ -37,7 +41,8 @@
     "category": "Свадьба",
     "price": 2300,
     "image": "images/wedding/wedding5.jpg",
-    "cover": "images/covers/wedding5.jpg"
+    "cover": "images/covers/wedding5.jpg",
+    "demoUrl": "demo/black-white-classic/"
   },
   {
     "id": 6,
@@ -45,7 +50,8 @@
     "category": "Свадьба",
     "price": 2300,
     "image": "images/wedding/wedding6.jpg",
-    "cover": "images/covers/wedding6.jpg"
+    "cover": "images/covers/wedding6.jpg",
+    "demoUrl": "demo/tender-chocolate/"
   },
   {
     "id": 11,
@@ -62,7 +68,8 @@
     "category": "День рождения",
     "price": 2300,
     "image": "images/birthday/birthday1.jpg",
-    "cover": "images/covers/birthday1.jpg"
+    "cover": "images/covers/birthday1.jpg",
+    "demoUrl": "demo/birthday-pink/"
   },
   {
     "id": 8,
@@ -78,7 +85,8 @@
     "category": "День рождения",
     "price": 2300,
     "image": "images/birthday/birthday3.jpg",
-    "cover": "images/covers/birthday3.jpg"
+    "cover": "images/covers/birthday3.jpg",
+    "demoUrl": "demo/operation-birthday/"
   },
    {
     "id": 10,
@@ -86,6 +94,7 @@
     "category": "Гендер-пати",
     "price": 2300,
     "image": "images/gender/gender1.jpg",
-    "cover": "images/covers/gender1.jpg"
+    "cover": "images/covers/gender1.jpg",
+    "demoUrl": "demo/gender-party/"
   }
 ]
