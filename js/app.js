@@ -71,6 +71,111 @@ function formatPrice(value) {
 }
 
 // ===============================
+// Промокод (скидка в рублях)
+// Коды лежат в data/promocodes.json: { "КОД": сумма_скидки }
+// ===============================
+
+let promoCodes = {};
+let activePromo = null; // { code, discount }
+
+const promoForm = document.getElementById("promoForm");
+const promoInput = document.getElementById("promoInput");
+const promoStatus = document.getElementById("promoStatus");
+
+function discountedPrice(price) {
+
+    return activePromo ? Math.max(price - activePromo.discount, 0) : price;
+
+}
+
+function priceMarkup(price) {
+
+    if (!price) return "";
+
+    if (!activePromo) {
+        return `<span class="template-price">${formatPrice(price)}</span>`;
+    }
+
+    return `<span class="template-price"><s class="template-price-old">${formatPrice(price)}</s>${formatPrice(discountedPrice(price))}</span>`;
+
+}
+
+function setPromoStatus(text, isError) {
+
+    promoStatus.textContent = text;
+
+    promoStatus.classList.toggle("is-error", Boolean(isError));
+
+}
+
+function applyPromo(rawCode) {
+
+    const code = rawCode.trim().toUpperCase();
+
+    if (!code) {
+
+        activePromo = null;
+
+        setPromoStatus("", false);
+
+    } else if (Object.hasOwn(promoCodes, code)) {
+
+        activePromo = { code, discount: promoCodes[code] };
+
+        setPromoStatus(`Промокод применён: скидка ${formatPrice(activePromo.discount)}`, false);
+
+    } else {
+
+        activePromo = null;
+
+        setPromoStatus("Такой промокод не найден", true);
+
+    }
+
+    renderTemplates(displayedTemplates);
+
+}
+
+if (promoForm) {
+
+    promoForm.addEventListener("submit", (event) => {
+
+        event.preventDefault();
+
+        applyPromo(promoInput.value);
+
+    });
+
+}
+
+async function loadPromoCodes() {
+
+    try {
+
+        const response = await fetch("data/promocodes.json");
+
+        if (response.ok) promoCodes = await response.json();
+
+    } catch (error) {
+
+        console.error(error);
+
+    }
+
+    // Ссылка вида ?promo=КОД применяет скидку сразу — удобно раздавать организаторам
+    const fromUrl = new URLSearchParams(window.location.search).get("promo");
+
+    if (fromUrl && promoInput) {
+
+        promoInput.value = fromUrl.trim().toUpperCase();
+
+        applyPromo(fromUrl);
+
+    }
+
+}
+
+// ===============================
 // Загрузка JSON
 // ===============================
 
@@ -119,6 +224,8 @@ async function loadTemplates() {
         templates = await response.json();
 
         renderInitialView();
+
+        await loadPromoCodes();
 
     }
 
@@ -171,7 +278,7 @@ function renderTemplates(data) {
 
                 <h3>${template.title}</h3>
 
-                ${template.price ? `<span class="template-price">${formatPrice(template.price)}</span>` : ""}
+                ${priceMarkup(template.price)}
 
             </div>
 
@@ -358,7 +465,10 @@ modalButton.addEventListener("click", (event) => {
 
 "${selectedTemplate.title}"
 
-Хочу узнать стоимость 😊`;
+Хочу узнать стоимость 😊`
+    + (activePromo
+        ? `\n\nПромокод: ${activePromo.code} (скидка ${formatPrice(activePromo.discount)})`
+        : "");
 
     const url =
 `https://t.me/${TELEGRAM_USERNAME}?text=${encodeURIComponent(message)}`;

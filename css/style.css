@@ -710,6 +710,110 @@ section{
 
 }
 
+.promo{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin:-30px auto 50px;
+
+    max-width:520px;
+
+}
+
+.promo-input{
+
+    flex:1 1 200px;
+
+    min-width:0;
+
+    border:none;
+
+    background:white;
+
+    padding:15px 25px;
+
+    border-radius:50px;
+
+    font-family:inherit;
+
+    font-size:15px;
+
+    color:#2b2b2b;
+
+    text-transform:uppercase;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.06);
+
+}
+
+.promo-input::placeholder{
+
+    text-transform:none;
+
+}
+
+.promo-button{
+
+    border:none;
+
+    background:#7B3847;
+
+    color:white;
+
+    padding:15px 25px;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    font-family:inherit;
+
+    font-size:15px;
+
+}
+
+.promo-status{
+
+    flex-basis:100%;
+
+    text-align:center;
+
+    font-size:14px;
+
+    color:#7B3847;
+
+    min-height:1.2em;
+
+    margin:0;
+
+}
+
+.promo-status.is-error{
+
+    color:#b3261e;
+
+}
+
+.template-price-old{
+
+    margin-right:8px;
+
+    font-weight:400;
+
+    color:#8a8a8a;
+
+    text-decoration:line-through;
+
+}
+
 .template-price{
 
     display:inline-block;
