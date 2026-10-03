@@ -286,7 +286,7 @@ body{
 
     width:100%;
 
-    max-width:300px;
+    max-width:420px;
 
     display:block;
 
@@ -1445,6 +1445,14 @@ body.modal-open{
 
     }
 
+    .step-number{
+
+        margin-left:auto;
+
+        margin-right:auto;
+
+    }
+
 }
 
 @media (max-width:600px){
@@ -2055,7 +2063,7 @@ section{
     }
 
     .hero-phone {
-        max-width: 260px;
+        max-width: 340px;
         margin: 0 auto;
     }
 
@@ -2128,7 +2136,7 @@ section{
     }
 
     .hero-phone {
-        max-width: 210px;
+        max-width: 280px;
     }
 
 
@@ -2336,7 +2344,7 @@ section{
     }
 
     .hero-phone {
-        max-width: 170px;
+        max-width: 230px;
     }
 
 
