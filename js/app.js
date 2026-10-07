@@ -260,16 +260,19 @@ function renderTemplates(data) {
 
         card.className = "template-card";
 
+        card.dataset.cat = template.category;
+
         card.innerHTML = `
 
             <div class="template-image">
-
-                ${template.demoUrl ? `<span class="demo-badge">Есть демо</span>` : ""}
 
                 <img
                     src="${template.cover || template.image}"
                     alt="${template.title}"
                     loading="lazy"
+                    decoding="async"
+                    width="1200"
+                    height="900"
                 >
 
             </div>
@@ -292,6 +295,8 @@ function renderTemplates(data) {
         });
 
     });
+
+    fitFrames();
 
 }
 
@@ -917,12 +922,147 @@ if ("IntersectionObserver" in window) {
     }, { threshold: 0.12 });
 
     document.querySelectorAll(
-        ".catalog-header, .filters, .reviews .container, .faq-list, .contacts .container"
+        ".catalog-header, .catalog-tools, .features-grid, .about-grid, .reviews .container, .faq-list, .contacts .container"
     ).forEach(el => {
 
         el.classList.add("js-reveal");
 
         revealObserver.observe(el);
+
+    });
+
+}
+
+// =====================================
+// Живые превью приглашений в рамках телефона
+// iframe рисуется в «настоящем» размере 390px и уменьшается под рамку
+// =====================================
+
+const FRAME_WIDTH = 390;
+
+function fitFrames() {
+
+    document.querySelectorAll(".device .screen").forEach(device => {
+
+        const frame = device.querySelector("iframe");
+
+        if (!frame || !device.clientWidth) return;
+
+        const factor = device.clientWidth / FRAME_WIDTH;
+
+        frame.style.width = FRAME_WIDTH + "px";
+        frame.style.height = (device.clientHeight / factor) + "px";
+        frame.style.transform = `scale(${factor})`;
+
+    });
+
+}
+
+window.addEventListener("resize", fitFrames);
+window.addEventListener("load", fitFrames);
+fitFrames();
+
+// =====================================
+// Шапка: прячется при прокрутке вниз, появляется при прокрутке вверх
+// =====================================
+
+const siteHeader = document.querySelector(".header");
+
+let lastScrollY = window.scrollY;
+
+window.addEventListener("scroll", () => {
+
+    const y = window.scrollY;
+
+    siteHeader.classList.toggle("is-scrolled", y > 60);
+
+    siteHeader.classList.toggle("is-hidden", y > lastScrollY && y > 300);
+
+    lastScrollY = y;
+
+}, { passive: true });
+
+// =====================================
+// Заголовки появляются по словам
+// =====================================
+
+function splitWords(element) {
+
+    let index = 0;
+
+    const walk = (node) => {
+
+        [...node.childNodes].forEach(child => {
+
+            if (child.nodeType === Node.TEXT_NODE) {
+
+                const fragment = document.createDocumentFragment();
+
+                child.textContent.split(/(\s+)/).forEach(part => {
+
+                    if (!part) return;
+
+                    if (/^\s+$/.test(part)) {
+
+                        fragment.appendChild(document.createTextNode(" "));
+
+                        return;
+
+                    }
+
+                    const word = document.createElement("span");
+                    const inner = document.createElement("span");
+
+                    word.className = "w";
+                    inner.textContent = part;
+                    inner.style.setProperty("--i", index++);
+
+                    word.appendChild(inner);
+                    fragment.appendChild(word);
+
+                });
+
+                child.replaceWith(fragment);
+
+            } else if (child.nodeType === Node.ELEMENT_NODE && child.tagName !== "BR") {
+
+                walk(child);
+
+            }
+
+        });
+
+    };
+
+    walk(element);
+
+}
+
+const wordTargets = document.querySelectorAll(".hero h1, .section-title, .quote-text");
+
+if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window) {
+
+    const wordObserver = new IntersectionObserver((entries) => {
+
+        entries.forEach(entry => {
+
+            if (!entry.isIntersecting) return;
+
+            entry.target.classList.add("is-in");
+
+            wordObserver.unobserve(entry.target);
+
+        });
+
+    }, { threshold: 0.2 });
+
+    wordTargets.forEach(el => {
+
+        splitWords(el);
+
+        el.classList.add("split-words");
+
+        wordObserver.observe(el);
 
     });
 

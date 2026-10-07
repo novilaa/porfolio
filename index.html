@@ -10,7 +10,7 @@
     <title>Электронные приглашения на свадьбу, день рождения, гендер-пати | your.invite</title>
 
     <meta name="description" content="Стильные сайты-приглашения для свадьбы, дня рождения и гендер-пати. Готовые шаблоны от 2300 ₽, срок от 2 часов до 2 суток, форма ответа гостей в Google-таблице.">
-    <meta name="theme-color" content="#7B3847">
+    <meta name="theme-color" content="#151210">
     <meta name="yandex-verification" content="f08d549595933a90" />
     <link rel="canonical" href="https://yourinvitee.ru/">
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2716%27 fill=%27%237B3847%27/%3E%3Ctext x=%2732%27 y=%2744%27 font-size=%2740%27 text-anchor=%27middle%27 fill=%27white%27 font-family=%27serif%27%3Ey%3C/text%3E%3C/svg%3E">
@@ -30,6 +30,8 @@
     <meta name="twitter:description" content="Стильные сайты-приглашения для свадьбы, дня рождения и гендер-пати.">
     <meta name="twitter:image" content="https://yourinvitee.ru/images/og.jpg">
 
+    <link rel="preload" as="image" href="images/hero/photo.webp" fetchpriority="high">
+
     <link rel="preconnect"
           href="https://fonts.googleapis.com">
 
@@ -37,7 +39,7 @@
           href="https://fonts.gstatic.com"
           crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,500;0,600;1,500;1,600&family=Onest:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap"
           rel="stylesheet">
 
     <link rel="stylesheet"
@@ -74,20 +76,19 @@
         </nav>
 
 
-        <!-- Кнопка заказа -->
-        <a href="#contacts" class="header-button">
-            Заказать
-        </a>
+        <div class="header-actions">
 
+            <a href="#contacts" class="header-button">
+                Заказать
+            </a>
 
-        <!-- Кнопка меню -->
-        <button class="menu-button" id="menuButton" aria-label="Открыть меню">
+            <button class="menu-button" id="menuButton" aria-label="Открыть меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
-            <span></span>
-            <span></span>
-            <span></span>
-
-        </button>
+        </div>
 
     </div>
 
@@ -143,8 +144,8 @@
 
                 <h1>
 
-                    Электронные приглашения,<br>
-                    которые запоминаются
+                    Приглашения,<br>
+                    которые <em>запоминаются</em>
 
                 </h1>
 
@@ -167,15 +168,35 @@
 
                 </div>
 
+                <ul class="hero-facts">
+                    <li><strong>от 2 часов</strong>срок изготовления</li>
+                    <li><strong>от 2300 ₽</strong>готовый шаблон</li>
+                    <li><strong>Google</strong>таблица с ответами гостей</li>
+                </ul>
+
             </div>
 
             <div class="hero-right">
+
+                <div class="device fan-phone fan-left" aria-hidden="true">
+                    <div class="screen"><img src="images/hero/operation-birthday.jpg" alt="" width="390" height="800" decoding="async"></div>
+                </div>
 
                 <img
                     src="images/hero/photo.webp"
                     alt="Пример электронного приглашения" fetchpriority="high"
                     class="hero-phone"
                 >
+
+                <div class="device fan-phone fan-right" aria-hidden="true">
+                    <div class="screen"><img src="images/hero/gender-party.jpg" alt="" width="390" height="800" decoding="async"></div>
+                </div>
+
+                <div class="hero-stamp" aria-hidden="true">
+                    <small>демо</small>
+                    <strong>10</strong>
+                    <small>шаблонов</small>
+                </div>
 
             </div>
 
@@ -186,7 +207,14 @@
 </section>
 
 
-
+<div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+        <span>Свадьба</span><span>✦</span><span>День рождения</span><span>✦</span><span>Гендер-пати</span><span>✦</span><span>Корпоратив</span><span>✦</span>
+        <span>Свадьба</span><span>✦</span><span>День рождения</span><span>✦</span><span>Гендер-пати</span><span>✦</span><span>Корпоратив</span><span>✦</span>
+        <span>Свадьба</span><span>✦</span><span>День рождения</span><span>✦</span><span>Гендер-пати</span><span>✦</span><span>Корпоратив</span><span>✦</span>
+        <span>Свадьба</span><span>✦</span><span>День рождения</span><span>✦</span><span>Гендер-пати</span><span>✦</span><span>Корпоратив</span><span>✦</span>
+    </div>
+</div>
 
 
 <section id="catalog" class="catalog">
@@ -196,20 +224,21 @@
 
 <div class="catalog-header">
 
+<div>
+<span class="eyebrow">Каталог</span>
 <h2 class="section-title">
-Каталог шаблонов
+Выберите <em>свой</em> шаблон
 </h2>
+</div>
 
 <p>
 Выберите дизайн, который подойдет именно вашему событию
 </p>
 
-
 </div>
 
 
-
-
+<div class="catalog-tools">
 
 <!-- Фильтры -->
 
@@ -220,20 +249,18 @@
     </button>
 
     <button class="filter" data-category="Свадьба">
-        💍 Свадьба
+        Свадьба
     </button>
 
     <button class="filter" data-category="День рождения">
-        🎂 День рождения
+        День рождения
     </button>
 
     <button class="filter" data-category="Гендер-пати">
-        👶 Гендер-пати
+        Гендер-пати
     </button>
 
 </div>
-
-
 
 
 <!-- Промокод -->
@@ -258,6 +285,8 @@
 
 </form>
 
+</div>
+
 
 <!-- Карточки -->
 
@@ -276,17 +305,91 @@
 
 
 
+<section id="features" class="features">
+
+    <div class="container">
+
+        <div class="features-head">
+            <span class="eyebrow">Что внутри</span>
+            <h2 class="section-title">Всё для вашего <em>события</em> на одной странице</h2>
+        </div>
+
+        <ul class="features-grid">
+
+            <li>
+                <span class="feature-num">01</span>
+                <h3>Таймер до даты</h3>
+                <p>Живой обратный отсчёт до праздника: дни, часы, минуты и секунды.</p>
+            </li>
+
+            <li>
+                <span class="feature-num">02</span>
+                <h3>Место и маршрут</h3>
+                <p>Адрес, фото площадки и кнопка «Построить маршрут» в картах.</p>
+            </li>
+
+            <li>
+                <span class="feature-num">03</span>
+                <h3>Программа дня</h3>
+                <p>Таймлайн вечера, чтобы гости знали, что и когда будет происходить.</p>
+            </li>
+
+            <li>
+                <span class="feature-num">04</span>
+                <h3>Анкета гостей</h3>
+                <p>Подтверждение, выбор блюд и пожелания. Ответы падают в вашу Google-таблицу.</p>
+            </li>
+
+            <li>
+                <span class="feature-num">05</span>
+                <h3>Дресс-код</h3>
+                <p>Цветовая палитра и подсказки по образу, чтобы праздник выглядел цельно.</p>
+            </li>
+
+            <li>
+                <span class="feature-num">06</span>
+                <h3>Ваши фото</h3>
+                <p>Галерея и фотографии в оформлении под выбранный шаблон.</p>
+            </li>
+
+        </ul>
+
+    </div>
+
+</section>
+
+
+<section class="quote-band">
+
+    <div class="container">
+
+        <p class="quote-text">
+            Приглашение, которое гости <em>пересылают друг другу</em>
+        </p>
+
+    </div>
+
+</section>
+
+
 <section id="steps" class="steps">
 
     <div class="container">
 
-        <h2 class="section-title">
-            Как мы работаем
-        </h2>
+        <div class="steps-head">
 
-        <p class="steps-subtitle">
-            От выбора шаблона до готовой ссылки для гостей — всего пять шагов
-        </p>
+            <div>
+                <span class="eyebrow">Процесс</span>
+                <h2 class="section-title">
+                    Как мы <em>работаем</em>
+                </h2>
+            </div>
+
+            <p class="steps-subtitle">
+                От выбора шаблона до готовой ссылки для гостей — всего пять шагов
+            </p>
+
+        </div>
 
         <ol class="steps-list">
 
@@ -336,13 +439,43 @@
 
 
 
+<section id="about" class="about">
+
+    <div class="container about-grid">
+
+        <div class="about-head">
+            <span class="eyebrow">Обо мне</span>
+            <h2 class="section-title">Делаю приглашения <em>с душой</em></h2>
+        </div>
+
+        <div class="about-body">
+
+            <p>
+                Я лично общаюсь с каждым клиентом: подбираю шаблон под вашу дату и стиль,
+                собираю приглашение и вношу правки, пока результат вас не порадует.
+                Если среди готовых вариантов нет подходящего, разработаю дизайн с нуля.
+            </p>
+
+            <ul class="about-facts">
+                <li><strong>2 часа</strong>минимальный срок</li>
+                <li><strong>с нуля</strong>индивидуальный дизайн</li>
+                <li><strong>Google</strong>таблица с ответами</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+
 <section id="reviews" class="reviews">
 
     <div class="container">
 
         <h2 class="section-title">
 
-            Отзывы клиентов
+            Отзывы <em>клиентов</em>
 
         </h2>
 
@@ -378,7 +511,7 @@
     <div class="container">
 
         <h2 class="section-title">
-            Частые вопросы
+            Частые <em>вопросы</em>
         </h2>
 
         <div class="faq-list">
@@ -486,14 +619,20 @@
 
     <div class="container">
 
+        <div class="contacts-intro">
+
+        <span class="eyebrow">Контакты</span>
+
         <h2 class="section-title">
-            Свяжитесь со мной
+            Свяжитесь <em>со мной</em>
         </h2>
 
         <p class="contacts-text">
             Если у вас есть вопросы или вы хотите заказать электронное приглашение,
             напишите мне в удобной социальной сети.
         </p>
+
+        </div>
 
         <div class="socials">
 
@@ -553,12 +692,9 @@
 
     <div class="container">
 
-        <p>
+        <p>© 2026 your.invite. Все права защищены.</p>
 
-            © 2026 your.invite.
-            Все права защищены.
-
-        </p>
+        <p>Электронные приглашения на заказ</p>
 
     </div>
 
@@ -602,7 +738,7 @@
 
 </div>
 
-<script src="js/app.js"></script>
+<script src="js/app.js" defer></script>
 
 </body>
 

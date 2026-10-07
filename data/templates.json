@@ -72,14 +72,6 @@
     "demoUrl": "demo/birthday-pink/"
   },
   {
-    "id": 8,
-    "title": "Birthday классика",
-    "category": "День рождения",
-    "price": 2300,
-    "image": "images/birthday/birthday2.jpg",
-    "cover": "images/covers/birthday2.jpg"
-  },
-  {
     "id": 9,
     "title": "Операция день рождения",
     "category": "День рождения",

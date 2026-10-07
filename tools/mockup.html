@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><title>mockup</title>
+<style>
+*{margin:0;box-sizing:border-box}
+html,body{width:1200px;height:900px;overflow:hidden}
+body{background:radial-gradient(70% 60% at 50% 45%,var(--c2),var(--c1));position:relative;font-family:sans-serif}
+.glow{position:absolute;left:50%;top:50%;width:760px;height:760px;transform:translate(-50%,-50%);border-radius:50%;background:var(--c3);opacity:.55;filter:blur(90px)}
+.ph{position:absolute;width:var(--w);aspect-ratio:390/800;padding:7px;border-radius:15.7%/7.7%;
+ background:linear-gradient(145deg,#6c6a66,#2b2a28 18%,#4a4845 50%,#232220 82%,#5e5c58);
+ box-shadow:inset 0 0 0 1px rgba(255,255,255,.22),0 50px 70px -20px rgba(0,0,0,.45),0 18px 30px -10px rgba(0,0,0,.3)}
+.sc{position:relative;width:100%;height:100%;overflow:hidden;border-radius:14.4%/7%;background:#000}
+.sc::before{content:"";position:absolute;z-index:3;top:1.6%;left:50%;width:29%;height:3.1%;transform:translateX(-50%);border-radius:99px;background:#000}
+.sc::after{content:"";position:absolute;inset:0;z-index:3;border-radius:inherit;box-shadow:inset 0 0 0 2px #000;pointer-events:none}
+iframe{position:absolute;top:0;left:0;border:0;width:390px;height:800px;transform-origin:0 0;background:#fff}
+#p1{--w:250px;left:178px;top:150px;transform:rotate(-7deg);z-index:1}
+#p2{--w:330px;left:435px;top:70px;z-index:3}
+#p3{--w:250px;left:772px;top:150px;transform:rotate(7deg);z-index:1}
+</style></head><body>
+<div class="glow"></div>
+<div class="ph" id="p1"><div class="sc"><iframe></iframe></div></div>
+<div class="ph" id="p2"><div class="sc"><iframe></iframe></div></div>
+<div class="ph" id="p3"><div class="sc"><iframe></iframe></div></div>
+<script>
+const q=new URLSearchParams(location.search);
+const r=document.documentElement.style;
+r.setProperty('--c1',q.get('c1')||'#f3dcd6');r.setProperty('--c2',q.get('c2')||'#fbefeb');r.setProperty('--c3',q.get('c3')||'#e9b6aa');
+const url=q.get('d'), sc=(q.get('s')||'0;900;1800').split(';');
+['p1','p2','p3'].forEach((id,i)=>{
+  const sc_el=document.querySelector('#'+id+' .sc'), f=sc_el.querySelector('iframe');
+  const k=sc_el.clientWidth/390; f.style.transform='scale('+k+')';
+  f.style.height=(sc_el.clientHeight/k)+'px';
+  f.src='../'+url+'index.html';
+  f.onload=()=>{ const w=f.contentWindow, d=f.contentDocument;
+    d.documentElement.style.scrollBehavior='auto'; d.body.style.scrollBehavior='auto';
+    const target=[sc[1],sc[0],sc[2]][i];
+    const y=()=>/^\d+$/.test(target)?+target:d.querySelector(target).getBoundingClientRect().top+w.scrollY-8;
+    let t=0; const step=()=>{ const Y=y(); t=Math.min(Y,t+300); w.scrollTo(0,t); if(t<Y) setTimeout(step,250); else setTimeout(()=>w.scrollTo(0,Y),2500)}; setTimeout(step,300);
+  };
+});
+</script></body></html>
