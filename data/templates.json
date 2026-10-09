@@ -135,4 +135,14 @@
     "cover": "images/covers/birthday5.jpg",
     "demoUrl": "demo/space-kids/"
   }
+,
+  {
+    "id": 17,
+    "title": "Один шов, два цвета",
+    "category": "Гендер-пати",
+    "price": 2300,
+    "image": "images/gender/gender2.jpg",
+    "cover": "images/covers/gender2.jpg",
+    "demoUrl": "demo/gender-reveal/"
+  }
 ]

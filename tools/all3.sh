@@ -15,4 +15,6 @@ gen neon-party birthday4 "0;#info;#lineup;#rsvp" "0;#info;#count;#lineup;.gal;#d
 wait
 gen space-kids birthday5 "0;#mission;#plan;#rsvp" "0;#mission;#launch;#plan;.crew;#dress;.cal;footer;#rsvp" '#2c3190' '#0d1033' 'rgba(0,0,40,.6)'
 wait
+gen gender-reveal gender2 "0;#letter;#ticket;#rsvp" "0;#letter;#how;.tally;#ticket;.versions;#dress;footer;#rsvp" "#f7d3e1" "#dbe7fb" "rgba(60,50,110,.35)"
+wait
 echo ALLDONE
