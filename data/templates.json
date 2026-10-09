@@ -89,4 +89,50 @@
     "cover": "images/covers/gender1.jpg",
     "demoUrl": "demo/gender-party/"
   }
+,
+  {
+    "id": 12,
+    "title": "Киноплёнка",
+    "category": "Свадьба",
+    "price": 2300,
+    "image": "images/wedding/wedding8.jpg",
+    "cover": "images/covers/wedding8.jpg",
+    "demoUrl": "demo/film-roll/"
+  },
+  {
+    "id": 13,
+    "title": "Афиша",
+    "category": "Свадьба",
+    "price": 2300,
+    "image": "images/wedding/wedding9.jpg",
+    "cover": "images/covers/wedding9.jpg",
+    "demoUrl": "demo/poster-type/"
+  },
+  {
+    "id": 14,
+    "title": "Гербарий",
+    "category": "Свадьба",
+    "price": 2300,
+    "image": "images/wedding/wedding10.jpg",
+    "cover": "images/covers/wedding10.jpg",
+    "demoUrl": "demo/herbarium/"
+  },
+  {
+    "id": 15,
+    "title": "Neon Night",
+    "category": "День рождения",
+    "price": 2300,
+    "image": "images/birthday/birthday4.jpg",
+    "cover": "images/covers/birthday4.jpg",
+    "demoUrl": "demo/neon-party/"
+  },
+  {
+    "id": 16,
+    "title": "Космический праздник",
+    "category": "День рождения",
+    "price": 2300,
+    "image": "images/birthday/birthday5.jpg",
+    "cover": "images/covers/birthday5.jpg",
+    "demoUrl": "demo/space-kids/"
+  }
 ]

@@ -28,7 +28,7 @@ const url=q.get('d'), sc=q.get('s').split(';');
   const k=host.clientWidth/390; f.style.transform='scale('+k+')'; f.style.height=(host.clientHeight/k)+'px';
   f.src='../'+url+'index.html';
   f.onload=()=>{ const w=f.contentWindow, d=f.contentDocument;
-    d.documentElement.style.scrollBehavior='auto'; d.body.style.scrollBehavior='auto';
+    d.querySelectorAll('.reveal').forEach(e=>e.classList.add('visible')); d.documentElement.style.scrollBehavior='auto'; d.body.style.scrollBehavior='auto';
     const tg=sc[i];
     const y=()=>/^\d+$/.test(tg)?+tg:d.querySelector(tg).getBoundingClientRect().top+w.scrollY-4;
     let t=0; const step=()=>{ const Y=y(); t=Math.min(Y,t+300); w.scrollTo(0,t); if(t<Y) setTimeout(step,250); else setTimeout(()=>w.scrollTo(0,Y),2500)}; setTimeout(step,300);

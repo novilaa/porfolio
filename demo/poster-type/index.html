@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Илья + Алина — 21.08.2027</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Archivo+Black&family=Golos+Text:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #efede6;
+    --ink: #111111;
+    --accent: #ff4b1f;
+    --grey: #6d6a62;
+    --line: #111;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--paper); color: var(--ink); font-family: "Golos Text", sans-serif; font-size: 17px; line-height: 1.55; overflow-x: hidden; }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  .bebas { font-family: "Oswald", sans-serif; font-weight: 600; letter-spacing: .01em; }
+  .num { font-family: "Archivo Black", sans-serif; }
+  .reveal { opacity: 0; transform: translateY(40px); transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  .wrap { padding: 0 clamp(16px, 4vw, 56px); }
+
+  /* ===== HERO ===== */
+  .hero { min-height: 100vh; position: relative; padding: 24px clamp(16px, 4vw, 56px) 40px; display: grid; grid-template-rows: auto 1fr auto; border-bottom: 3px solid var(--ink); }
+  .top-bar { display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; font-weight: 500; border-bottom: 3px solid var(--ink); padding-bottom: 12px; }
+  .hero-names { font-size: clamp(3.4rem, 15vw, 14rem); line-height: .86; margin-top: 3vh; text-transform: uppercase; display: flex; flex-direction: column; }
+  .hero-names .plus { color: var(--accent); font-family: "Archivo Black", sans-serif; font-size: .5em; line-height: 1; margin: -0.02em 0 -.05em .02em; }
+  .hero-names span:last-child { align-self: flex-end; }
+  .hero-date { align-self: end; display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-top: 24px; }
+  .big-date { font-family: "Archivo Black", sans-serif; font-size: clamp(5rem, 24vw, 22rem); line-height: .8; letter-spacing: -.04em; background: #111 url("g3.jpg") center 63% / cover; -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; text-shadow: none; padding-bottom: .05em; }
+  .hero-side { max-width: 280px; font-size: 15px; }
+  .hero-side b { display: block; font-family: "Oswald", sans-serif; font-weight: 600; font-size: 2rem; letter-spacing: .02em; line-height: 1; margin-bottom: 8px; color: var(--accent); }
+  .tag { position: absolute; top: 90px; right: clamp(16px, 4vw, 56px); width: 118px; height: 118px; border-radius: 50%; background: var(--accent); color: var(--paper); display: grid; place-items: center; text-align: center; font-family: "Oswald", sans-serif; font-size: 1.35rem; line-height: 1; transform: rotate(12deg); text-decoration: none; transition: transform .4s; }
+  .tag:hover { transform: rotate(-6deg) scale(1.06); }
+
+  /* ===== ИНДЕКС ===== */
+  .index { padding-top: 90px; padding-bottom: 90px; }
+  .sec-label { display: flex; gap: 14px; align-items: baseline; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; font-weight: 500; margin-bottom: 18px; }
+  .sec-label b { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 1.6rem; color: var(--accent); letter-spacing: .02em; }
+  .row { display: grid; grid-template-columns: 1fr 2fr; gap: 20px; align-items: baseline; padding: 22px 0; border-top: 3px solid var(--ink); position: relative; transition: background .25s, color .25s, padding .25s; }
+  .row:last-child { border-bottom: 3px solid var(--ink); }
+  .row:hover { background: var(--ink); color: var(--paper); padding-left: 18px; padding-right: 18px; }
+  .row h3 { font-family: "Oswald", sans-serif; font-weight: 600; font-size: clamp(1.6rem, 3.4vw, 2.6rem); letter-spacing: .02em; line-height: 1; }
+  .row p { font-family: "Oswald", sans-serif; font-size: clamp(2.2rem, 7vw, 5.6rem); line-height: .95; letter-spacing: .005em; }
+  .row p small { display: block; font-family: "Golos Text", sans-serif; font-size: 15px; line-height: 1.5; color: var(--grey); margin-top: 8px; letter-spacing: 0; }
+  .row:hover p small { color: #bbb; }
+  .row a { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+
+  /* ===== ФОТО ===== */
+  .photos { position: relative; padding: 30px 0 120px; }
+  .collage { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; align-items: start; }
+  .collage figure { position: relative; }
+  .collage img { width: 100%; object-fit: cover; filter: grayscale(.15) contrast(1.05); }
+  .collage figcaption { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; margin-top: 8px; display: flex; justify-content: space-between; }
+  .f1 { grid-column: 1 / 6; } .f1 img { aspect-ratio: 4/5; }
+  .f2 { grid-column: 7 / 11; margin-top: 12vw; } .f2 img { aspect-ratio: 1; }
+  .f3 { grid-column: 2 / 6; margin-top: -2vw; } .f3 img { aspect-ratio: 1; }
+  .f4 { grid-column: 8 / 13; margin-top: 4vw; } .f4 img { aspect-ratio: 4/5; }
+  .shout { position: absolute; left: 0; right: 0; top: 46%; z-index: 2; pointer-events: none; font-family: "Oswald", sans-serif; font-size: clamp(4rem, 20vw, 19rem); line-height: .8; color: var(--accent); mix-blend-mode: multiply; white-space: nowrap; text-align: center; text-transform: uppercase; }
+
+  /* ===== ОТСЧЁТ ===== */
+  .count { background: var(--accent); color: var(--ink); padding: 70px 0 60px; border-top: 3px solid var(--ink); border-bottom: 3px solid var(--ink); }
+  .count-inner { display: grid; grid-template-columns: 2fr 1fr; gap: 50px; align-items: end; }
+  .countdown-numbers { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .count-item { border-top: 3px solid var(--ink); padding-top: 10px; }
+  .count-num { font-family: "Archivo Black", sans-serif; font-size: clamp(2rem, 6.2vw, 5.6rem); line-height: .95; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+  .count-lbl { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; font-weight: 500; }
+  .countdown-end { grid-column: 1 / -1; font-family: "Oswald", sans-serif; font-size: 5rem; }
+  .cal { background: var(--paper); padding: 18px; border: 3px solid var(--ink); }
+  .cal-head { font-family: "Oswald", sans-serif; font-size: 1.7rem; margin-bottom: 8px; }
+  .cal-wd, .cal-days { display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; }
+  .cal-wd span { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--grey); padding-bottom: 6px; }
+  .cal-day { height: 32px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 500; }
+  .cal-day.mark { background: var(--accent); color: var(--paper); border-radius: 50%; font-weight: 700; }
+
+  /* ===== ПРОГРАММА ===== */
+  .program { padding: 100px 0; }
+  .slot { display: grid; grid-template-columns: minmax(140px, 3fr) 6fr; gap: 20px; align-items: center; padding: 14px 0; border-top: 3px solid var(--ink); }
+  .slot:last-child { border-bottom: 3px solid var(--ink); }
+  .slot .t { font-family: "Archivo Black", sans-serif; font-size: clamp(2.4rem, 8vw, 6.5rem); line-height: 1; letter-spacing: -.04em; color: transparent; -webkit-text-stroke: 2px var(--ink); transition: color .3s; }
+  .slot:hover .t { color: var(--accent); -webkit-text-stroke-color: var(--accent); }
+  .slot h3 { font-family: "Oswald", sans-serif; font-weight: 600; font-size: clamp(1.8rem, 4vw, 3.2rem); line-height: 1; }
+  .slot p { color: var(--grey); font-size: 15px; margin-top: 4px; }
+
+  /* ===== ДРЕСС ===== */
+  .dress { padding: 0 0 110px; }
+  .dress-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 50px; align-items: end; }
+  .dress h2 { font-family: "Oswald", sans-serif; font-weight: 600; font-size: clamp(3.4rem, 10vw, 9rem); line-height: .84; text-transform: uppercase; }
+  .dress h2 em { font-style: normal; color: var(--accent); }
+  .dress p { max-width: 460px; margin-bottom: 20px; }
+  .bars { display: flex; height: 120px; border: 3px solid var(--ink); }
+  .bars i { flex: 1; display: flex; align-items: flex-end; padding: 8px; font-style: normal; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; font-weight: 500; transition: flex .4s; }
+  .bars i:hover { flex: 2.4; }
+
+  /* ===== RSVP ===== */
+  .rsvp { background: var(--ink); color: var(--paper); padding: 100px 0; }
+  .rsvp-grid { display: grid; grid-template-columns: 5fr 6fr; gap: 60px; }
+  .rsvp h2 { font-family: "Oswald", sans-serif; font-weight: 600; font-size: clamp(3.6rem, 11vw, 10rem); line-height: .84; text-transform: uppercase; }
+  .rsvp h2 em { font-style: normal; color: var(--accent); display: block; }
+  .rsvp .sub { margin-top: 22px; max-width: 360px; color: #aaa69b; }
+  .form-group { margin-bottom: 30px; }
+  .form-label { display: block; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; font-weight: 500; color: var(--accent); margin-bottom: 10px; }
+  .form-input { width: 100%; background: transparent; border: none; border-bottom: 3px solid var(--paper); color: var(--paper); padding: 6px 0 10px; font: 500 1.6rem "Oswald", sans-serif; letter-spacing: .02em; }
+  .form-input::placeholder { color: #5f5c54; }
+  .form-input:focus { outline: none; border-color: var(--accent); }
+  .radio-group, .check-group { display: flex; flex-wrap: wrap; gap: 10px; }
+  .radio-group label, .check-group label { cursor: pointer; }
+  .radio-group input, .check-group input { position: absolute; opacity: 0; pointer-events: none; }
+  .radio-group span, .check-group span { display: inline-block; border: 2px solid var(--paper); padding: 8px 18px; font-size: 15px; font-weight: 500; transition: .2s; }
+  input:checked + span { background: var(--accent); border-color: var(--accent); color: var(--ink); }
+  input:focus-visible + span { outline: 3px solid var(--accent); outline-offset: 3px; }
+  .form-error { display: none; color: #ff8a6a; font-size: 14px; margin-top: 8px; }
+  .form-group.error .form-error { display: block; }
+  .form-group.error .form-input { border-color: #ff8a6a; }
+  .note { font-size: 14px; color: #aaa69b; }
+  .submit-btn { margin-top: 24px; width: 100%; background: var(--accent); color: var(--ink); border: none; padding: 20px; font: 600 1.7rem "Oswald", sans-serif; letter-spacing: .04em; cursor: pointer; transition: .25s; text-transform: uppercase; }
+  .submit-btn:hover { background: var(--paper); }
+  .save-status { display: none; margin-top: 14px; padding: 12px 0; border-top: 3px solid var(--paper); font-weight: 500; }
+  .save-success { color: var(--accent); }
+  .save-error { color: #ff8a6a; }
+
+  footer { overflow: hidden; padding: 30px 0 20px; border-top: 3px solid var(--ink); background: var(--paper); }
+  footer .giant { font-family: "Oswald", sans-serif; font-size: 23vw; line-height: .8; white-space: nowrap; text-transform: uppercase; margin-left: -1vw; }
+  footer .giant em { font-style: normal; color: var(--accent); }
+  footer .small { display: flex; justify-content: space-between; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; font-weight: 500; margin-top: 12px; }
+
+  @media (max-width: 800px) {
+    body { font-size: 16px; }
+    .tag { width: 86px; height: 86px; font-size: 1.05rem; top: 70px; }
+    .hero-date { flex-direction: column; align-items: flex-start; }
+    .row { grid-template-columns: 1fr; gap: 4px; }
+    .collage { gap: 10px; }
+    .f1 { grid-column: 1 / 8; } .f2 { grid-column: 6 / 13; margin-top: 8vw; } .f3 { grid-column: 1 / 8; margin-top: 4vw; } .f4 { grid-column: 6 / 13; margin-top: 6vw; }
+    .count-inner, .dress-grid, .rsvp-grid { grid-template-columns: 1fr; gap: 36px; }
+    .slot { grid-template-columns: 1fr; gap: 0; }
+    .bars { height: 90px; }
+    .shout { top: 50%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+    .reveal { opacity: 1; transform: none; }
+  }
+</style>
+<base target="_blank">
+</head>
+<body>
+
+<header class="hero">
+  <div class="top-bar"><span>Свадебное приглашение</span><span>Москва · 2027</span></div>
+  <h1 class="hero-names bebas"><span>Илья</span><span class="plus">+</span><span>Алина</span></h1>
+  <a class="tag" href="#rsvp" target="_self">Ответить<br>на ↓</a>
+  <div class="hero-date">
+    <div class="big-date" aria-label="21 августа">21.08</div>
+    <div class="hero-side"><b>Суббота, 15:30</b>Усадьба «Тёплый двор», Московская область. Лето, сад, длинный стол и вы.</div>
+  </div>
+</header>
+
+<section class="index wrap" id="info">
+  <div class="sec-label"><b>01</b> Что, где и когда</div>
+  <div class="row reveal"><h3>Дата</h3><p>21 августа 2027<small>Суббота. Сбор гостей с 15:00.</small></p></div>
+  <div class="row reveal"><h3>Время</h3><p>15:30<small>Церемония в саду, затем фуршет и ужин до позднего вечера.</small></p></div>
+  <div class="row reveal"><h3>Место</h3><p>Усадьба «Тёплый двор»<small>МО, д. Лесная, ул. Садовая, 7 · <a href="https://maps.yandex.ru/?text=Московская+область+Новорижское+шоссе">открыть карту</a></small></p></div>
+  <div class="row reveal"><h3>Трансфер</h3><p>13:30, м. Планерная<small>Автобус до усадьбы и обратно после праздника.</small></p></div>
+</section>
+
+<section class="photos wrap" aria-label="Фотографии">
+  <div class="collage">
+    <figure class="f1 reveal"><img src="hero.jpg" alt="Пара идёт по холмам" loading="lazy"><figcaption><span>Fig. 1</span><span>Лето 2025</span></figcaption></figure>
+    <figure class="f2 reveal"><img src="g4.jpg" alt="Букет невесты" loading="lazy"><figcaption><span>Fig. 2</span><span>Букет</span></figcaption></figure>
+    <figure class="f3 reveal"><img src="g2.jpg" alt="Сервировка стола" loading="lazy"><figcaption><span>Fig. 3</span><span>Стол</span></figcaption></figure>
+    <figure class="f4 reveal"><img src="g1.jpg" alt="Цветы на столе" loading="lazy"><figcaption><span>Fig. 4</span><span>Детали</span></figcaption></figure>
+  </div>
+</section>
+
+<section class="count" id="count">
+  <div class="wrap count-inner">
+    <div>
+      <div class="sec-label"><b>02</b> До праздника</div>
+      <div class="countdown-numbers">
+        <div class="count-item"><div class="count-num" id="days">00</div><div class="count-lbl">Дней</div></div>
+        <div class="count-item"><div class="count-num" id="hours">00</div><div class="count-lbl">Часов</div></div>
+        <div class="count-item"><div class="count-num" id="minutes">00</div><div class="count-lbl">Минут</div></div>
+        <div class="count-item"><div class="count-num" id="seconds">00</div><div class="count-lbl">Секунд</div></div>
+      </div>
+    </div>
+    <div class="cal">
+      <div class="cal-head">Август 2027</div>
+      <div class="cal-wd"><span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span><span>Пт</span><span>Сб</span><span>Вс</span></div>
+      <div class="cal-days" id="calendarGrid"></div>
+    </div>
+  </div>
+</section>
+
+<section class="program wrap" id="program">
+  <div class="sec-label"><b>03</b> Программа дня</div>
+  <div class="slot reveal"><div class="t">15:00</div><div><h3>Сбор гостей</h3><p>Лимонад, закуски, знакомство</p></div></div>
+  <div class="slot reveal"><div class="t">15:30</div><div><h3>Церемония под аркой</h3><p>Недолго, трогательно, в саду</p></div></div>
+  <div class="slot reveal"><div class="t">16:30</div><div><h3>Фуршет и фото</h3><p>Живая гитара, пледы, закатный свет</p></div></div>
+  <div class="slot reveal"><div class="t">18:00</div><div><h3>Ужин за общим столом</h3><p>Сезонное меню, тосты и истории</p></div></div>
+  <div class="slot reveal"><div class="t">21:00</div><div><h3>Танцы у костра</h3><p>Гирлянды, музыка и первый танец</p></div></div>
+</section>
+
+<section class="dress wrap" id="dress">
+  <div class="dress-grid">
+    <h2 class="reveal">Дресс<em>-код</em></h2>
+    <div class="reveal">
+      <p>Лёгкие натуральные ткани и тёплые земляные оттенки. В саду будет трава: каблуки лучше оставить дома.</p>
+      <div class="bars" role="img" aria-label="Палитра: красный, песочный, оливковый, чёрный">
+        <i style="background:#ff4b1f">Красный</i><i style="background:#e5d3b3">Песок</i><i style="background:#8a8f5a">Олива</i><i style="background:#111;color:#efede6">Чёрный</i>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="rsvp" id="rsvp">
+  <div class="wrap rsvp-grid">
+    <div>
+      <h2>Вы <em>с нами?</em></h2>
+      <p class="sub">Ответьте до 1 июля 2027, чтобы мы всё успели подготовить и накрыть на всех.</p>
+    </div>
+    <form id="rsvpForm" novalidate>
+      <div class="form-group">
+        <label class="form-label" for="guestsNames">Имя и фамилия *</label>
+        <input class="form-input" type="text" id="guestsNames" placeholder="Как вас записать?" autocomplete="name">
+        <div class="form-error">Пожалуйста, введите имя</div>
+      </div>
+      <div class="form-group" role="group" aria-label="Присутствие">
+        <span class="form-label">Придёте? *</span>
+        <div class="radio-group">
+          <label><input type="radio" name="attendance" value="Да"><span>Да, буду</span></label>
+          <label><input type="radio" name="attendance" value="Нет"><span>Не смогу</span></label>
+        </div>
+        <div class="form-error">Выберите вариант</div>
+      </div>
+      <div class="form-group" role="group" aria-label="Напитки">
+        <span class="form-label">Напитки</span>
+        <div class="check-group">
+          <label><input type="checkbox" name="extra" value="Вино"><span>Вино</span></label>
+          <label><input type="checkbox" name="extra" value="Шампанское"><span>Шампанское</span></label>
+          <label><input type="checkbox" name="extra" value="Крепкое"><span>Крепкое</span></label>
+          <label><input type="checkbox" name="extra" value="Без алкоголя"><span>Без алкоголя</span></label>
+        </div>
+      </div>
+      <p class="note">Если с вами кто-то идёт, впишите имена через запятую.</p>
+      <button class="submit-btn" type="submit">Отправить ответ</button>
+      <div class="save-status" id="loadingStatus" role="status">Отправка...</div>
+      <div class="save-status save-success" id="successStatus" role="status">Спасибо! Ответ принят.</div>
+      <div class="save-status save-error" id="errorStatus" role="alert">Ошибка при отправке. Попробуйте позже.</div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="giant" aria-hidden="true">Илья<em>+</em>Алина</div>
+  <div class="small wrap"><span>21 · 08 · 2027</span><span>Ждём вас</span></div>
+</footer>
+
+<script>window.INVITE = { date: '2027-08-21T15:30:00+03:00', endText: 'Этот день настал!', scriptURL: '' };</script>
+<script src="script.js"></script>
+</body>
+</html>

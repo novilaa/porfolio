@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><title>mockup3</title>
+<style>
+*{margin:0;box-sizing:border-box}
+html,body{width:1448px;height:1086px;overflow:hidden}
+body{background:linear-gradient(160deg,var(--c2),var(--c1));position:relative}
+.pn{position:absolute;overflow:hidden;border-radius:10px;background:#fff;box-shadow:0 14px 34px -16px var(--sh),0 3px 8px -3px var(--sh)}
+iframe{position:absolute;top:0;left:0;border:0;width:390px;transform-origin:0 0;background:#fff}
+</style></head><body>
+<script>
+const q=new URLSearchParams(location.search), r=document.documentElement.style;
+r.setProperty('--c1',q.get('c1'));r.setProperty('--c2',q.get('c2'));r.setProperty('--sh',q.get('c3'));
+const url=q.get('d'), sc=q.get('s').split(';');
+const W=270, G=16, X0=19, Y0=48;
+const boxes=[[0,0,590],[0,1,380],[1,0,475],[1,1,495],[2,0,475],[2,1,495],[3,0,475],[3,1,495],[4,0,970]];
+// колонка 0: верх 590, низ 380; остальные 475/495
+const tops=c=>c===0?[Y0,Y0+590+G]:[Y0,Y0+475+G];
+boxes.forEach(([c,row,h],i)=>{
+  const b=document.createElement('div'); b.className='pn';
+  b.style.cssText=`left:${X0+c*(W+G)}px;top:${tops(c)[row]}px;width:${W}px;height:${h}px`;
+  const f=document.createElement('iframe'); b.appendChild(f); document.body.appendChild(b);
+  const k=W/390; f.style.transform='scale('+k+')'; f.style.height=(h/k)+'px';
+  f.src='../'+url+'index.html';
+  f.onload=()=>{ const w=f.contentWindow, d=f.contentDocument;
+    d.querySelectorAll('.reveal').forEach(e=>e.classList.add('visible')); d.documentElement.style.scrollBehavior='auto'; d.body.style.scrollBehavior='auto';
+    const tg=sc[i];
+    const y=()=>/^\d+$/.test(tg)?+tg:d.querySelector(tg).getBoundingClientRect().top+w.scrollY-4;
+    let t=0; const step=()=>{ const Y=y(); t=Math.min(Y,t+300); w.scrollTo(0,t); if(t<Y) setTimeout(step,250); else setTimeout(()=>w.scrollTo(0,Y),2500)}; setTimeout(step,300);
+  };
+});
+</script></body></html>

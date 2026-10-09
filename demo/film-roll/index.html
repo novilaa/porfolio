@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Артём & Милана — Катушка 12.06.2027</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --film: #0f0f0f;
+    --film-2: #1a1a1a;
+    --paper: #efe9dc;
+    --paper-dim: #b9b3a5;
+    --red: #e5391f;
+    --amber: #c9a24a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--film); color: var(--paper); font-family: "IBM Plex Mono", monospace; font-size: 15px; line-height: 1.7; overflow-x: hidden; }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+  .serif { font-family: "Playfair Display", serif; }
+
+  /* перфорация по краю плёнки */
+  .perf { position: fixed; top: 0; bottom: 0; width: 26px; z-index: 5; background: var(--film-2); pointer-events: none;
+    background-image: linear-gradient(var(--film) 0 12px, transparent 12px); background-size: 12px 26px; }
+  .perf::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(to bottom, transparent 0 8px, var(--film) 8px 22px, transparent 22px 30px); width: 10px; left: 8px; border-radius: 2px; }
+  .perf.l { left: 0; border-right: 1px solid #2a2a2a; }
+  .perf.r { right: 0; border-left: 1px solid #2a2a2a; }
+  main { padding: 0 38px; }
+
+  .meta { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--amber); }
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s, transform .8s; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* маркер */
+  .mark svg { position: absolute; pointer-events: none; overflow: visible; }
+  .mark path { fill: none; stroke: var(--red); stroke-width: 3.5; stroke-linecap: round; stroke-dasharray: 700; stroke-dashoffset: 700; }
+  .mark.visible path, .hero .mark path { animation: draw 1.6s .9s ease forwards; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+
+  /* ===== КАДР 1: HERO ===== */
+  .hero { min-height: 100vh; display: grid; grid-template-columns: 5fr 7fr; gap: 0; align-items: stretch; }
+  .hero-left { display: flex; flex-direction: column; justify-content: flex-end; padding: 40px 30px 60px 10px; }
+  .hero-left .meta { margin-bottom: auto; padding-top: 20px; }
+  .hero h1 { font-weight: 900; font-style: italic; font-size: clamp(3.6rem, 9.5vw, 8.5rem); line-height: .88; letter-spacing: -2px; margin: 40px 0 26px; }
+  .hero h1 span { display: block; }
+  .hero h1 .amp { font-weight: 400; color: var(--amber); font-size: .5em; margin: 6px 0 6px 12px; }
+  .hero-date { position: relative; display: inline-block; font-size: clamp(1.4rem, 3vw, 2rem); letter-spacing: 4px; padding: 12px 26px; align-self: flex-start; }
+  .hero-date svg { left: -8px; top: -8px; width: calc(100% + 16px); height: calc(100% + 16px); }
+  .hero-note { margin-top: 18px; color: var(--paper-dim); font-size: 13px; max-width: 320px; }
+  .hero-frame { position: relative; margin: 30px 0; border: 1px solid #333; background: #000; overflow: hidden; }
+  .hero-frame img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.08); animation: slow 18s ease-out both; }
+  @keyframes slow { from { transform: scale(1.12); } to { transform: scale(1); } }
+  .hero-frame .no { position: absolute; left: 14px; bottom: 12px; color: var(--amber); font-size: 12px; letter-spacing: 3px; text-shadow: 0 1px 4px #000; }
+  .hero-frame .no.r { left: auto; right: 14px; }
+
+  /* ===== КАДР 2: КОНТАКТНЫЙ ЛИСТ ===== */
+  section { padding: 110px 0; max-width: 1100px; margin: 0 auto; }
+  h2.sec { font-family: "Playfair Display", serif; font-weight: 700; font-style: italic; font-size: clamp(2.2rem, 6vw, 4.2rem); line-height: 1; margin: 12px 0 28px; }
+  .intro { max-width: 560px; color: var(--paper-dim); font-size: 15px; margin-bottom: 44px; }
+  .sheet { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; background: var(--film-2); padding: 10px; border: 1px solid #2a2a2a; }
+  .shot { position: relative; aspect-ratio: 3/2; background: #000; overflow: hidden; }
+  .shot img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.05); opacity: .78; transition: .4s; }
+  .shot:hover img { opacity: 1; }
+  .shot span { position: absolute; left: 8px; bottom: 6px; font-size: 10px; color: var(--amber); letter-spacing: 2px; }
+  .shot.pick { overflow: visible; }
+  .shot.pick img { opacity: 1; }
+  .shot.pick svg { inset: -10px; width: calc(100% + 20px); height: calc(100% + 20px); }
+  .shot.pick em { position: absolute; right: -4px; top: -26px; z-index: 2; font-style: normal; color: var(--red); font-size: 12px; letter-spacing: 3px; transform: rotate(-4deg); }
+  .sheet-cap { margin-top: 18px; color: var(--paper-dim); font-size: 12px; letter-spacing: 1px; }
+
+  /* ===== КАДР 3: ДАТА ===== */
+  .when { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: start; }
+  .cal { border: 1px solid #333; padding: 26px; background: var(--film-2); position: relative; }
+  .cal-head { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: var(--amber); margin-bottom: 14px; }
+  .cal-wd, .cal-days { display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; }
+  .cal-wd span { font-size: 10px; color: var(--paper-dim); padding-bottom: 8px; }
+  .cal-day { height: 38px; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+  .cal-day.mark { position: relative; color: #fff; font-weight: 500; }
+  .cal-day.mark::after { content: ""; position: absolute; width: 46px; height: 38px; border: 3px solid var(--red); border-radius: 50% 46% 52% 48% / 55% 50% 48% 50%; transform: rotate(-6deg); animation: pop .6s ease both; }
+  @keyframes pop { from { opacity: 0; transform: scale(1.6) rotate(-12deg); } }
+  .exp { margin-top: 10px; }
+  .countdown-numbers { display: flex; gap: 4px; margin: 14px 0 6px; }
+  .count-item { flex: 1; border-top: 2px solid var(--paper); padding-top: 10px; }
+  .count-num { font-family: "Playfair Display", serif; font-weight: 900; font-size: clamp(2.4rem, 5.5vw, 3.6rem); line-height: 1; font-variant-numeric: tabular-nums; }
+  .count-lbl { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--paper-dim); margin-top: 6px; }
+  .countdown-end { font-family: "Playfair Display", serif; font-style: italic; font-size: 2rem; color: var(--red); padding: 10px 0; }
+
+  /* ===== КАДР 4: CALL SHEET ===== */
+  .callsheet { background: var(--paper); color: #151515; padding: 44px 40px; position: relative; box-shadow: 14px 14px 0 var(--red); }
+  .callsheet .meta { color: #7a5f1e; }
+  .cs-head { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; border-bottom: 3px solid #151515; padding-bottom: 14px; margin-bottom: 8px; }
+  .cs-head h3 { font-family: "Playfair Display", serif; font-style: italic; font-weight: 900; font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1; }
+  .cs-head div { text-align: right; font-size: 12px; line-height: 1.5; }
+  .cs-row { display: grid; grid-template-columns: 70px 100px 1fr; gap: 16px; padding: 16px 0; border-bottom: 1px dashed #8d8777; align-items: baseline; }
+  .cs-row .sc { font-size: 11px; color: #7a5f1e; letter-spacing: 2px; }
+  .cs-row .tm { font-weight: 500; font-size: 18px; }
+  .cs-row b { font-family: "Playfair Display", serif; font-size: 1.25rem; font-weight: 700; display: block; }
+  .cs-row span { color: #4c473c; font-size: 13px; }
+  .loc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 28px; font-size: 13px; }
+  .loc-grid h4 { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #7a5f1e; margin-bottom: 6px; font-weight: 500; }
+  .loc-grid p { color: #2a2820; }
+  .loc-grid a { text-decoration: underline; text-underline-offset: 3px; }
+
+  /* ===== КАДР 5: КОСТЮМ ===== */
+  .costume { display: grid; grid-template-columns: 5fr 4fr; gap: 60px; align-items: center; }
+  .costume .pic { position: relative; }
+  .costume .pic img { width: 100%; aspect-ratio: 4/5; object-fit: cover; filter: grayscale(1) contrast(1.1); }
+  .costume .pic::after { content: "КОСТЮМ"; position: absolute; right: -14px; top: 24px; writing-mode: vertical-rl; font-size: 11px; letter-spacing: 6px; color: var(--amber); }
+  .costume p { color: var(--paper-dim); margin-bottom: 20px; }
+  .swatches { display: flex; gap: 0; margin-top: 10px; }
+  .swatches i { flex: 1; height: 54px; }
+  .swatch-names { display: flex; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--paper-dim); margin-top: 6px; }
+  .swatch-names span { flex: 1; }
+
+  /* ===== КАДР 6: RSVP ===== */
+  .rsvp-wrap { display: grid; grid-template-columns: 4fr 5fr; gap: 60px; align-items: start; }
+  .rsvp-wrap h2.sec { margin-top: 12px; }
+  .rsvp-form { border: 1px solid #444; padding: 34px; }
+  .form-group { margin-bottom: 26px; }
+  .form-label { display: block; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--amber); margin-bottom: 10px; }
+  .form-input { width: 100%; background: transparent; border: none; border-bottom: 2px solid #555; color: var(--paper); padding: 8px 0; font: 500 18px "IBM Plex Mono", monospace; transition: border-color .3s; }
+  .form-input::placeholder { color: #6d6a62; }
+  .form-input:focus { outline: none; border-color: var(--red); }
+  .radio-group, .check-group { display: flex; flex-direction: column; gap: 10px; }
+  .radio-group label, .check-group label { display: flex; align-items: center; gap: 12px; cursor: pointer; font-size: 14px; }
+  input[type=radio], input[type=checkbox] { appearance: none; width: 18px; height: 18px; border: 2px solid var(--paper-dim); background: transparent; cursor: pointer; flex: none; position: relative; }
+  input[type=radio]:checked, input[type=checkbox]:checked { border-color: var(--red); }
+  input[type=radio]:checked::after, input[type=checkbox]:checked::after { content: "✕"; position: absolute; inset: -3px 0 0 1px; color: var(--red); font-size: 16px; line-height: 20px; text-align: center; }
+  .form-error { display: none; color: #ff7a63; font-size: 12px; margin-top: 6px; }
+  .form-group.error .form-error { display: block; }
+  .form-group.error .form-input { border-color: #ff7a63; }
+  .note { font-size: 12px; color: var(--paper-dim); border-left: 3px solid var(--amber); padding-left: 12px; }
+  .submit-btn { margin-top: 24px; width: 100%; background: var(--red); color: #fff; border: none; padding: 16px; font: 500 13px "IBM Plex Mono", monospace; letter-spacing: 4px; text-transform: uppercase; cursor: pointer; transition: .25s; }
+  .submit-btn:hover { background: #fff; color: var(--film); }
+  .save-status { display: none; padding: 12px; margin-top: 14px; border: 1px solid #444; font-size: 13px; }
+  .save-success { color: var(--amber); border-color: var(--amber); }
+  .save-error { color: #ff7a63; border-color: #ff7a63; }
+
+  /* ===== ТИТРЫ ===== */
+  footer { text-align: center; padding: 120px 20px 100px; }
+  footer .serif { font-style: italic; font-weight: 900; font-size: clamp(2.6rem, 8vw, 6rem); line-height: 1; }
+  .credits { margin-top: 36px; color: var(--paper-dim); font-size: 12px; letter-spacing: 3px; text-transform: uppercase; line-height: 2.2; }
+
+  @media (max-width: 820px) {
+    main { padding: 0 30px 0 36px; }
+    .perf { width: 20px; } .perf::before { left: 5px; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-frame { order: -1; margin: 22px 0 0; aspect-ratio: 4/5; }
+    .hero-left { padding: 20px 0 50px; }
+    section { padding: 70px 0; }
+    .sheet { grid-template-columns: repeat(2, 1fr); }
+    .when, .costume, .rsvp-wrap, .loc-grid { grid-template-columns: 1fr; gap: 36px; }
+    .callsheet { padding: 28px 20px; box-shadow: 8px 8px 0 var(--red); }
+    .cs-row { grid-template-columns: 52px 62px 1fr; gap: 10px; }
+    .cs-head div { text-align: left; }
+    .costume .pic::after { display: none; }
+    .rsvp-form { padding: 24px 18px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+    .reveal { opacity: 1; transform: none; }
+    .mark path { stroke-dashoffset: 0; }
+  }
+</style>
+<base target="_blank">
+</head>
+<body>
+<div class="perf l" aria-hidden="true"></div><div class="perf r" aria-hidden="true"></div>
+
+<main>
+  <!-- КАДР 1 -->
+  <header class="hero">
+    <div class="hero-left">
+      <div class="meta">Катушка № 2027 · 36 кадров · ISO 400</div>
+      <h1 class="serif"><span>Артём</span><span class="amp">и</span><span>Милана</span></h1>
+      <div class="hero-date mark"><svg viewBox="0 0 300 80" preserveAspectRatio="none" aria-hidden="true"><path d="M20 12 C80 -2 250 -4 288 24 C312 50 230 78 120 76 C40 74 -6 56 6 34 C16 14 80 8 150 6"/></svg>12 · 06 · 2027</div>
+      <p class="hero-note">Приглашаем вас стать частью главного кадра нашей жизни. Санкт-Петербург, 16:00.</p>
+    </div>
+    <div class="hero-frame">
+      <img src="hero.jpg" alt="Жених и невеста под фатой, чёрно-белая фотография">
+      <span class="no">▶ 12A</span><span class="no r">B&amp;W 400</span>
+    </div>
+  </header>
+
+  <!-- КАДР 2 -->
+  <section id="chosen">
+    <div class="meta">Кадр 02 · Контактный лист</div>
+    <h2 class="sec">Из тысяч кадров мы выбрали один</h2>
+    <p class="intro reveal">Мы вместе уже много лет, и фотографий накопилось столько, что хватило бы на сотню катушек. Но выбрать пришлось один главный кадр — тот, где мы вместе навсегда. Приходите его снять.</p>
+    <div class="sheet reveal">
+      <div class="shot"><img src="about.jpg" alt="" loading="lazy"><span>1</span></div>
+      <div class="shot"><img src="g2.jpg" alt="" loading="lazy"><span>2</span></div>
+      <div class="shot pick mark reveal"><img src="hero.jpg" alt="" loading="lazy"><span>3</span><em>ВЫБРАНО</em><svg viewBox="0 0 300 200" preserveAspectRatio="none" aria-hidden="true"><path d="M30 20 C100 -6 260 -4 290 40 C306 90 296 150 270 178 C200 206 70 204 24 176 C-4 130 -2 60 22 28 C40 8 80 0 140 2"/></svg></div>
+      <div class="shot"><img src="g1.jpg" alt="" loading="lazy"><span>4</span></div>
+      <div class="shot"><img src="g3.jpg" alt="" loading="lazy"><span>5</span></div>
+      <div class="shot"><img src="venue.jpg" alt="" loading="lazy"><span>6</span></div>
+    </div>
+    <p class="sheet-cap">Красный маркер — наш выбор. Остальные кадры остаются в архиве.</p>
+  </section>
+
+  <!-- КАДР 3 -->
+  <section id="when">
+    <div class="meta">Кадр 03 · Дата съёмки</div>
+    <h2 class="sec">Июнь, суббота</h2>
+    <div class="when">
+      <div class="cal reveal">
+        <div class="cal-head">Июнь 2027</div>
+        <div class="cal-wd"><span>ПН</span><span>ВТ</span><span>СР</span><span>ЧТ</span><span>ПТ</span><span>СБ</span><span>ВС</span></div>
+        <div class="cal-days" id="calendarGrid"></div>
+      </div>
+      <div class="exp reveal">
+        <div class="meta">До начала экспозиции</div>
+        <div class="countdown-numbers">
+          <div class="count-item"><div class="count-num" id="days">00</div><div class="count-lbl">дней</div></div>
+          <div class="count-item"><div class="count-num" id="hours">00</div><div class="count-lbl">часов</div></div>
+          <div class="count-item"><div class="count-num" id="minutes">00</div><div class="count-lbl">минут</div></div>
+          <div class="count-item"><div class="count-num" id="seconds">00</div><div class="count-lbl">секунд</div></div>
+        </div>
+        <p style="color:var(--paper-dim);font-size:13px;margin-top:20px">Съёмочный день начинается в 15:30. Просим не опаздывать: дубля не будет.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- КАДР 4 -->
+  <section id="schedule">
+    <div class="callsheet reveal">
+      <div class="cs-head">
+        <h3>Съёмочный день</h3>
+        <div>Производство: Артём &amp; Милана<br>Дата: 12.06.2027<br>Старт: 15:30</div>
+      </div>
+      <div class="cs-row"><div class="sc">СЦ. 1</div><div class="tm">15:30</div><div><b>Сбор группы</b><span>Встреча у набережной Мойки, 12. Лёгкие напитки.</span></div></div>
+      <div class="cs-row"><div class="sc">СЦ. 2</div><div class="tm">16:00</div><div><b>Главная сцена — церемония</b><span>Клятвы, кольца, первые аплодисменты.</span></div></div>
+      <div class="cs-row"><div class="sc">СЦ. 3</div><div class="tm">17:00</div><div><b>Натурные съёмки</b><span>Общее фото и прогулка по старому центру.</span></div></div>
+      <div class="cs-row"><div class="sc">СЦ. 4</div><div class="tm">18:00</div><div><b>Банкет в павильоне</b><span>Ужин, тосты и живой джаз-квартет.</span></div></div>
+      <div class="cs-row"><div class="sc">СЦ. 5</div><div class="tm">20:30</div><div><b>Первый танец</b><span>И торт — самый сладкий дубль вечера.</span></div></div>
+      <div class="cs-row"><div class="sc">СЦ. 6</div><div class="tm">23:00</div><div><b>Финальные титры</b><span>Салют, объятия, расходимся счастливыми.</span></div></div>
+      <div class="loc-grid">
+        <div><h4>Локация 1 · Церемония</h4><p>Набережная реки Мойки, 12<br><a href="https://maps.yandex.ru/?text=набережная+реки+Мойки+12+Санкт-Петербург">Открыть на карте</a></p></div>
+        <div><h4>Локация 2 · Банкет</h4><p>«Золотой зал», Невский проспект, 35<br><a href="https://maps.yandex.ru/?text=Невский+проспект+35+Санкт-Петербург">Открыть на карте</a></p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- КАДР 5 -->
+  <section id="costume">
+    <div class="costume">
+      <div class="pic reveal"><img src="g3.jpg" alt="" loading="lazy"></div>
+      <div class="reveal">
+        <div class="meta">Кадр 05 · Костюм</div>
+        <h2 class="sec">Чёрно-белое кино</h2>
+        <p>Вечерние платья в пол, смокинги и галстуки-бабочки. Играем в чёрно-белое кино: чёрный, белый и один тёплый акцент по желанию.</p>
+        <div class="swatches"><i style="background:#0f0f0f;border:1px solid #444"></i><i style="background:#efe9dc"></i><i style="background:#8a8a8a"></i><i style="background:#c9a24a"></i></div>
+        <div class="swatch-names"><span>Чёрный</span><span>Айвори</span><span>Серый</span><span>Янтарь</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- КАДР 6 -->
+  <section id="rsvp">
+    <div class="rsvp-wrap">
+      <div class="reveal">
+        <div class="meta">Кадр 06 · Заявка в массовку</div>
+        <h2 class="sec">Вы в нашем фильме?</h2>
+        <p class="intro" style="margin-bottom:0">Ответьте до 1 мая 2027, чтобы мы успели внести вас в список участников и расставить по местам.</p>
+      </div>
+      <form class="rsvp-form reveal" id="rsvpForm" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="guestsNames">Имя участника *</label>
+          <input class="form-input" type="text" id="guestsNames" placeholder="Имя и фамилия" autocomplete="name">
+          <div class="form-error">Введите, пожалуйста, имя</div>
+        </div>
+        <div class="form-group" role="group" aria-label="Присутствие">
+          <span class="form-label">Явка *</span>
+          <div class="radio-group">
+            <label><input type="radio" name="attendance" value="Да">Буду на площадке</label>
+            <label><input type="radio" name="attendance" value="Нет">Не смогу, но обнимаю</label>
+          </div>
+          <div class="form-error">Выберите вариант</div>
+        </div>
+        <div class="form-group" role="group" aria-label="Напитки">
+          <span class="form-label">Реквизит (напитки)</span>
+          <div class="check-group">
+            <label><input type="checkbox" name="extra" value="Шампанское">Шампанское</label>
+            <label><input type="checkbox" name="extra" value="Красное вино">Красное вино</label>
+            <label><input type="checkbox" name="extra" value="Виски">Виски</label>
+            <label><input type="checkbox" name="extra" value="Безалкогольное">Безалкогольное</label>
+          </div>
+        </div>
+        <div class="note">Если приходите с парой, укажите оба имени в одной строке.</div>
+        <button class="submit-btn" type="submit">Отправить</button>
+        <div class="save-status" id="loadingStatus" role="status">Отправка...</div>
+        <div class="save-status save-success" id="successStatus" role="status">Принято. Вы в списке!</div>
+        <div class="save-status save-error" id="errorStatus" role="alert">Ошибка при отправке. Попробуйте позже.</div>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="meta">Конец катушки</div>
+    <div class="serif" style="margin-top:14px">Артём &amp; Милана</div>
+    <div class="credits">Режиссёры — Артём и Милана<br>В главных ролях — вы<br>12 · 06 · 2027</div>
+  </footer>
+</main>
+
+<script>window.INVITE = { date: '2027-06-12T16:00:00+03:00', endText: 'Мотор! Съёмки начались.', scriptURL: '' };</script>
+<script src="script.js"></script>
+</body>
+</html>

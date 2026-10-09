@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Даниил 30 — Neon Night</title>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;500;700;900&family=Manrope:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  :root {
+    --bg: #09060f;
+    --bg-2: #120c1f;
+    --card: #1a1230;
+    --pink: #ff2e93;
+    --cyan: #22e4ff;
+    --lime: #c6ff3d;
+    --violet: #8b5cff;
+    --text: #f4f0ff;
+    --muted: #a99fc7;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: "Manrope", sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; overflow-x: hidden; }
+  img { display: block; max-width: 100%; }
+  .display { font-family: "Unbounded", sans-serif; }
+
+  /* ===== HERO ===== */
+  .hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 60px 20px 90px; overflow: hidden; background: url('hero.jpg') center / cover; }
+  .hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 50% 40%, rgba(139,92,255,.25), rgba(9,6,15,.92) 70%), linear-gradient(to bottom, rgba(9,6,15,.5), var(--bg)); }
+  .hero > * { position: relative; }
+  .pill { display: inline-block; padding: 8px 20px; border: 1px solid var(--cyan); color: var(--cyan); border-radius: 40px; font-size: .74em; letter-spacing: 4px; text-transform: uppercase; box-shadow: 0 0 18px rgba(34,228,255,.35), inset 0 0 12px rgba(34,228,255,.15); }
+  .big30 { font-family: "Unbounded", sans-serif; font-weight: 900; font-size: clamp(8em, 34vw, 19em); line-height: .9; color: transparent; -webkit-text-stroke: 3px var(--pink); text-shadow: 0 0 30px rgba(255,46,147,.7), 0 0 80px rgba(255,46,147,.45); margin: 18px 0 6px; animation: flicker 4s infinite; }
+  @keyframes flicker { 0%, 18%, 22%, 60%, 64%, 100% { opacity: 1; } 20%, 62% { opacity: .55; } }
+  .hero h1 { font-family: "Unbounded", sans-serif; font-weight: 500; font-size: clamp(1.1em, 4vw, 1.9em); letter-spacing: 6px; text-transform: uppercase; }
+  .hero h1 span { color: var(--cyan); text-shadow: 0 0 16px rgba(34,228,255,.8); }
+  .hero-meta { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 12px 30px; justify-content: center; color: var(--muted); font-size: .95em; }
+  .hero-meta i { color: var(--lime); margin-right: 8px; }
+  .scroll { position: absolute !important; bottom: 24px; left: 50%; transform: translateX(-50%); width: 24px; height: 40px; border: 2px solid var(--muted); border-radius: 14px; }
+  .scroll::after { content: ""; position: absolute; top: 7px; left: 50%; width: 4px; height: 8px; margin-left: -2px; background: var(--pink); border-radius: 4px; animation: dot 1.6s infinite; }
+  @keyframes dot { to { transform: translateY(14px); opacity: 0; } }
+
+  /* ===== БЕГУЩАЯ СТРОКА ===== */
+  .marquee { background: var(--lime); color: #101010; overflow: hidden; white-space: nowrap; padding: 14px 0; transform: rotate(-1.2deg); margin: 0 -10px; font-family: "Unbounded", sans-serif; font-weight: 700; font-size: .95em; letter-spacing: 3px; text-transform: uppercase; box-shadow: 0 0 40px rgba(198,255,61,.35); }
+  .marquee div { display: inline-block; animation: slide 22s linear infinite; }
+  @keyframes slide { to { transform: translateX(-50%); } }
+
+  /* ===== ОБЩЕЕ ===== */
+  section { padding: 90px 20px; position: relative; }
+  .wrap { max-width: 1040px; margin: 0 auto; }
+  .tag { font-family: "Unbounded", sans-serif; font-size: .72em; color: var(--pink); letter-spacing: 5px; text-transform: uppercase; display: block; margin-bottom: 10px; }
+  h2.title { font-family: "Unbounded", sans-serif; font-weight: 700; font-size: clamp(1.8em, 6vw, 3.2em); line-height: 1.1; text-transform: uppercase; margin-bottom: 40px; }
+  h2.title em { font-style: normal; color: var(--cyan); text-shadow: 0 0 22px rgba(34,228,255,.6); }
+  .reveal { opacity: 0; transform: translateY(26px) scale(.98); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ===== BENTO ===== */
+  .bento { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
+  .cell { background: var(--card); border: 1px solid rgba(139,92,255,.35); border-radius: 26px; padding: 28px; position: relative; overflow: hidden; }
+  .cell.c1 { grid-column: span 3; }
+  .cell.c2 { grid-column: span 3; }
+  .cell.c3 { grid-column: span 2; }
+  .cell.c4 { grid-column: span 4; padding: 0; min-height: 230px; background: url('venue.jpg') center / cover; }
+  .cell.c4::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(9,6,15,.85), transparent 60%); }
+  .cell.c4 .over { position: absolute; z-index: 2; left: 26px; bottom: 22px; right: 26px; }
+  .cell .k { font-size: .7em; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); }
+  .cell .v { font-family: "Unbounded", sans-serif; font-weight: 700; font-size: 1.9em; line-height: 1.15; margin-top: 8px; }
+  .cell .v small { display: block; font-size: .45em; font-weight: 400; color: var(--muted); margin-top: 6px; font-family: "Manrope", sans-serif; }
+  .c1 .v { color: var(--pink); } .c2 .v { color: var(--cyan); } .c3 .v { color: var(--lime); }
+  .cell i.bg { position: absolute; right: -10px; bottom: -14px; font-size: 6em; opacity: .07; }
+  .btn { display: inline-block; margin-top: 14px; padding: 12px 26px; background: var(--pink); color: #fff; border-radius: 40px; text-decoration: none; font-weight: 700; font-size: .78em; letter-spacing: 2px; text-transform: uppercase; box-shadow: 0 0 24px rgba(255,46,147,.55); transition: .3s; }
+  .btn:hover { transform: translateY(-2px) scale(1.03); }
+
+  /* ===== ОТСЧЁТ + КАЛЕНДАРЬ ===== */
+  .count { background: var(--bg-2); text-align: center; }
+  .count-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: center; text-align: left; }
+  .countdown-numbers { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .count-item { background: var(--card); border: 1px solid rgba(34,228,255,.4); border-radius: 22px; padding: 24px 10px; text-align: center; box-shadow: 0 0 28px rgba(34,228,255,.12); }
+  .count-num { font-family: "Unbounded", sans-serif; font-weight: 700; font-size: 3em; line-height: 1; color: var(--cyan); text-shadow: 0 0 20px rgba(34,228,255,.7); }
+  .count-lbl { margin-top: 8px; font-size: .7em; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); }
+  .countdown-end { grid-column: 1 / -1; font-family: "Unbounded", sans-serif; padding: 30px; color: var(--lime); }
+  .cal { background: var(--card); border-radius: 26px; border: 1px solid rgba(255,46,147,.4); padding: 26px; max-width: 360px; margin: 0 auto; width: 100%; }
+  .cal-head { font-family: "Unbounded", sans-serif; text-transform: uppercase; letter-spacing: 3px; text-align: center; margin-bottom: 14px; color: var(--pink); }
+  .cal-wd, .cal-days { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; text-align: center; }
+  .cal-wd span { font-size: .66em; color: var(--muted); text-transform: uppercase; padding-bottom: 6px; }
+  .cal-day { height: 34px; display: flex; align-items: center; justify-content: center; font-size: .88em; }
+  .cal-day.mark { background: var(--pink); color: #fff; border-radius: 10px; font-weight: 700; box-shadow: 0 0 20px rgba(255,46,147,.8); }
+
+  /* ===== LINEUP ===== */
+  .lineup { display: flex; flex-direction: column; }
+  .slot { display: grid; grid-template-columns: 130px 1fr auto; gap: 20px; align-items: center; padding: 22px 6px; border-bottom: 1px solid rgba(169,159,199,.2); transition: .3s; }
+  .slot:hover { padding-left: 18px; background: linear-gradient(90deg, rgba(255,46,147,.12), transparent); }
+  .slot .time { font-family: "Unbounded", sans-serif; font-weight: 700; font-size: 1.5em; color: var(--lime); }
+  .slot h3 { font-family: "Unbounded", sans-serif; font-weight: 500; font-size: 1.1em; text-transform: uppercase; }
+  .slot p { color: var(--muted); font-size: .9em; }
+  .slot i { color: var(--pink); font-size: 1.4em; }
+
+  /* ===== ГАЛЕРЕЯ ===== */
+  .gal { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .gal div { aspect-ratio: 3/4; border-radius: 24px; background-size: cover; background-position: center; position: relative; overflow: hidden; border: 1px solid rgba(139,92,255,.4); }
+  .gal div::after { content: ""; position: absolute; inset: 0; background: linear-gradient(160deg, rgba(255,46,147,.35), rgba(34,228,255,.25)); mix-blend-mode: soft-light; }
+  .gal div:nth-child(even) { transform: translateY(26px); }
+
+  /* ===== ДРЕСС ===== */
+  .dress { text-align: center; padding-top: 120px; }
+  .dress p { max-width: 560px; margin: -14px auto 34px; color: var(--muted); }
+  .chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+  .chip { padding: 14px 26px; border-radius: 40px; font-family: "Unbounded", sans-serif; font-weight: 500; font-size: .8em; letter-spacing: 2px; text-transform: uppercase; color: #fff; }
+  .chip.p { background: var(--pink); box-shadow: 0 0 24px rgba(255,46,147,.6); }
+  .chip.c { background: var(--cyan); color: #06222a; box-shadow: 0 0 24px rgba(34,228,255,.6); }
+  .chip.l { background: var(--lime); color: #1a2200; box-shadow: 0 0 24px rgba(198,255,61,.5); }
+  .chip.v { background: var(--violet); box-shadow: 0 0 24px rgba(139,92,255,.6); }
+  .chip.b { background: #000; border: 1px solid var(--muted); }
+
+  /* ===== RSVP ===== */
+  .rsvp { background: var(--bg-2); }
+  .rsvp-form { max-width: 620px; margin: 0 auto; background: var(--card); border: 1px solid var(--pink); border-radius: 30px; padding: 44px 38px; box-shadow: 0 0 60px rgba(255,46,147,.2); }
+  .form-group { margin-bottom: 24px; }
+  .form-label { display: block; font-family: "Unbounded", sans-serif; font-size: .7em; letter-spacing: 3px; text-transform: uppercase; color: var(--cyan); margin-bottom: 10px; }
+  .form-input { width: 100%; background: var(--bg); border: 1px solid rgba(169,159,199,.35); border-radius: 14px; padding: 14px 16px; font: 400 1em "Manrope", sans-serif; color: var(--text); transition: .3s; }
+  .form-input:focus { outline: none; border-color: var(--pink); box-shadow: 0 0 0 3px rgba(255,46,147,.25); }
+  .radio-group, .check-group { display: flex; flex-wrap: wrap; gap: 10px; }
+  .radio-group label, .check-group label { display: flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 40px; border: 1px solid rgba(169,159,199,.35); cursor: pointer; font-size: .92em; transition: .2s; }
+  .radio-group label:has(input:checked), .check-group label:has(input:checked) { background: var(--pink); border-color: var(--pink); box-shadow: 0 0 18px rgba(255,46,147,.55); }
+  .radio-group input, .check-group input { display: none; }
+  .form-error { display: none; color: #ff7a8a; font-size: .82em; margin-top: 6px; }
+  .form-group.error .form-error { display: block; }
+  .form-group.error .form-input { border-color: #ff7a8a; }
+  .note { color: var(--muted); font-size: .86em; border-left: 3px solid var(--lime); padding-left: 14px; }
+  .submit-btn { width: 100%; margin-top: 22px; border: none; border-radius: 40px; background: linear-gradient(90deg, var(--pink), var(--violet)); color: #fff; padding: 17px; font: 700 .85em "Unbounded", sans-serif; letter-spacing: 3px; text-transform: uppercase; cursor: pointer; box-shadow: 0 0 30px rgba(255,46,147,.5); transition: .3s; }
+  .submit-btn:hover { transform: translateY(-2px); }
+  .save-status { display: none; text-align: center; padding: 12px; margin-top: 16px; border-radius: 14px; border: 1px solid rgba(169,159,199,.35); font-size: .9em; }
+  .save-success { color: var(--lime); border-color: var(--lime); }
+  .save-error { color: #ff7a8a; border-color: #ff7a8a; }
+
+  footer { text-align: center; padding: 70px 20px 50px; }
+  footer .display { font-weight: 900; font-size: clamp(2em, 8vw, 3.6em); color: transparent; -webkit-text-stroke: 1.5px var(--cyan); text-shadow: 0 0 24px rgba(34,228,255,.5); }
+  footer p { color: var(--muted); letter-spacing: 4px; font-size: .78em; text-transform: uppercase; margin-top: 8px; }
+
+  @media (max-width: 800px) {
+    section { padding: 64px 16px; }
+    .bento { grid-template-columns: 1fr; }
+    .cell.c1, .cell.c2, .cell.c3, .cell.c4 { grid-column: auto; }
+    .count-grid { grid-template-columns: 1fr; }
+    .slot { grid-template-columns: 90px 1fr; }
+    .slot i { display: none; }
+    .gal { grid-template-columns: repeat(2, 1fr); }
+    .rsvp-form { padding: 30px 20px; }
+  }
+</style>
+<base target="_blank">
+</head>
+<body>
+
+<header class="hero">
+  <span class="pill">Neon Night · Закрытая вечеринка</span>
+  <div class="big30">30</div>
+  <h1>Даниил <span>отмечает</span></h1>
+  <div class="hero-meta">
+    <div><i class="fas fa-calendar-days"></i>14 ноября 2026</div>
+    <div><i class="fas fa-clock"></i>Старт в 20:00</div>
+    <div><i class="fas fa-location-dot"></i>Клуб «Ультрафиолет», Москва</div>
+  </div>
+  <div class="scroll"></div>
+</header>
+
+<div class="marquee"><div>Dance · Neon · Friends · Cocktails · 30 лет · Dance · Neon · Friends · Cocktails · 30 лет · Dance · Neon · Friends · Cocktails · 30 лет · Dance · Neon · Friends · Cocktails · 30 лет ·&nbsp;</div></div>
+
+<section id="info">
+  <div class="wrap">
+    <span class="tag">Детали</span>
+    <h2 class="title">Тебя ждут <em>на танцполе</em></h2>
+    <div class="bento">
+      <div class="cell c1 reveal"><div class="k">Дата</div><div class="v">14.11<small>суббота, 2026</small></div><i class="bg fas fa-calendar"></i></div>
+      <div class="cell c2 reveal"><div class="k">Начало</div><div class="v">20:00<small>сбор гостей с 19:30</small></div><i class="bg fas fa-clock"></i></div>
+      <div class="cell c3 reveal"><div class="k">Формат</div><div class="v">Open bar<small>до 4 утра</small></div><i class="bg fas fa-martini-glass"></i></div>
+      <div class="cell c4 reveal"><div class="over"><div class="k">Место</div><div class="v" style="font-size:1.5em">Клуб «Ультрафиолет»<small>Москва, ул. Нижняя Красносельская, 35</small></div><a class="btn" href="https://maps.yandex.ru/?text=Москва+Нижняя+Красносельская+35">Как добраться</a></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="count" id="count">
+  <div class="wrap count-grid">
+    <div class="reveal">
+      <span class="tag">Обратный отсчёт</span>
+      <h2 class="title" style="margin-bottom:26px">До вечеринки <em>осталось</em></h2>
+      <div class="countdown-numbers">
+        <div class="count-item"><div class="count-num" id="days">00</div><div class="count-lbl">дней</div></div>
+        <div class="count-item"><div class="count-num" id="hours">00</div><div class="count-lbl">часов</div></div>
+        <div class="count-item"><div class="count-num" id="minutes">00</div><div class="count-lbl">минут</div></div>
+        <div class="count-item"><div class="count-num" id="seconds">00</div><div class="count-lbl">секунд</div></div>
+      </div>
+    </div>
+    <div class="cal reveal">
+      <div class="cal-head">Ноябрь 2026</div>
+      <div class="cal-wd"><span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span><span>Пт</span><span>Сб</span><span>Вс</span></div>
+      <div class="cal-days" id="calendarGrid"></div>
+    </div>
+  </div>
+</section>
+
+<section id="lineup">
+  <div class="wrap">
+    <span class="tag">Line-up</span>
+    <h2 class="title">Программа <em>ночи</em></h2>
+    <div class="lineup">
+      <div class="slot reveal"><div class="time">20:00</div><div><h3>Welcome-зона</h3><p>Фотозона, неоновые аксессуары и первые коктейли</p></div><i class="fas fa-camera-retro"></i></div>
+      <div class="slot reveal"><div class="time">21:00</div><div><h3>Опенинг от DJ Nova</h3><p>Разогрев, house и nu-disco</p></div><i class="fas fa-compact-disc"></i></div>
+      <div class="slot reveal"><div class="time">22:30</div><div><h3>Торт и тосты</h3><p>Свечи, конфетти-пушки и поздравления</p></div><i class="fas fa-cake-candles"></i></div>
+      <div class="slot reveal"><div class="time">23:00</div><div><h3>Главный сет</h3><p>Хиты 2000-х, ремиксы и танцы до упаду</p></div><i class="fas fa-music"></i></div>
+      <div class="slot reveal"><div class="time">02:00</div><div><h3>Afterparty</h3><p>Караоке-комната и поздний ужин</p></div><i class="fas fa-microphone"></i></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:20px">
+  <div class="wrap">
+    <div class="gal">
+      <div class="reveal" style="background-image:url('g1.jpg')"></div>
+      <div class="reveal" style="background-image:url('g2.jpg')"></div>
+      <div class="reveal" style="background-image:url('g3.jpg')"></div>
+      <div class="reveal" style="background-image:url('g4.jpg')"></div>
+    </div>
+  </div>
+</section>
+
+<section class="dress" id="dress">
+  <div class="wrap">
+    <span class="tag">Dress code</span>
+    <h2 class="title">Яркий <em>как неон</em></h2>
+    <p>Блестящие вещи, кислотные акценты и всё, что светится в ультрафиолете. Белое — приветствуется: оно будет сиять.</p>
+    <div class="chips">
+      <span class="chip p reveal">Розовый</span><span class="chip c reveal">Голубой</span><span class="chip l reveal">Лайм</span><span class="chip v reveal">Фиолетовый</span><span class="chip b reveal">Чёрный</span>
+    </div>
+  </div>
+</section>
+
+<section class="rsvp" id="rsvp">
+  <div class="wrap">
+    <span class="tag" style="text-align:center">RSVP</span>
+    <h2 class="title" style="text-align:center">Ты <em>с нами?</em></h2>
+    <form class="rsvp-form reveal" id="rsvpForm" novalidate>
+      <div class="form-group">
+        <label class="form-label" for="guestsNames">Твоё имя *</label>
+        <input class="form-input" type="text" id="guestsNames" placeholder="Имя и фамилия">
+        <div class="form-error">Пожалуйста, введите имя</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Придёшь? *</label>
+        <div class="radio-group">
+          <label><input type="radio" name="attendance" value="Да">Буду!</label>
+          <label><input type="radio" name="attendance" value="Нет">Не смогу</label>
+        </div>
+        <div class="form-error">Выбери вариант</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Что будешь пить?</label>
+        <div class="check-group">
+          <label><input type="checkbox" name="extra" value="Коктейли">Коктейли</label>
+          <label><input type="checkbox" name="extra" value="Шампанское">Шампанское</label>
+          <label><input type="checkbox" name="extra" value="Пиво">Пиво</label>
+          <label><input type="checkbox" name="extra" value="Безалкогольное">Без алкоголя</label>
+        </div>
+      </div>
+      <div class="note">Дай знать до 1 ноября — чтобы хватило места на танцполе.</div>
+      <button class="submit-btn" type="submit">Я в деле</button>
+      <div class="save-status" id="loadingStatus">Отправка...</div>
+      <div class="save-status save-success" id="successStatus">Принято! До встречи на танцполе</div>
+      <div class="save-status save-error" id="errorStatus">Ошибка при отправке. Попробуй позже.</div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="display">Даниил · 30</div>
+  <p>14 · 11 · 2026 — Neon Night</p>
+</footer>
+
+<script>window.INVITE = { date: '2026-11-14T20:00:00+03:00', endText: 'Вечеринка началась!', scriptURL: '' };</script>
+<script src="script.js"></script>
+</body>
+</html>
